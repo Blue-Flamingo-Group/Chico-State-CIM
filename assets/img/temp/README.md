@@ -12,7 +12,7 @@ Downloaded at `?w=1500&q=62` and re-compressed with `sips` to sit at or under
 |---|---|---|---|
 | `hero-concrete-pour.jpg` | Hero, right-hand full-bleed panel | https://images.unsplash.com/photo-1541888946425-d81bb19240f5 | A wide Chico State CIM shot: students on an active pour, a finishing crew, or a completed concrete structure. Needs to read at ~1300×930 and crop well at `object-position: center 56%`. |
 | `about-student-plans.jpg` | §2 About CIM, right column | https://images.unsplash.com/photo-1581092160562-40aa08e78837 | CIM students in the concrete lab or classroom — cylinder testing, slump test, mix design work. Portrait-friendly crop (fills a tall column at desktop). |
-| `patron-industrial-site.jpg` | §3 Patron Program, left column | https://images.unsplash.com/photo-1531834685032-c34bf0d84c77 | A Patron company at work: batch plant, mixer fleet, precast yard. **Compromise noted:** no suitable batch-plant or mixer-truck photo was available under the free licence, so this is an industrial reinforced-concrete site instead. This slot most wants a real client photo. |
+| `patron-industrial-site.jpg` | §3 Patron Program, left column | https://images.unsplash.com/photo-1531834685032-c34bf0d84c77 | A Patron company at work: batch plant, mixer fleet, precast yard. **Compromise noted:** no suitable batch-plant or mixer-truck photo was available under the free license, so this is an industrial reinforced-concrete site instead. This slot most wants a real client photo. |
 | `why-jobsite-team.jpg` | §4 Why Support CIM, left column | https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9 | A CIM graduate or intern on a jobsite with a Patron-company team. Two or three people, working, not posed. |
 
 ## Replacing one

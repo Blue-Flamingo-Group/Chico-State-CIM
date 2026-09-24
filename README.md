@@ -22,13 +22,13 @@ Seven sections, in order:
 2. **About CIM** (`#about`) — what the degree is, dual focus, who graduates
    become. Photo split. CTA: *Discover Chico State CIM* (outline).
 3. **Patron Program** (`#patrons`) — the Patron model, then seven support cards
-   with inline SVG icons. CTA: *Become a CIM Patron* (outline, large, centred).
+   with inline SVG icons. CTA: *Become a CIM Patron* (outline, large, centered).
 4. **Why Support CIM** (`#why`) — For students / For industry panels, photo,
    Georgia pull-quote. CTA: *Support Chico State CIM* (primary).
 5. **Scholarship Feature** (`#scholarship`) — dark charcoal-concrete panel,
    giant `$1 million` in Golden Hour Yellow. Two CTAs.
 6. **Board** (`#board`) — five placeholder profile cards. No CTA.
-7. **Final CTA** (`#support`) — Chico Red panel, centred, two CTAs.
+7. **Final CTA** (`#support`) — Chico Red panel, centered, two CTAs.
 
 Sticky nav with a mobile drawer, then footer.
 
@@ -97,7 +97,7 @@ everywhere. 48px tall, 6px radius, 600 weight, 44px minimum tap target.
 - On the red closing panel the primary inverts to white-filled with red text.
 
 The Patron section's *Become a CIM Patron* is the section's main ask, so it is
-`.btn--lg` and centred — but it keeps the secondary style. That rule is
+`.btn--lg` and centered — but it keeps the secondary style. That rule is
 site-wide; do not promote it to a filled red button.
 
 ## The three swap points
@@ -198,5 +198,5 @@ horizontal scroll at 360px.
       `<link rel="canonical" href="https://<domain>/" />`, and set `og:url` to
       match.
 - [ ] Add an `og:image` (1200×630) once real photography exists.
-- [ ] Re-run the Playwright screenshots and re-check contrast if any colour
+- [ ] Re-run the Playwright screenshots and re-check contrast if any color
       moved.

@@ -53,7 +53,7 @@
      cloud layer. Never add crack or fracture patterns: the client said no.
 
    CONTRAST — measured, WCAG 2.1 AA (4.5:1 small text, 3:1 large/graphic).
-   Do not move these colours around without re-measuring.
+   Do not move these colors around without re-measuring.
      Chico Red #9D2235 on white .................. 7.74:1  OK text
      white on Chico Red #9D2235 .................. 7.74:1  OK text
      Chico Red #9D2235 on --conc-050 #f1f1ef ..... 6.72:1  OK text
@@ -117,7 +117,7 @@
   --nav-h:68px;
   --shadow:0 1px 2px rgba(28,29,31,.05),0 8px 24px rgba(28,29,31,.07);
 
-  /* Concrete grain tiles. Neutral #808080 base + greyscaled fractal noise,
+  /* Concrete grain tiles. Neutral #808080 base + grayscaled fractal noise,
      blended with 'overlay' so neutral areas leave the backdrop alone. */
   --grain-cloud:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='900' height='900' fill='%23808080'/%3E%3Crect width='900' height='900' filter='url(%23c)' opacity='0.44'/%3E%3C/svg%3E");
   --grain-fine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' fill='%23808080'/%3E%3Crect width='240' height='240' filter='url(%23f)' opacity='0.16'/%3E%3C/svg%3E");
@@ -177,7 +177,7 @@ img{max-width:100%;height:auto;display:block}
 /* Softer tint for full sections — same surface, lifted so --gray-700 clears AA.
    NOTE: this class is used on its own (without .conc), so it must repeat
    background-size and background-blend-mode. Without the blend mode the
-   neutral #808080 grain tiles paint flat mid-grey over the whole section. */
+   neutral #808080 grain tiles paint flat mid-gray over the whole section. */
 .conc--light{
   background-color:var(--conc-050);
   background-image:var(--grain-fine),var(--grain-cloud),
@@ -359,11 +359,13 @@ img{max-width:100%;height:auto;display:block}
 .stat:nth-child(-n+2){border-top:0}
 .stat + .stat{border-left:1px solid rgba(255,255,255,.12)}
 .stat:nth-child(3){border-left:0}
+/* On the 2-column mobile grid every tile keeps identical padding, so the two
+   rows share one left edge. The flush-left first tile is a desktop-only move. */
 @media (min-width:900px){
   .stat{border-top:0}
   .stat:nth-child(3){border-left:1px solid rgba(255,255,255,.12)}
+  .stat:first-child{padding-left:0}
 }
-.stat:first-child{padding-left:0}
 .stat__n{
   font-size:clamp(24px,3.4vw,36px);font-weight:800;color:var(--gold);
   line-height:1.02;letter-spacing:-.03em;display:block
@@ -384,8 +386,12 @@ img{max-width:100%;height:auto;display:block}
 .split__frame{position:relative;display:block;width:100%}
 .split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
 @media (min-width:900px){
-  .split--fill .split__frame{height:100%;max-height:660px;min-height:420px}
-  .split--fill .split__frame img{aspect-ratio:auto;height:100%}
+  .split--fill{align-items:stretch}
+  .split--fill .split__media{align-items:stretch}
+  .split--fill .split__frame{height:100%;min-height:420px;max-height:920px}
+  .split--fill .split__frame img{
+    aspect-ratio:auto;height:100%;object-fit:cover;object-position:center
+  }
 }
 /* red corner rule so photos read as designed, not dropped in */
 .split__frame::after{
@@ -417,7 +423,7 @@ img{max-width:100%;height:auto;display:block}
 .fact h3{margin-bottom:.35em;color:var(--ink);font-size:15px;font-weight:700;letter-spacing:-.005em}
 .fact p{font-size:15px;color:var(--gray-700);margin:0;line-height:1.5}
 
-/* ---------- Patron support grid (7 items, centred last row) ---------------- */
+/* ---------- Patron support grid (7 items, centered last row) --------------- */
 .pgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
 .pgrid li{
   flex:1 1 238px;max-width:262px;min-width:0;
@@ -595,7 +601,7 @@ html.js .rv.is-in{opacity:1;transform:none}
       <div>
         <p class="eyebrow">About CIM</p>
         <h2 id="aboutH">A bachelor's degree in concrete &mdash; and in running the business.</h2>
-        <p class="lede">Concrete Industry Management is a four-year business degree with concrete at its centre.</p>
+        <p class="lede">Concrete Industry Management is a four-year business degree with concrete at its center.</p>
         <p class="body">Students learn the science first: how the mix behaves, how it is batched and tested, what makes a placement hold up for fifty years. Then they learn the other half of the job &mdash; estimating, scheduling, sales, quality systems and managing the crews and customers who turn that material into structures.</p>
         <p class="body">It is a deliberately dual degree, because the industry kept telling us the same thing: technical people who can lead are the hardest hire there is.</p>
 
@@ -634,8 +640,8 @@ html.js .rv.is-in{opacity:1;transform:none}
         <p class="eyebrow">The Patron Program</p>
         <h2 id="patronsH">Industry partners since 2007.</h2>
         <p class="lede">The Patrons are the companies and individuals who fund this program and help steer it.</p>
-        <p class="body">Roughly 46 companies and 27 individuals sit in that group today, and together they have given close to $8 million since the program opened its doors. That money pays for scholarships, lab equipment and the day-to-day work of keeping a specialised program strong.</p>
-        <p class="body">But Patrons were never only a funding source. They sit on the board, argue about the curriculum, open their plants to student visits, take interns every summer, and hire the graduates they have watched grow up inside the program.</p>
+        <p class="body">Roughly 46 companies and 27 individuals sit in that group today, and together they have given close to $8 million since the program opened its doors. That money pays for scholarships, lab equipment and the day-to-day work of keeping a specialized program strong.</p>
+        <p class="body">But Patrons were never only a funding source. They sit on the board, shape the curriculum, open their plants to student visits, take interns every summer, and hire the graduates they have watched grow up inside the program.</p>
       </div>
       <div class="split__media"><span class="split__frame">
         <img src="assets/img/temp/patron-industrial-site.jpg"
@@ -706,9 +712,9 @@ html.js .rv.is-in{opacity:1;transform:none}
         <h3>For students</h3>
         <ul>
           <li>Scholarship support of $2,000 a semester for every full-time CIM student.</li>
-          <li>Paid internships at member companies, every summer of the degree.</li>
+          <li>Paid internships at Patron companies during the degree.</li>
           <li>Hands-on lab work on the testing equipment the industry actually uses.</li>
-          <li>A mentor with twenty years in the field, from the first year onward.</li>
+          <li>Mentors who work in the field, from the first year onward.</li>
           <li>A job at graduation &mdash; placement has held at 100 percent.</li>
         </ul>
       </div>
@@ -737,7 +743,7 @@ html.js .rv.is-in{opacity:1;transform:none}
           The program works because industry never handed it off.
           <cite>Chico State CIM</cite>
         </blockquote>
-        <p class="body" style="margin-top:1.4em">Patrons helped write the first curriculum in 2007 and they are still in the room. That is unusual, it is the reason graduates arrive ready, and it only continues while the people who benefit from it keep paying it forward.</p>
+        <p class="body" style="margin-top:1.4em">Patrons have helped shape the curriculum since 2007, and they are still in the room. That is unusual, it is the reason graduates arrive ready, and it only continues while the people who benefit from it keep paying it forward.</p>
         <div class="btns">
           <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
         </div>
@@ -758,7 +764,7 @@ html.js .rv.is-in{opacity:1;transform:none}
       </div>
       <div>
         <h2 id="scholH">The Steve Gonzales Scholarship Fund.</h2>
-        <p class="body">It is the clearest proof of what this partnership does. The fund is the largest single reason every full-time CIM student receives $2,000 a semester in Patron-backed scholarship support.</p>
+        <p class="body">It is the clearest proof of what this partnership does. It stands alongside the Patron scholarships that put $2,000 a semester in the hands of every full-time CIM student.</p>
         <p class="body">In practice that means a student can take the summer internship instead of the second job, and can graduate without the debt that quietly narrows a first career decision. It is the difference between a degree and a head start.</p>
         <div class="btns">
           <a class="btn btn--primary" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
