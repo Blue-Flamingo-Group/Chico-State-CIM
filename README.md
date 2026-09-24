@@ -224,3 +224,7 @@ horizontal scroll at 360px.
 - [ ] Add an `og:image` (1200×630) once real photography exists.
 - [ ] Re-run the Playwright screenshots and re-check contrast if any color
       moved.
+
+## Deploys
+
+Production is git-connected: a push to `main` on Blue-Flamingo-Group/Chico-State-CIM deploys to https://chico-cim.vercel.app (Vercel project `chico-cim`, scope syronius-projects). The repo is public because Vercel's Hobby plan cannot connect a private org repo. `deploy.sh` is the manual fallback.
