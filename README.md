@@ -15,22 +15,40 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
   header. The header comes off at launch.
 
 ## The page
+
+**All copy on this page is the client's approved deck, verbatim.** See
+"Copy" below for the one exception.
+
 Seven sections, in order:
 
 1. **Hero** — concrete copy panel + full-bleed photo, split at ≥980px. Four-tile
    stat strip on dark charcoal concrete underneath.
-2. **About CIM** (`#about`) — what the degree is, dual focus, who graduates
-   become. Photo split. CTA: *Discover Chico State CIM* (outline).
-3. **Patron Program** (`#patrons`) — the Patron model, then seven support cards
-   with inline SVG icons. CTA: *Become a CIM Patron* (outline, large, centered).
-4. **Why Support CIM** (`#why`) — For students / For industry panels, photo,
-   Georgia pull-quote. CTA: *Support Chico State CIM* (primary).
-5. **Scholarship Feature** (`#scholarship`) — dark charcoal-concrete panel,
-   giant `$1 million` in Golden Hour Yellow. Two CTAs.
-6. **Board** (`#board`) — five placeholder profile cards. No CTA.
-7. **Final CTA** (`#support`) — Chico Red panel, centered, two CTAs.
+2. **About CIM** (`#about`) — H2, lede, two paragraphs, then the
+   *From Classroom to Boardroom* H3 and its paragraph. Photo split; the photo
+   stretches to the text column height. CTA: *Discover Chico State CIM* (outline).
+3. **Patron Program** (`#patrons`) — H2, lede, paragraph, then the
+   *More Than Financial Support* H3 and its paragraph, beside the photo. Below:
+   the "Across CIM, Patron support can include:" line and seven icon + label
+   tiles (inline SVG, no body text — the deck supplies none), then the
+   both-sides paragraph in a highlighted note block.
+   CTA: *Become a CIM Patron* (outline, large, centered).
+4. **Why Support CIM** (`#why`) — H2 and lede, two-column prose, a full-width
+   21:9 photo band, then the industry-partners paragraph in a highlighted note
+   block. CTA: *Support Chico State CIM* (primary).
+5. **Scholarship Feature** (`#scholarship`) — dark charcoal-concrete panel. H2
+   across the top, then the giant `$1 million` in Golden Hour Yellow beside the
+   three paragraphs, with the *A $1 Million Investment in the Next Generation*
+   H3 as the stat's label. Serif tagline, then two CTAs.
+6. **Board** (`#board`) — H2, H3, lede, paragraph, five placeholder profile
+   cards. No CTA.
+7. **Final CTA** (`#support`) — Chico Red panel, centered, closing serif line,
+   two CTAs.
 
 Sticky nav with a mobile drawer, then footer.
+
+The giant `$1 million` is `white-space: nowrap`, so its maximum type size is
+capped to what the left column can hold. Raising it without widening the column
+pushes the number into the gutter.
 
 ## Brand
 
@@ -100,7 +118,7 @@ The Patron section's *Become a CIM Patron* is the section's main ask, so it is
 `.btn--lg` and centered — but it keeps the secondary style. That rule is
 site-wide; do not promote it to a filled red button.
 
-## The three swap points
+## What is still open
 
 ### 1. Logo
 The Chico State + CIM lockup was not delivered. The nav and footer carry a text
@@ -123,20 +141,25 @@ text starting **"Temporary placeholder photo —"** so nothing ships by accident
 grep for that string. Full details, sources and replacement notes are in
 `assets/img/temp/README.md`.
 
-### 3. Copy
-Every line on the page was drafted from the brief and is meant to be replaced by
-the client's approved copy deck. Nothing structural is wired to the exact
-wording — each section is eyebrow + `<h2>` + `.lede` + `.body` paragraphs in
-plain semantic elements, so text can be swapped without touching CSS.
+### 3. Copy — closed, with one exception
 
-Two things to flag when the deck arrives:
-- The pull-quote in §4 is attributed to "Chico State CIM", i.e. the program's
-  own voice, not a person. It is **not** a real quotation from anyone. If the
-  client wants a named quote, get the name and the sign-off.
-- The facts on the page (2007, one of five programs, 100% placement, $80K
-  average start, 50+ partners, ~46 companies + ~27 individuals, $2,000 per
-  semester, nearly $8 million to date, $1 million Gonzales fund) came from
-  csuchico.edu and the brief. The client still needs to confirm each one.
+The approved copy deck is in place, **verbatim**: em dashes, capitalization,
+punctuation and curly apostrophes as supplied. Do not paraphrase or "tidy" it.
+
+Where the drafted structure had elements the deck does not cover, those elements
+were removed rather than filled with invented text. Gone: the material/business
+callouts in About, the For students / For industry cards in Why Support, the
+pull-quote and its attribution, and the seven Patron card descriptions (the
+tiles are now icon + label only).
+
+The **eyebrow labels** (`ABOUT CIM`, `THE PATRON PROGRAM`, `WHY SUPPORT CIM`,
+`SCHOLARSHIP FEATURE`, `LEADERSHIP`, `SUPPORT THE PROGRAM`) are design elements,
+not deck copy. None duplicates its H2.
+
+**The one exception is the hero stat strip** — *Since 2007 / 100% / $80K / 50+*
+and their labels. These are not in the deck; they came from csuchico.edu and the
+original brief, and are flagged separately with the client. Either get them
+confirmed or delete the `.stats` block; nothing else depends on it.
 
 ## CTA_LINKS
 
@@ -189,7 +212,8 @@ horizontal scroll at 360px.
 - [ ] Replace all four photos and rewrite every alt text (grep
       `Temporary placeholder photo`). Delete `assets/img/temp/`.
 - [ ] Replace the five board cards with real names, titles, orgs and headshots.
-- [ ] Drop in the client's approved copy; confirm every statistic on the page.
+- [ ] Confirm or remove the four hero stat-strip figures — the only copy on the
+      page that is not from the approved deck.
 - [ ] Fill in `CTA_LINKS` with the five real destination URLs.
 - [ ] **Remove the noindex in both places:**
       `<meta name="robots" content="noindex,nofollow" />` in `index.html`, and

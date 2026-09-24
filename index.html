@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Chico State Concrete Industry Management — Support the Program, Become a Patron</title>
-<meta name="description" content="Chico State's Concrete Industry Management program was built by educators and industry together. Support CIM students, fund the Steve Gonzales Scholarship Fund, or bring your company in as a CIM Patron." />
+<title>Chico State Concrete Industry Management — Building the Future of the Concrete Industry, Together</title>
+<meta name="description" content="Chico State’s Concrete Industry Management program connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom." />
 <meta name="theme-color" content="#9D2235" />
 
 <!-- REVIEW BUILD. Remove this tag and the X-Robots-Tag rule in vercel.json before go-live. -->
@@ -13,8 +13,8 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Chico State Concrete Industry Management" />
-<meta property="og:title" content="Chico State Concrete Industry Management — Support the Program, Become a Patron" />
-<meta property="og:description" content="From the classroom to the boardroom. Nearly two decades of industry partnership behind every CIM graduate." />
+<meta property="og:title" content="Chico State Concrete Industry Management — Building the Future of the Concrete Industry, Together" />
+<meta property="og:description" content="Chico State’s Concrete Industry Management program connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -399,65 +399,80 @@ img{max-width:100%;height:auto;display:block}
 }
 @media (max-width:899px){ .split__frame::after{left:0} }
 
-/* ---------- two-up feature panels ----------------------------------------- */
-.duo{display:grid;gap:18px;grid-template-columns:1fr;margin-top:clamp(28px,4vw,44px)}
-@media (min-width:760px){ .duo{grid-template-columns:1fr 1fr;gap:22px} }
-.panel{
-  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  padding:clamp(22px,3vw,32px);border-top:4px solid var(--red)
+/* ---------- highlighted note block ---------------------------------------- */
+.note{
+  background:#fff;border:1px solid var(--conc-200);border-left:5px solid var(--red);
+  border-radius:0 var(--r) var(--r) 0;padding:clamp(22px,3vw,32px);
+  margin-top:clamp(30px,4vw,46px)
 }
-.sec--tint .panel,.conc--light .panel{background:#fff}
-.panel .ic{width:26px;height:26px;color:var(--red);margin-bottom:14px}
-.panel h3{margin-bottom:.5em}
-.panel ul{list-style:none;padding:0;margin:0}
-.panel li{
-  position:relative;padding:0 0 0 20px;margin-bottom:.62em;
-  font-size:15.5px;color:var(--gray-700);line-height:1.5
+.note p{font-size:clamp(16px,1.8vw,18.5px);color:var(--ink);margin:0;max-width:76ch;line-height:1.55}
+
+/* ---------- Patron support tiles (7 items, centered last row) -------------- */
+/* Icon + label only: the approved copy deck supplies no card body text. */
+.pintro{
+  margin:clamp(30px,4vw,46px) 0 0;font-size:clamp(16px,1.8vw,18px);
+  font-weight:600;color:var(--ink);max-width:60ch
 }
-.panel li:last-child{margin-bottom:0}
-.panel li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--red)}
-
-/* ---------- mini facts (About) -------------------------------------------- */
-.facts{display:grid;gap:18px;grid-template-columns:1fr;margin:clamp(24px,3vw,34px) 0 0}
-.fact{border-left:3px solid var(--red);padding:2px 0 2px 16px}
-.fact h3{margin-bottom:.35em;color:var(--ink);font-size:15px;font-weight:700;letter-spacing:-.005em}
-.fact p{font-size:15px;color:var(--gray-700);margin:0;line-height:1.5}
-
-/* ---------- Patron support grid (7 items, centered last row) --------------- */
-.pgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
+.pgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:18px;padding:0;list-style:none}
 .pgrid li{
   flex:1 1 238px;max-width:262px;min-width:0;
   background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  padding:22px 20px 24px
+  border-top:3px solid var(--red);padding:22px 20px 24px;
+  display:flex;flex-direction:column;gap:14px
 }
-@media (max-width:519px){ .pgrid li{flex:1 1 100%;max-width:none} }
-.pgrid .ic{width:24px;height:24px;color:var(--red);margin-bottom:13px}
-.pgrid h3{font-size:16.5px;margin-bottom:.4em}
-.pgrid p{font-size:14.5px;color:var(--gray-700);margin:0;line-height:1.5}
+@media (max-width:519px){
+  .pgrid li{flex:1 1 100%;max-width:none;flex-direction:row;align-items:center;gap:14px}
+}
+.pgrid .ic{width:26px;height:26px;color:var(--red);flex:none}
+.pgrid b{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.006em}
 
-/* ---------- pull quote (Georgia) ------------------------------------------ */
+/* ---------- serif pull lines (Georgia) ------------------------------------ */
 .pull{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(21px,3vw,32px);line-height:1.34;letter-spacing:-.012em;
+  font-size:clamp(20px,2.7vw,30px);line-height:1.34;letter-spacing:-.012em;
   color:var(--ink);border-left:5px solid var(--red);padding:4px 0 4px clamp(20px,3vw,30px);
-  margin:0;max-width:26ch
+  margin:clamp(30px,4vw,44px) 0 0;max-width:34ch
 }
-.pull cite{display:block;font-family:Montserrat,Arial,sans-serif;font-style:normal;
-  font-size:13px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--gray-700);margin-top:18px}
+.conc--dark .pull{color:#fff;border-left-color:var(--gold)}
+/* closing line on the red panel — centered, so it takes a rule instead of a bar */
+.closing{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(19px,2.5vw,27px);line-height:1.36;letter-spacing:-.012em;color:#fff;
+  margin:clamp(26px,3.4vw,36px) auto 0;max-width:32ch;
+  padding-top:clamp(22px,3vw,28px);border-top:3px solid rgba(255,255,255,.45)
+}
 
 /* ---------- scholarship panel --------------------------------------------- */
-.schol{display:grid;gap:clamp(30px,4vw,60px);grid-template-columns:1fr;align-items:center}
-@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)} }
+.schol{
+  display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:1fr;
+  align-items:start;margin-top:clamp(26px,3.5vw,40px)
+}
+@media (min-width:920px){ .schol{grid-template-columns:minmax(0,.92fr) minmax(0,1fr)} }
+/* white-space:nowrap keeps "$1 million" on one line, so the type size is
+   capped to what the left column can hold — do not raise it without widening
+   the column, or the number spills into the gutter. */
 .schol__n{
-  font-size:clamp(50px,9vw,88px);font-weight:800;color:var(--gold);
+  font-size:clamp(46px,8.1vw,80px);font-weight:800;color:var(--gold);
   line-height:.95;letter-spacing:-.04em;margin:0;display:block;white-space:nowrap
 }
 .schol__l{
-  font-size:clamp(14.5px,1.7vw,17px);color:#fff;line-height:1.45;
-  margin:18px 0 0;max-width:28ch;font-weight:500;
+  font-size:clamp(16px,1.9vw,20px);color:#fff;line-height:1.35;font-weight:700;
+  margin:18px 0 0;max-width:26ch;letter-spacing:-.012em;
   border-top:3px solid var(--gold);padding-top:16px
 }
+
+/* ---------- full-width photo band ----------------------------------------- */
+.band{position:relative;margin-top:clamp(30px,4vw,48px)}
+.band img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 42%;border-radius:var(--r)}
+@media (min-width:760px){ .band img{aspect-ratio:21/9} }
+.band::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:clamp(72px,12vw,118px);height:6px;background:var(--red)
+}
+
+/* ---------- two-column prose ---------------------------------------------- */
+.prose2{display:grid;gap:0 clamp(28px,4vw,52px);grid-template-columns:1fr;margin-top:clamp(22px,3vw,32px)}
+@media (min-width:840px){ .prose2{grid-template-columns:1fr 1fr} }
+.prose2 .body{max-width:none}
 
 /* ---------- board --------------------------------------------------------- */
 .board{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
@@ -565,10 +580,10 @@ html.js .rv.is-in{opacity:1;transform:none}
 <section class="hero" aria-labelledby="heroH">
   <div class="hero__grid">
     <div class="hero__copy conc seams seams--light">
-      <p class="eyebrow">Concrete Industry Management &middot; Chico State</p>
-      <h1 id="heroH">Building the concrete industry's next leaders &mdash; from the classroom to the boardroom.</h1>
-      <p class="lede hero__lede">Educators and industry built this program together, and neither side has let go of it since 2007.</p>
-      <p class="body" style="color:var(--ink);max-width:54ch">That partnership is the reason a Chico State CIM graduate arrives knowing the material, the plant and the numbers &mdash; and is ready to lead the people who work with all three.</p>
+      <p class="eyebrow">Concrete Industry Management · Chico State</p>
+      <h1 id="heroH">Building the Future of the Concrete Industry, Together</h1>
+      <p class="lede hero__lede">Chico State’s Concrete Industry Management program connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom.</p>
+      <p class="body" style="color:var(--ink);max-width:58ch">For nearly two decades, Chico State CIM and concrete industry professionals have worked together to create opportunities for students to learn, connect, and prepare for meaningful careers throughout the industry.</p>
       <div class="btns">
         <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
         <a class="btn btn--ghost" href="#" data-cta="patron">Become a CIM Patron</a>
@@ -600,23 +615,13 @@ html.js .rv.is-in{opacity:1;transform:none}
     <div class="split split--fill rv">
       <div>
         <p class="eyebrow">About CIM</p>
-        <h2 id="aboutH">A bachelor's degree in concrete &mdash; and in running the business.</h2>
-        <p class="lede">Concrete Industry Management is a four-year business degree with concrete at its center.</p>
-        <p class="body">Students learn the science first: how the mix behaves, how it is batched and tested, what makes a placement hold up for fifty years. Then they learn the other half of the job &mdash; estimating, scheduling, sales, quality systems and managing the crews and customers who turn that material into structures.</p>
-        <p class="body">It is a deliberately dual degree, because the industry kept telling us the same thing: technical people who can lead are the hardest hire there is.</p>
+        <h2 id="aboutH">Where Concrete Meets Business</h2>
+        <p class="lede">Concrete Industry Management at Chico State is an industry-driven degree designed to prepare students for the business of concrete.</p>
+        <p class="body">Students develop knowledge in concrete materials, production, and applications while building the business, management, and leadership skills they can carry into the workplace.</p>
+        <p class="body">Hands-on learning, internships, industry connections, and exposure to working professionals help students connect what they learn in the classroom with the realities of the industry.</p>
 
-        <div class="facts">
-          <div class="fact">
-            <h3>The material</h3>
-            <p>Mix design, aggregates, admixtures, testing, placement and quality control &mdash; taught in the lab, not only on the board.</p>
-          </div>
-          <div class="fact">
-            <h3>The business</h3>
-            <p>Estimating, project management, finance, sales and the leadership coursework that gets a graduate promoted.</p>
-          </div>
-        </div>
-
-        <p class="body" style="margin-top:1.3em">Graduates leave as quality-control managers, technical sales and service reps, plant managers, estimators and project engineers. A decade on, many of them are running the companies that trained them.</p>
+        <h3 style="margin-top:1.5em">From Classroom to Boardroom</h3>
+        <p class="body">The goal goes beyond understanding concrete. CIM prepares students with a broad skill set for the technical, logistical, managerial, and administrative sides of the industry—and for opportunities to lead its future.</p>
 
         <div class="btns">
           <a class="btn btn--ghost" href="#" data-cta="discover">Discover Chico State CIM</a>
@@ -626,8 +631,7 @@ html.js .rv.is-in{opacity:1;transform:none}
         <img src="assets/img/temp/about-student-plans.jpg"
              alt="Temporary placeholder photo — a student works over technical drawings and components at a workbench."
              width="1500" height="1000" loading="lazy" />
-      </span>
-      </div>
+      </span></div>
     </div>
   </div>
 </section>
@@ -638,57 +642,55 @@ html.js .rv.is-in{opacity:1;transform:none}
     <div class="split split--media-first split--fill rv">
       <div>
         <p class="eyebrow">The Patron Program</p>
-        <h2 id="patronsH">Industry partners since 2007.</h2>
-        <p class="lede">The Patrons are the companies and individuals who fund this program and help steer it.</p>
-        <p class="body">Roughly 46 companies and 27 individuals sit in that group today, and together they have given close to $8 million since the program opened its doors. That money pays for scholarships, lab equipment and the day-to-day work of keeping a specialized program strong.</p>
-        <p class="body">But Patrons were never only a funding source. They sit on the board, shape the curriculum, open their plants to student visits, take interns every summer, and hire the graduates they have watched grow up inside the program.</p>
+        <h2 id="patronsH">Built With Industry. Strengthened by Partnership.</h2>
+        <p class="lede">Since Chico State joined the national CIM program in 2007, industry professionals have played an important role in supporting the program and its students.</p>
+        <p class="body">The Chico State CIM Patrons Program brings together concrete producers, suppliers, contractors, association leaders, consultants, alumni, and other professionals who share an investment in developing the industry’s future workforce.</p>
+
+        <h3 style="margin-top:1.5em">More Than Financial Support</h3>
+        <p class="body">Patron involvement helps connect students with the people, knowledge, and experiences that bring their education to life.</p>
       </div>
       <div class="split__media"><span class="split__frame">
         <img src="assets/img/temp/patron-industrial-site.jpg"
              alt="Temporary placeholder photo — crews working on reinforced concrete columns at a large industrial construction site."
              width="1300" height="946" loading="lazy" />
-      </span>
-      </div>
+      </span></div>
     </div>
 
-    <h3 class="vh">What Patron support includes</h3>
-    <ul class="pgrid rv">
+    <p class="pintro rv" id="patronSupport">Across CIM, Patron support can include:</p>
+    <ul class="pgrid rv" aria-labelledby="patronSupport">
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 8.6 12 4.2l9.6 4.4-9.6 4.4z"/><path d="M6.2 10.7V15c0 1.5 2.6 2.7 5.8 2.7S17.8 16.5 17.8 15v-4.3"/><path d="M21.6 8.6v5.1"/></svg>
-        <h3>Scholarships</h3>
-        <p>Every full-time CIM student receives $2,000 a semester from Patron-funded scholarships.</p>
+        <b>Scholarships and program funding</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.2 8.2h17.6v11a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1z"/><path d="M8.8 8.2V5.9a1.6 1.6 0 0 1 1.6-1.6h3.2a1.6 1.6 0 0 1 1.6 1.6v2.3"/><path d="M3.2 13.2h17.6"/></svg>
-        <h3>Internships</h3>
-        <p>Paid summer placements at member companies, arranged through the program rather than cold applications.</p>
+        <b>Internships and professional networking</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7.6" r="3.4"/><path d="M2.6 20.4v-1.2A5.4 5.4 0 0 1 8 13.8h2a5.4 5.4 0 0 1 5.4 5.4v1.2"/><path d="M16.4 4.6a3.4 3.4 0 0 1 0 6"/><path d="M17.6 14a5.4 5.4 0 0 1 3.8 5.2v1.2"/></svg>
-        <h3>Mentorship</h3>
-        <p>Working professionals paired with students through the degree and into the first years of a career.</p>
+        <b>Mentorship</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2.7 2.7 0 0 1 2.7 2.7v5.4a2.7 2.7 0 0 1-5.4 0V5.9A2.7 2.7 0 0 1 12 3.2z"/><path d="M6.4 11a5.6 5.6 0 0 0 11.2 0"/><path d="M12 16.6v4.2"/><path d="M8.8 20.8h6.4"/></svg>
-        <h3>Guest speakers</h3>
-        <p>Executives and technical specialists teaching directly from current projects and current problems.</p>
+        <b>Guest lecturers and industry speakers</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.6-5.9 6.6-10.4A6.6 6.6 0 0 0 5.4 10.6C5.4 15.1 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
-        <h3>Field visits</h3>
-        <p>Batch plants, precast yards and active pours, seen at working scale instead of in a slide deck.</p>
+        <b>Field visits and hands-on experiences</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.3"/><path d="M12 2.2v2.7M12 19.1v2.7M21.8 12h-2.7M4.9 12H2.2M18.9 5.1l-1.9 1.9M7 17l-1.9 1.9M18.9 18.9 17 17M7 7 5.1 5.1"/></svg>
-        <h3>Equipment</h3>
-        <p>Testing gear, lab instruments and materials donated so students train on what the industry actually runs.</p>
+        <b>Equipment and in-kind resources</b>
       </li>
       <li>
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.4" cy="7.8" r="3.6"/><path d="M2.6 20.4v-1.3a5.4 5.4 0 0 1 5.4-5.4h2.8a5.4 5.4 0 0 1 3.4 1.2"/><path d="m15.4 18.1 2.1 2.1 4.1-4.6"/></svg>
-        <h3>Recruitment</h3>
-        <p>A first look at graduating classes, at career events built around the program's own students.</p>
+        <b>Student and program recruitment support</b>
       </li>
     </ul>
+
+    <div class="note rv">
+      <p>It is a relationship that benefits both sides: students gain greater access to the industry they are preparing to enter, while industry professionals have an opportunity to participate in developing its next generation.</p>
+    </div>
 
     <div class="btns btns--center rv" style="margin-top:clamp(32px,4vw,46px)">
       <a class="btn btn--ghost btn--lg" href="#" data-cta="patron">Become a CIM Patron</a>
@@ -699,55 +701,29 @@ html.js .rv.is-in{opacity:1;transform:none}
 <!-- ============================ 4. WHY SUPPORT CIM ======================== -->
 <section class="sec" id="why" aria-labelledby="whyH">
   <div class="wrap">
-    <div class="rv" style="max-width:70ch">
+    <div class="rv" style="max-width:66ch">
       <p class="eyebrow">Why Support CIM</p>
-      <h2 id="whyH">Support here moves in two directions.</h2>
-      <p class="lede">Every dollar that reaches a CIM student also reaches the industry that will hire them.</p>
-      <p class="body">That is the whole design of the program, and it is the reason the partnership has held for nearly two decades. Students get an education the industry helped write; the industry gets people it does not have to train from scratch.</p>
+      <h2 id="whyH">Invest in Students. Strengthen an Industry.</h2>
+      <p class="lede">When industry and education work together, students gain opportunities that extend far beyond the classroom.</p>
     </div>
 
-    <div class="duo rv">
-      <div class="panel">
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 8.6 12 4.2l9.6 4.4-9.6 4.4z"/><path d="M6.2 10.7V15c0 1.5 2.6 2.7 5.8 2.7S17.8 16.5 17.8 15v-4.3"/><path d="M21.6 8.6v5.1"/></svg>
-        <h3>For students</h3>
-        <ul>
-          <li>Scholarship support of $2,000 a semester for every full-time CIM student.</li>
-          <li>Paid internships at Patron companies during the degree.</li>
-          <li>Hands-on lab work on the testing equipment the industry actually uses.</li>
-          <li>Mentors who work in the field, from the first year onward.</li>
-          <li>A job at graduation &mdash; placement has held at 100 percent.</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.6V6.4l7.2-3.2v17.4"/><path d="M10.6 9.6h10v11"/><path d="M2.2 20.6h19.6"/><path d="M6.4 8.6v.01M6.4 12.4v.01M6.4 16.2v.01M14.4 13.2v.01M17.4 13.2v.01M14.4 16.8v.01M17.4 16.8v.01"/></svg>
-        <h3>For industry</h3>
-        <ul>
-          <li>A pipeline of trained talent in a field where hiring is the constraint.</li>
-          <li>First look at graduates you have already worked alongside as interns.</li>
-          <li>A voice in the curriculum, through a board of working professionals.</li>
-          <li>People who arrive fluent in both the material and the management.</li>
-          <li>A visible stake in the future of the industry you built a career in.</li>
-        </ul>
-      </div>
+    <div class="prose2 rv">
+      <p class="body">Support for Chico State CIM helps connect students with resources, experiences, mentors, and professionals throughout the concrete industry.</p>
+      <p class="body">These relationships give students opportunities to apply their education, build professional connections, and better understand the many paths available to them.</p>
     </div>
 
-    <div class="split rv" style="margin-top:clamp(44px,6vw,76px)">
-      <div class="split__media"><span class="split__frame">
-        <img src="assets/img/temp/why-jobsite-team.jpg"
-             alt="Temporary placeholder photo — two workers in hard hats and high-visibility vests reviewing work together on a construction site."
-             width="1500" height="1167" loading="lazy" />
-      </span>
-      </div>
-      <div>
-        <blockquote class="pull">
-          The program works because industry never handed it off.
-          <cite>Chico State CIM</cite>
-        </blockquote>
-        <p class="body" style="margin-top:1.4em">Patrons have helped shape the curriculum since 2007, and they are still in the room. That is unusual, it is the reason graduates arrive ready, and it only continues while the people who benefit from it keep paying it forward.</p>
-        <div class="btns">
-          <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
-        </div>
-      </div>
+    <div class="band rv">
+      <img src="assets/img/temp/why-jobsite-team.jpg"
+           alt="Temporary placeholder photo — two workers in hard hats and high-visibility vests reviewing work together on a construction site."
+           width="1500" height="1167" loading="lazy" />
+    </div>
+
+    <div class="note rv">
+      <p>For industry partners, supporting CIM is an opportunity to contribute directly to the education and development of emerging professionals—and to the continued strength of the industry itself.</p>
+    </div>
+
+    <div class="btns rv">
+      <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
     </div>
   </div>
 </section>
@@ -756,21 +732,28 @@ html.js .rv.is-in{opacity:1;transform:none}
 <section class="sec conc--dark seams" id="scholarship" aria-labelledby="scholH">
   <div class="ties" aria-hidden="true"></div>
   <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">Scholarship Feature</p>
+      <h2 id="scholH">The Steve Gonzales Scholarship Fund</h2>
+    </div>
+
     <div class="schol rv">
       <div>
-        <p class="eyebrow">Scholarship Feature</p>
         <p class="schol__n">$1 million</p>
-        <p class="schol__l">invested in CIM students through the Steve Gonzales Scholarship Fund</p>
+        <h3 class="schol__l">A $1 Million Investment in the Next Generation</h3>
       </div>
       <div>
-        <h2 id="scholH">The Steve Gonzales Scholarship Fund.</h2>
-        <p class="body">It is the clearest proof of what this partnership does. It stands alongside the Patron scholarships that put $2,000 a semester in the hands of every full-time CIM student.</p>
-        <p class="body">In practice that means a student can take the summer internship instead of the second job, and can graduate without the debt that quietly narrows a first career decision. It is the difference between a degree and a head start.</p>
-        <div class="btns">
-          <a class="btn btn--primary" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
-          <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
-        </div>
+        <p class="body">The Steve Gonzales Scholarship Fund represents a $1 million investment in students and the future of the concrete industry.</p>
+        <p class="body">Through this support, students can continue learning, developing their skills, and preparing to lead in an industry that helps shape the world around us.</p>
+        <p class="body">The impact reaches beyond an individual student or classroom. Supporting students pursuing Concrete Industry Management helps strengthen the next generation of professionals who will bring their knowledge, leadership, and experience to the industry for years to come.</p>
       </div>
+    </div>
+
+    <p class="pull rv">Supporting students today. Building the industry’s future.</p>
+
+    <div class="btns rv">
+      <a class="btn btn--primary" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
+      <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
     </div>
   </div>
 </section>
@@ -778,11 +761,12 @@ html.js .rv.is-in{opacity:1;transform:none}
 <!-- =============================== 6. BOARD =============================== -->
 <section class="sec conc--light" id="board" aria-labelledby="boardH">
   <div class="wrap">
-    <div class="rv" style="max-width:66ch">
+    <div class="rv" style="max-width:68ch">
       <p class="eyebrow">Leadership</p>
-      <h2 id="boardH">Meet the CIM Board.</h2>
-      <p class="lede">Industry leaders who give the program their time, not only their support.</p>
-      <p class="body">The board sets direction, opens doors for students, and keeps the curriculum honest to what the field actually needs. Every member works in the industry the program feeds.</p>
+      <h2 id="boardH">Meet Our Chico State CIM Board</h2>
+      <h3>Industry Experience. Shared Commitment.</h3>
+      <p class="lede">Chico State CIM is strengthened by industry professionals who contribute their time, experience, and perspective in support of the program and its students.</p>
+      <p class="body">Our board represents an important connection between education and industry—helping CIM remain connected to the people, organizations, and opportunities shaping the concrete industry.</p>
     </div>
 
     <!-- BOARD: placeholders per the brief. Do not launch until real names, titles, orgs and headshots are supplied. -->
@@ -827,9 +811,10 @@ html.js .rv.is-in{opacity:1;transform:none}
   <div class="wrap">
     <div class="rv sec--red__in">
       <p class="eyebrow">Support the Program</p>
-      <h2 id="supportH">Partnership built this program. Partnership keeps it going.</h2>
-      <p class="lede">Education and industry started Chico State CIM together in 2007, and neither side has stepped back since.</p>
-      <p class="body">Your support pays for the scholarships, the equipment and the access that turn a student into a colleague. Give once, give every year, or bring your company in as a Patron and take a seat at the table.</p>
+      <h2 id="supportH">Help Build What Comes Next</h2>
+      <p class="lede">The strength of Chico State CIM comes from the people who believe in its students, its mission, and the future of the concrete industry.</p>
+      <p class="body">Through financial support, mentorship, industry involvement, and partnership, you can help create opportunities for students while contributing your knowledge and experience to the next generation of concrete industry professionals.</p>
+      <p class="closing">From the classroom to the boardroom, we’re building the future of the industry together.</p>
       <div class="btns">
         <a class="btn btn--white" href="#" data-cta="support">Support Chico State CIM</a>
         <a class="btn btn--ghost-w" href="#" data-cta="patron">Become a CIM Patron</a>
