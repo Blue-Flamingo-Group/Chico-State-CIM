@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Chico State Concrete Industry Management — Support the Program, Become a Patron</title>
+<meta name="description" content="Chico State's Concrete Industry Management program was built by educators and industry together. Support CIM students, fund the Steve Gonzales Scholarship Fund, or bring your company in as a CIM Patron." />
+<meta name="theme-color" content="#9D2235" />
+
+<!-- REVIEW BUILD. Remove this tag and the X-Robots-Tag rule in vercel.json before go-live. -->
+<meta name="robots" content="noindex,nofollow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Chico State Concrete Industry Management" />
+<meta property="og:title" content="Chico State Concrete Industry Management — Support the Program, Become a Patron" />
+<meta property="og:description" content="From the classroom to the boardroom. Nearly two decades of industry partnership behind every CIM graduate." />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ==========================================================================
+   CHICO STATE — CONCRETE INDUSTRY MANAGEMENT
+   Single-file static landing page. No build step, no dependencies.
+   Client: Blue Flamingo · Job ECC-2602.
+
+   BRAND RULES (California State University, Chico style guide)
+     Chico Red      #9D2235  dominant — primary buttons, rules, accent panels
+     Cornerstone    #75787B  neutral  — graphic use and large text only
+     Black / White           primary neutrals
+     SECONDARY, ACCENT ONLY (university rule — never dominant):
+       Dusk Blue          #043546
+       Golden Hour Yellow #EBA70E
+       Canyon Stone       #D0D1C9
+     Terracotta and Orchard Green are NOT used anywhere on this page.
+
+   TYPE
+     Montserrat 400/500/600/700/800  — stand-in for the brand's Gotham.
+     Georgia (system serif)          — stand-in for Masqualero. Pull-quote
+                                       and section ledes only.
+     Headlines: Montserrat 800, tight tracking, sentence case.
+     Eyebrows:  uppercase, tracked out. The only uppercase on the page.
+
+   CONCRETE TEXTURE
+     Pure CSS/SVG. Two feTurbulence tiles blended in 'overlay' over a
+     concrete-gray gradient: one large-scale cloud (baseFrequency .013) for
+     the poured-slab mottling, one fine tile (.75) for surface tooth. Both
+     tiles are built on a neutral #808080 base so 'overlay' leaves the
+     backdrop untouched where the noise is neutral — that is what keeps it
+     reading as concrete rather than TV static. Keep baseFrequency LOW on the
+     cloud layer. Never add crack or fracture patterns: the client said no.
+
+   CONTRAST — measured, WCAG 2.1 AA (4.5:1 small text, 3:1 large/graphic).
+   Do not move these colours around without re-measuring.
+     Chico Red #9D2235 on white .................. 7.74:1  OK text
+     white on Chico Red #9D2235 .................. 7.74:1  OK text
+     Chico Red #9D2235 on --conc-050 #f1f1ef ..... 6.72:1  OK text
+     Chico Red #9D2235 on --conc-100 #e6e6e2 ..... 6.07:1  OK text
+     Chico Red #9D2235 on deep concrete #bdbdb8 .. 4.10:1  GRAPHIC ONLY
+     Chico Red #9D2235 on charcoal #2b2c2c ....... 1.81:1  NEVER — do not
+                                                   put red text or a red
+                                                   outline label on the dark
+                                                   panel; use white or gold.
+     Cornerstone #75787B on white ................ 4.44:1  FAILS small text.
+                                                   This is why body copy uses
+                                                   --gray-700 below, not the
+                                                   published Cornerstone.
+     --gray-700 #5c5f62 on white ................. 6.43:1  OK
+     --gray-700 #5c5f62 on --conc-050 #f1f1ef .... 5.58:1  OK
+     --gray-700 #5c5f62 on --conc-100 #e6e6e2 .... 5.04:1  OK
+     --gray-700 #5c5f62 on deep concrete #d6d6d2 . 4.41:1  FAILS — deep
+                                                   concrete carries --ink only
+     --ink #1c1d1f on white ..................... 16.87:1  OK
+     --ink #1c1d1f on deep concrete #bdbdb8 ...... 8.94:1  OK (hero copy)
+     Dusk Blue #043546 on white ................. 13.10:1  OK
+     Golden Hour #EBA70E on white ................ 2.09:1  NEVER text on white
+     Golden Hour #EBA70E on charcoal #232424 ..... 7.46:1  OK on dark panels
+     Golden Hour #EBA70E on charcoal #343535 ..... 5.90:1  OK on dark panels
+     white on charcoal #2b2c2c .................. 14.01:1  OK
+     Canyon Stone #D0D1C9 on charcoal #2b2c2c .... 9.10:1  OK
+     nav link #4a4d50 on white ................... 8.51:1  OK
+   ========================================================================== */
+
+:root{
+  /* ---- Chico Red (dominant) ---- */
+  --red:#9D2235;
+  --red-800:#7d1b2a;      /* hover darken */
+  --red-900:#671622;
+  --red-050:#fbf3f4;
+
+  /* ---- neutrals ---- */
+  --ink:#1c1d1f;
+  --gray-700:#5c5f62;     /* small body text on light — see contrast table */
+  --gray-500:#75787B;     /* published Cornerstone Gray — graphic/large only */
+  --gray-300:#c9cac5;
+  --white:#ffffff;
+
+  /* ---- secondary, accents only ---- */
+  --dusk:#043546;
+  --gold:#EBA70E;
+  --stone:#D0D1C9;
+
+  /* ---- concrete ---- */
+  --conc-050:#f1f1ef;
+  --conc-100:#e6e6e2;
+  --conc-200:#d6d6d2;
+  --conc-400:#bdbdb8;
+  --char-700:#3c3d3d;
+  --char-800:#2b2c2c;
+  --char-900:#1f2020;
+
+  --maxw:1160px;
+  --gut:clamp(20px,5vw,40px);
+  --r:6px;
+  --nav-h:68px;
+  --shadow:0 1px 2px rgba(28,29,31,.05),0 8px 24px rgba(28,29,31,.07);
+
+  /* Concrete grain tiles. Neutral #808080 base + greyscaled fractal noise,
+     blended with 'overlay' so neutral areas leave the backdrop alone. */
+  --grain-cloud:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='900' height='900' fill='%23808080'/%3E%3Crect width='900' height='900' filter='url(%23c)' opacity='0.44'/%3E%3C/svg%3E");
+  --grain-fine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' fill='%23808080'/%3E%3Crect width='240' height='240' filter='url(%23f)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+body{
+  margin:0;
+  font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  color:var(--ink);
+  background:var(--white);
+  overflow-x:hidden;
+}
+@media (min-width:820px){ body{font-size:18px} }
+
+h1,h2,h3,h4{margin:0 0 .5em;line-height:1.12;color:var(--ink);font-weight:800;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(30px,5.6vw,54px);line-height:1.06}
+h2{font-size:clamp(25px,3.9vw,40px)}
+h3{font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.012em}
+h4{font-size:15px;font-weight:700;letter-spacing:-.005em}
+p{margin:0 0 1.05em;text-wrap:pretty}
+p:last-child{margin-bottom:0}
+a{color:var(--red);text-underline-offset:3px}
+a:hover{color:var(--red-800)}
+ul{margin:0 0 1.05em;padding-left:1.2em}
+li{margin-bottom:.4em}
+strong{font-weight:700}
+img{max-width:100%;height:auto;display:block}
+
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:3px}
+.conc--dark :focus-visible,.sec--red :focus-visible{outline-color:var(--gold)}
+.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--red);color:#fff;padding:13px 20px;font-weight:700;text-decoration:none}
+.skip:focus{left:8px;top:8px}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.sec{padding:clamp(56px,8vw,104px) 0;scroll-margin-top:calc(var(--nav-h) + 8px)}
+.sec--tint{background:var(--conc-050)}
+.prose{max-width:70ch}
+
+/* ---------- concrete surfaces -------------------------------------------- */
+/* Light poured concrete. Used for the hero copy panel and section tints. */
+.conc{
+  background-color:var(--conc-200);
+  background-image:var(--grain-fine),var(--grain-cloud),
+    linear-gradient(163deg,#e0e0dc 0%,#d2d2cd 46%,#bcbcb7 100%);
+  background-size:240px 240px,900px 900px,100% 100%;
+  background-blend-mode:overlay,overlay,normal;
+}
+/* Softer tint for full sections — same surface, lifted so --gray-700 clears AA.
+   NOTE: this class is used on its own (without .conc), so it must repeat
+   background-size and background-blend-mode. Without the blend mode the
+   neutral #808080 grain tiles paint flat mid-grey over the whole section. */
+.conc--light{
+  background-color:var(--conc-050);
+  background-image:var(--grain-fine),var(--grain-cloud),
+    linear-gradient(163deg,#f5f5f3 0%,#eeeeeb 55%,#e4e4e0 100%);
+  background-size:240px 240px,900px 900px,100% 100%;
+  background-blend-mode:overlay,overlay,normal;
+}
+/* Dark charcoal concrete. Scholarship panel and footer. */
+.conc--dark{
+  background-color:var(--char-800);
+  background-image:var(--grain-fine),var(--grain-cloud),
+    linear-gradient(163deg,#414242 0%,#2e2f2f 50%,#202121 100%);
+  background-size:240px 240px,900px 900px,100% 100%;
+  background-blend-mode:overlay,overlay,normal;
+  color:#fff;
+}
+.conc--dark h2,.conc--dark h3{color:#fff}
+/* Form-tie / panel-seam lines. Deliberately faint — one hairline per bay.
+   These are seams, not cracks. Do not increase the opacity. */
+.seams{position:relative;isolation:isolate}
+.seams::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(0,0,0,.07) 1px,transparent 1px);
+  background-size:clamp(160px,20vw,280px) 100%,100% clamp(180px,24vw,320px);
+}
+.seams > *{position:relative;z-index:1}
+.seams--light::before{
+  background-image:
+    linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.4) 1px,transparent 1px);
+}
+/* Form-tie dots — four per bay, tiny, only on the dark panel. */
+.ties{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.38;
+  background-image:radial-gradient(circle at 1.5px 1.5px,rgba(255,255,255,.14) 1.4px,transparent 1.6px);
+  background-size:clamp(160px,20vw,280px) clamp(180px,24vw,320px);
+  background-position:16px 22px;
+}
+
+/* ---------- shared type patterns ----------------------------------------- */
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--red);margin:0 0 14px;display:flex;align-items:center;gap:11px;line-height:1.4
+}
+.eyebrow::before{content:"";width:24px;height:3px;background:var(--red);flex:none}
+@media (min-width:600px){ .eyebrow{font-size:12px;letter-spacing:.17em} .eyebrow::before{width:26px} }
+.conc--dark .eyebrow,.sec--red .eyebrow{color:var(--gold)}
+.conc--dark .eyebrow::before{background:var(--gold)}
+.sec--red .eyebrow{color:#fff}
+.sec--red .eyebrow::before{background:#fff}
+.lede{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(18px,2.2vw,23px);line-height:1.5;color:var(--ink);
+  max-width:60ch;margin:0 0 1.1em;font-weight:400
+}
+.conc--dark .lede{color:#f0f0ee}
+.sec--red .lede{color:#fff}
+.body{color:var(--gray-700);font-size:clamp(15.5px,1.6vw,17px);max-width:68ch}
+.conc--dark .body{color:var(--stone)}
+.sec--red .body{color:#f7e8ea}
+
+/* ---------- buttons (site-wide; identical metrics in every section) ------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:12px 24px;border-radius:var(--r);
+  font:inherit;font-weight:600;font-size:15.5px;letter-spacing:-.005em;
+  text-decoration:none;cursor:pointer;text-align:center;
+  border:2px solid transparent;
+  transition:background-color .16s,border-color .16s,color .16s,transform .16s,box-shadow .16s
+}
+.btn--primary{background:var(--red);color:#fff;border-color:var(--red)}
+.btn--primary:hover{background:var(--red-800);border-color:var(--red-800);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(157,34,53,.3)}
+.btn--ghost{background:transparent;color:var(--red);border-color:var(--red)}
+.btn--ghost:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+/* on dark charcoal and on the red panel */
+.btn--ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.62)}
+.btn--ghost-w:hover{background:rgba(255,255,255,.14);border-color:#fff;color:#fff;transform:translateY(-2px)}
+.btn--white{background:#fff;color:var(--red);border-color:#fff}
+.btn--white:hover{background:var(--conc-100);border-color:var(--conc-100);color:var(--red-900);transform:translateY(-2px)}
+.btn--lg{min-height:56px;padding:15px 34px;font-size:16.5px}
+/* Chico Red on charcoal is 1.81:1 — the fill alone does not delimit the
+   control. A hairline keeps the red primary style and clears 1.4.11. */
+.conc--dark .btn--primary{box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.conc--dark .btn--primary:hover{box-shadow:0 0 0 1px rgba(255,255,255,.45),0 6px 18px rgba(0,0,0,.35)}
+@media (prefers-reduced-motion:reduce){ .btn:hover{transform:none} }
+.btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
+@media (max-width:519px){ .btns .btn{flex:1 1 100%} }
+.btns--center{justify-content:center}
+
+/* ---------- brand lockup (nav + footer) ----------------------------------- */
+.brand{
+  display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);
+  padding:8px 0;flex:none;max-width:60vw
+}
+.brand__uni{font-weight:800;font-size:16px;letter-spacing:-.025em;line-height:1.05;white-space:nowrap}
+.brand__rule{width:2px;align-self:stretch;min-height:34px;background:var(--red);flex:none}
+.brand__unit{
+  font-weight:600;font-size:9.5px;line-height:1.3;letter-spacing:.075em;
+  text-transform:uppercase;color:var(--gray-700);white-space:nowrap
+}
+@media (min-width:600px){
+  .brand__uni{font-size:19px}
+  .brand__unit{font-size:10.5px}
+  .brand__rule{min-height:40px}
+}
+.foot .brand{color:#fff}
+.foot .brand__unit{color:var(--stone)}
+
+/* ---------- sticky nav ---------------------------------------------------- */
+.nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:3px solid var(--red)}
+.nav__in{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
+  min-height:68px;display:flex;align-items:center;gap:10px
+}
+.nav__links{display:none;gap:2px;align-items:center;margin-left:auto}
+.nav__links a{
+  color:#4a4d50;text-decoration:none;font-size:14px;font-weight:600;
+  padding:10px 12px;border-radius:var(--r);white-space:nowrap;
+  display:inline-flex;align-items:center;min-height:44px
+}
+.nav__links a:hover,.nav__links a:focus-visible{color:var(--red);background:var(--conc-050)}
+.nav__cta{margin-left:auto;flex:none}
+.nav__cta .btn{min-height:44px;padding:10px 18px;font-size:14px}
+.nav__links + .nav__cta{margin-left:10px}
+.nav__ctaLong{display:none}
+.nav__toggle{
+  background:var(--conc-050);color:var(--ink);border:1px solid var(--conc-200);
+  border-radius:var(--r);width:46px;height:46px;flex:none;padding:0;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer
+}
+.nav__toggle:hover{background:var(--conc-100);border-color:var(--gray-300)}
+@media (min-width:1080px){
+  .nav__links{display:flex}
+  .nav__ctaLong{display:inline}
+  .nav__ctaShort{display:none}
+  .nav__toggle{display:none}
+}
+/* below 430px the bar has no room for a label — the primary CTA lives in the
+   drawer instead (a full-width .btn--primary is the first item there). */
+@media (max-width:429px){ .nav__cta{display:none} }
+.nav__drawer{display:none;padding:6px var(--gut) 20px;background:#fff;border-top:1px solid var(--conc-100)}
+.nav__drawer.is-open{display:block}
+.nav__drawer a.nav__dlink{
+  display:block;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;
+  padding:14px 4px;border-bottom:1px solid var(--conc-100);min-height:48px
+}
+.nav__drawer a.nav__dlink:hover{color:var(--red)}
+.nav__drawer .btn{width:100%;margin-top:18px}
+
+/* ---------- hero ---------------------------------------------------------- */
+.hero{position:relative}
+.hero__grid{display:grid;grid-template-columns:1fr}
+.hero__copy{padding:clamp(40px,7vw,84px) var(--gut) clamp(40px,6vw,76px);position:relative;z-index:1}
+.hero__copy > *{max-width:640px}
+@media (min-width:980px){
+  .hero__copy > *{margin-left:auto;margin-right:0;max-width:600px}
+  .hero__copy{padding-right:clamp(40px,4vw,56px)}
+}
+.hero h1{max-width:19ch;font-size:clamp(30px,5.2vw,50px)}
+.hero__lede{max-width:52ch}
+.hero__media{position:relative;min-height:290px;background:var(--conc-400)}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 56%;position:absolute;inset:0}
+/* Red rule between the concrete copy panel and the photo. */
+.hero__rule{height:6px;background:var(--red);position:relative;z-index:2}
+@media (min-width:980px){
+  .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1fr)}
+  .hero__media{min-height:clamp(520px,54vw,640px)}
+  .hero__rule{position:absolute;top:0;bottom:0;left:0;width:6px;height:auto}
+}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);margin:0}
+@media (min-width:900px){ .stats{grid-template-columns:repeat(4,1fr)} }
+.stat{
+  background:transparent;padding:clamp(20px,3vw,30px) clamp(16px,2.2vw,26px);
+  border-top:1px solid rgba(255,255,255,.12)
+}
+.stat:nth-child(-n+2){border-top:0}
+.stat + .stat{border-left:1px solid rgba(255,255,255,.12)}
+.stat:nth-child(3){border-left:0}
+@media (min-width:900px){
+  .stat{border-top:0}
+  .stat:nth-child(3){border-left:1px solid rgba(255,255,255,.12)}
+}
+.stat:first-child{padding-left:0}
+.stat__n{
+  font-size:clamp(24px,3.4vw,36px);font-weight:800;color:var(--gold);
+  line-height:1.02;letter-spacing:-.03em;display:block
+}
+.stat__l{font-size:13px;color:var(--stone);margin-top:9px;line-height:1.4;font-weight:500;display:block}
+.stats__wrap{position:relative}
+
+/* ---------- split (text + photo) ------------------------------------------ */
+.split{display:grid;gap:clamp(28px,4vw,52px);grid-template-columns:1fr;align-items:center}
+.split--fill{align-items:stretch}
+@media (min-width:900px){
+  .split{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px)}
+  .split--media-first .split__media{order:-1}
+}
+.split__media{position:relative;display:flex;align-items:center}
+/* the frame hugs the photo, so the red rule stays pinned to the image edge
+   even when the text column is taller than the picture */
+.split__frame{position:relative;display:block;width:100%}
+.split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+@media (min-width:900px){
+  .split--fill .split__frame{height:100%;max-height:660px;min-height:420px}
+  .split--fill .split__frame img{aspect-ratio:auto;height:100%}
+}
+/* red corner rule so photos read as designed, not dropped in */
+.split__frame::after{
+  content:"";position:absolute;left:-10px;bottom:-10px;width:clamp(72px,12vw,118px);height:6px;background:var(--red)
+}
+@media (max-width:899px){ .split__frame::after{left:0} }
+
+/* ---------- two-up feature panels ----------------------------------------- */
+.duo{display:grid;gap:18px;grid-template-columns:1fr;margin-top:clamp(28px,4vw,44px)}
+@media (min-width:760px){ .duo{grid-template-columns:1fr 1fr;gap:22px} }
+.panel{
+  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
+  padding:clamp(22px,3vw,32px);border-top:4px solid var(--red)
+}
+.sec--tint .panel,.conc--light .panel{background:#fff}
+.panel .ic{width:26px;height:26px;color:var(--red);margin-bottom:14px}
+.panel h3{margin-bottom:.5em}
+.panel ul{list-style:none;padding:0;margin:0}
+.panel li{
+  position:relative;padding:0 0 0 20px;margin-bottom:.62em;
+  font-size:15.5px;color:var(--gray-700);line-height:1.5
+}
+.panel li:last-child{margin-bottom:0}
+.panel li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--red)}
+
+/* ---------- mini facts (About) -------------------------------------------- */
+.facts{display:grid;gap:18px;grid-template-columns:1fr;margin:clamp(24px,3vw,34px) 0 0}
+.fact{border-left:3px solid var(--red);padding:2px 0 2px 16px}
+.fact h3{margin-bottom:.35em;color:var(--ink);font-size:15px;font-weight:700;letter-spacing:-.005em}
+.fact p{font-size:15px;color:var(--gray-700);margin:0;line-height:1.5}
+
+/* ---------- Patron support grid (7 items, centred last row) ---------------- */
+.pgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
+.pgrid li{
+  flex:1 1 238px;max-width:262px;min-width:0;
+  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
+  padding:22px 20px 24px
+}
+@media (max-width:519px){ .pgrid li{flex:1 1 100%;max-width:none} }
+.pgrid .ic{width:24px;height:24px;color:var(--red);margin-bottom:13px}
+.pgrid h3{font-size:16.5px;margin-bottom:.4em}
+.pgrid p{font-size:14.5px;color:var(--gray-700);margin:0;line-height:1.5}
+
+/* ---------- pull quote (Georgia) ------------------------------------------ */
+.pull{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(21px,3vw,32px);line-height:1.34;letter-spacing:-.012em;
+  color:var(--ink);border-left:5px solid var(--red);padding:4px 0 4px clamp(20px,3vw,30px);
+  margin:0;max-width:26ch
+}
+.pull cite{display:block;font-family:Montserrat,Arial,sans-serif;font-style:normal;
+  font-size:13px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--gray-700);margin-top:18px}
+
+/* ---------- scholarship panel --------------------------------------------- */
+.schol{display:grid;gap:clamp(30px,4vw,60px);grid-template-columns:1fr;align-items:center}
+@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)} }
+.schol__n{
+  font-size:clamp(50px,9vw,88px);font-weight:800;color:var(--gold);
+  line-height:.95;letter-spacing:-.04em;margin:0;display:block;white-space:nowrap
+}
+.schol__l{
+  font-size:clamp(14.5px,1.7vw,17px);color:#fff;line-height:1.45;
+  margin:18px 0 0;max-width:28ch;font-weight:500;
+  border-top:3px solid var(--gold);padding-top:16px
+}
+
+/* ---------- board --------------------------------------------------------- */
+.board{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
+.board li{
+  flex:1 1 194px;max-width:232px;min-width:0;text-align:center;
+  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);padding:26px 13px 24px
+}
+.board__n,.board__t,.board__o{text-wrap:balance}
+@media (max-width:519px){ .board li{flex:1 1 100%;max-width:none} }
+.board__ph{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
+  border:1px solid var(--conc-200);overflow:hidden
+}
+.board__ph svg{width:46px;height:46px;color:var(--gray-500)}
+.board__n{font-size:15.5px;font-weight:700;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em;line-height:1.25}
+.board__t{font-size:13.5px;font-weight:600;color:var(--red);margin:0 0 3px;line-height:1.35}
+.board__o{font-size:13px;color:var(--gray-700);margin:0;line-height:1.35}
+.board__note{
+  margin:clamp(26px,3vw,36px) 0 0;font-size:13.5px;color:var(--gray-700);
+  text-align:center;font-weight:500
+}
+
+/* ---------- final red panel ------------------------------------------------ */
+.sec--red{background:var(--red);color:#fff;position:relative;overflow:hidden}
+.sec--red::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background-image:var(--grain-cloud);background-size:900px 900px;mix-blend-mode:overlay
+}
+.sec--red > *{position:relative;z-index:1}
+.sec--red h2{color:#fff;max-width:20ch}
+.sec--red__in{max-width:62ch;margin:0 auto;text-align:center}
+.sec--red__in .eyebrow{justify-content:center}
+.sec--red__in h2,.sec--red__in .lede,.sec--red__in .body{margin-left:auto;margin-right:auto}
+.sec--red__in .btns{justify-content:center}
+
+/* ---------- footer --------------------------------------------------------- */
+.foot{padding:clamp(40px,5vw,60px) 0 0;font-size:15px}
+.foot__top{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+.foot__nav{display:flex;flex-wrap:wrap;gap:0 20px;list-style:none;margin:0;padding:0}
+.foot__nav a{
+  color:var(--stone);text-decoration:none;font-size:14.5px;font-weight:600;
+  display:inline-flex;align-items:center;min-height:44px
+}
+.foot__nav a:hover{color:var(--gold)}
+.foot__contact{margin:clamp(26px,3vw,34px) 0 0;font-size:14.5px;color:var(--stone);line-height:1.7}
+.foot__contact a{color:var(--stone);text-decoration:underline}
+.foot__contact a:hover{color:var(--gold)}
+.foot__sep{color:rgba(255,255,255,.35);padding:0 6px}
+.foot__bot{border-top:1px solid rgba(255,255,255,.14);margin-top:26px;padding:18px 0 28px;font-size:13px;color:#a7a9a5}
+
+/* ---------- inline icons --------------------------------------------------- */
+.ic{display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- scroll reveal (JS adds .js to <html>; no JS = always visible) --- */
+html.js .rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
+html.js .rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html.js .rv{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ============================== STICKY NAV ============================== -->
+<header class="nav">
+  <div class="nav__in">
+    <!-- LOGO SLOT: replace this text lockup with the supplied Chico State + CIM lockup (SVG preferred). Keep height ~44px in nav. -->
+    <a class="brand" href="#top">
+      <span class="brand__uni">Chico State</span>
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__unit">Concrete Industry<br />Management</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#patrons">Patrons</a>
+      <a href="#why">Why Support</a>
+      <a href="#scholarship">Scholarship</a>
+      <a href="#board">Board</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--primary" href="#" data-cta="support"><span class="nav__ctaShort">Support</span><span class="nav__ctaLong">Support Chico State CIM</span></a>
+    </div>
+
+    <button class="nav__toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer" aria-label="Open section menu">
+      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.1" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <div class="nav__drawer" id="navDrawer">
+    <a class="nav__dlink" href="#about">About</a>
+    <a class="nav__dlink" href="#patrons">Patrons</a>
+    <a class="nav__dlink" href="#why">Why Support</a>
+    <a class="nav__dlink" href="#scholarship">Scholarship</a>
+    <a class="nav__dlink" href="#board">Board</a>
+    <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =============================== 1. HERO ================================ -->
+<section class="hero" aria-labelledby="heroH">
+  <div class="hero__grid">
+    <div class="hero__copy conc seams seams--light">
+      <p class="eyebrow">Concrete Industry Management &middot; Chico State</p>
+      <h1 id="heroH">Building the concrete industry's next leaders &mdash; from the classroom to the boardroom.</h1>
+      <p class="lede hero__lede">Educators and industry built this program together, and neither side has let go of it since 2007.</p>
+      <p class="body" style="color:var(--ink);max-width:54ch">That partnership is the reason a Chico State CIM graduate arrives knowing the material, the plant and the numbers &mdash; and is ready to lead the people who work with all three.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
+        <a class="btn btn--ghost" href="#" data-cta="patron">Become a CIM Patron</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__rule" aria-hidden="true"></div>
+      <img src="assets/img/temp/hero-concrete-pour.jpg"
+           alt="Temporary placeholder photo — a construction crew stands at the edge of a large reinforced concrete slab on a jobsite."
+           width="1300" height="866" fetchpriority="high" />
+    </div>
+  </div>
+
+  <div class="stats__wrap conc--dark">
+    <div class="wrap">
+      <dl class="stats">
+        <div class="stat"><dt class="stat__l vh">Program founded</dt><dd style="margin:0"><span class="stat__n">Since 2007</span><span class="stat__l">One of only five CIM programs in the country</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Job placement</dt><dd style="margin:0"><span class="stat__n">100%</span><span class="stat__l">Job placement for CIM graduates</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Starting salary</dt><dd style="margin:0"><span class="stat__n">$80K</span><span class="stat__l">Average starting salary out of the program</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Industry partners</dt><dd style="margin:0"><span class="stat__n">50+</span><span class="stat__l">Industry partners behind the program</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 2. ABOUT CIM ============================ -->
+<section class="sec" id="about" aria-labelledby="aboutH">
+  <div class="wrap">
+    <div class="split split--fill rv">
+      <div>
+        <p class="eyebrow">About CIM</p>
+        <h2 id="aboutH">A bachelor's degree in concrete &mdash; and in running the business.</h2>
+        <p class="lede">Concrete Industry Management is a four-year business degree with concrete at its centre.</p>
+        <p class="body">Students learn the science first: how the mix behaves, how it is batched and tested, what makes a placement hold up for fifty years. Then they learn the other half of the job &mdash; estimating, scheduling, sales, quality systems and managing the crews and customers who turn that material into structures.</p>
+        <p class="body">It is a deliberately dual degree, because the industry kept telling us the same thing: technical people who can lead are the hardest hire there is.</p>
+
+        <div class="facts">
+          <div class="fact">
+            <h3>The material</h3>
+            <p>Mix design, aggregates, admixtures, testing, placement and quality control &mdash; taught in the lab, not only on the board.</p>
+          </div>
+          <div class="fact">
+            <h3>The business</h3>
+            <p>Estimating, project management, finance, sales and the leadership coursework that gets a graduate promoted.</p>
+          </div>
+        </div>
+
+        <p class="body" style="margin-top:1.3em">Graduates leave as quality-control managers, technical sales and service reps, plant managers, estimators and project engineers. A decade on, many of them are running the companies that trained them.</p>
+
+        <div class="btns">
+          <a class="btn btn--ghost" href="#" data-cta="discover">Discover Chico State CIM</a>
+        </div>
+      </div>
+      <div class="split__media"><span class="split__frame">
+        <img src="assets/img/temp/about-student-plans.jpg"
+             alt="Temporary placeholder photo — a student works over technical drawings and components at a workbench."
+             width="1500" height="1000" loading="lazy" />
+      </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. PATRON PROGRAM ========================= -->
+<section class="sec conc--light" id="patrons" aria-labelledby="patronsH">
+  <div class="wrap">
+    <div class="split split--media-first split--fill rv">
+      <div>
+        <p class="eyebrow">The Patron Program</p>
+        <h2 id="patronsH">Industry partners since 2007.</h2>
+        <p class="lede">The Patrons are the companies and individuals who fund this program and help steer it.</p>
+        <p class="body">Roughly 46 companies and 27 individuals sit in that group today, and together they have given close to $8 million since the program opened its doors. That money pays for scholarships, lab equipment and the day-to-day work of keeping a specialised program strong.</p>
+        <p class="body">But Patrons were never only a funding source. They sit on the board, argue about the curriculum, open their plants to student visits, take interns every summer, and hire the graduates they have watched grow up inside the program.</p>
+      </div>
+      <div class="split__media"><span class="split__frame">
+        <img src="assets/img/temp/patron-industrial-site.jpg"
+             alt="Temporary placeholder photo — crews working on reinforced concrete columns at a large industrial construction site."
+             width="1300" height="946" loading="lazy" />
+      </span>
+      </div>
+    </div>
+
+    <h3 class="vh">What Patron support includes</h3>
+    <ul class="pgrid rv">
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 8.6 12 4.2l9.6 4.4-9.6 4.4z"/><path d="M6.2 10.7V15c0 1.5 2.6 2.7 5.8 2.7S17.8 16.5 17.8 15v-4.3"/><path d="M21.6 8.6v5.1"/></svg>
+        <h3>Scholarships</h3>
+        <p>Every full-time CIM student receives $2,000 a semester from Patron-funded scholarships.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.2 8.2h17.6v11a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1z"/><path d="M8.8 8.2V5.9a1.6 1.6 0 0 1 1.6-1.6h3.2a1.6 1.6 0 0 1 1.6 1.6v2.3"/><path d="M3.2 13.2h17.6"/></svg>
+        <h3>Internships</h3>
+        <p>Paid summer placements at member companies, arranged through the program rather than cold applications.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7.6" r="3.4"/><path d="M2.6 20.4v-1.2A5.4 5.4 0 0 1 8 13.8h2a5.4 5.4 0 0 1 5.4 5.4v1.2"/><path d="M16.4 4.6a3.4 3.4 0 0 1 0 6"/><path d="M17.6 14a5.4 5.4 0 0 1 3.8 5.2v1.2"/></svg>
+        <h3>Mentorship</h3>
+        <p>Working professionals paired with students through the degree and into the first years of a career.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2.7 2.7 0 0 1 2.7 2.7v5.4a2.7 2.7 0 0 1-5.4 0V5.9A2.7 2.7 0 0 1 12 3.2z"/><path d="M6.4 11a5.6 5.6 0 0 0 11.2 0"/><path d="M12 16.6v4.2"/><path d="M8.8 20.8h6.4"/></svg>
+        <h3>Guest speakers</h3>
+        <p>Executives and technical specialists teaching directly from current projects and current problems.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.6-5.9 6.6-10.4A6.6 6.6 0 0 0 5.4 10.6C5.4 15.1 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
+        <h3>Field visits</h3>
+        <p>Batch plants, precast yards and active pours, seen at working scale instead of in a slide deck.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.3"/><path d="M12 2.2v2.7M12 19.1v2.7M21.8 12h-2.7M4.9 12H2.2M18.9 5.1l-1.9 1.9M7 17l-1.9 1.9M18.9 18.9 17 17M7 7 5.1 5.1"/></svg>
+        <h3>Equipment</h3>
+        <p>Testing gear, lab instruments and materials donated so students train on what the industry actually runs.</p>
+      </li>
+      <li>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.4" cy="7.8" r="3.6"/><path d="M2.6 20.4v-1.3a5.4 5.4 0 0 1 5.4-5.4h2.8a5.4 5.4 0 0 1 3.4 1.2"/><path d="m15.4 18.1 2.1 2.1 4.1-4.6"/></svg>
+        <h3>Recruitment</h3>
+        <p>A first look at graduating classes, at career events built around the program's own students.</p>
+      </li>
+    </ul>
+
+    <div class="btns btns--center rv" style="margin-top:clamp(32px,4vw,46px)">
+      <a class="btn btn--ghost btn--lg" href="#" data-cta="patron">Become a CIM Patron</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 4. WHY SUPPORT CIM ======================== -->
+<section class="sec" id="why" aria-labelledby="whyH">
+  <div class="wrap">
+    <div class="rv" style="max-width:70ch">
+      <p class="eyebrow">Why Support CIM</p>
+      <h2 id="whyH">Support here moves in two directions.</h2>
+      <p class="lede">Every dollar that reaches a CIM student also reaches the industry that will hire them.</p>
+      <p class="body">That is the whole design of the program, and it is the reason the partnership has held for nearly two decades. Students get an education the industry helped write; the industry gets people it does not have to train from scratch.</p>
+    </div>
+
+    <div class="duo rv">
+      <div class="panel">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 8.6 12 4.2l9.6 4.4-9.6 4.4z"/><path d="M6.2 10.7V15c0 1.5 2.6 2.7 5.8 2.7S17.8 16.5 17.8 15v-4.3"/><path d="M21.6 8.6v5.1"/></svg>
+        <h3>For students</h3>
+        <ul>
+          <li>Scholarship support of $2,000 a semester for every full-time CIM student.</li>
+          <li>Paid internships at member companies, every summer of the degree.</li>
+          <li>Hands-on lab work on the testing equipment the industry actually uses.</li>
+          <li>A mentor with twenty years in the field, from the first year onward.</li>
+          <li>A job at graduation &mdash; placement has held at 100 percent.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.6V6.4l7.2-3.2v17.4"/><path d="M10.6 9.6h10v11"/><path d="M2.2 20.6h19.6"/><path d="M6.4 8.6v.01M6.4 12.4v.01M6.4 16.2v.01M14.4 13.2v.01M17.4 13.2v.01M14.4 16.8v.01M17.4 16.8v.01"/></svg>
+        <h3>For industry</h3>
+        <ul>
+          <li>A pipeline of trained talent in a field where hiring is the constraint.</li>
+          <li>First look at graduates you have already worked alongside as interns.</li>
+          <li>A voice in the curriculum, through a board of working professionals.</li>
+          <li>People who arrive fluent in both the material and the management.</li>
+          <li>A visible stake in the future of the industry you built a career in.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split rv" style="margin-top:clamp(44px,6vw,76px)">
+      <div class="split__media"><span class="split__frame">
+        <img src="assets/img/temp/why-jobsite-team.jpg"
+             alt="Temporary placeholder photo — two workers in hard hats and high-visibility vests reviewing work together on a construction site."
+             width="1500" height="1167" loading="lazy" />
+      </span>
+      </div>
+      <div>
+        <blockquote class="pull">
+          The program works because industry never handed it off.
+          <cite>Chico State CIM</cite>
+        </blockquote>
+        <p class="body" style="margin-top:1.4em">Patrons helped write the first curriculum in 2007 and they are still in the room. That is unusual, it is the reason graduates arrive ready, and it only continues while the people who benefit from it keep paying it forward.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 5. SCHOLARSHIP FEATURE ======================= -->
+<section class="sec conc--dark seams" id="scholarship" aria-labelledby="scholH">
+  <div class="ties" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="schol rv">
+      <div>
+        <p class="eyebrow">Scholarship Feature</p>
+        <p class="schol__n">$1 million</p>
+        <p class="schol__l">invested in CIM students through the Steve Gonzales Scholarship Fund</p>
+      </div>
+      <div>
+        <h2 id="scholH">The Steve Gonzales Scholarship Fund.</h2>
+        <p class="body">It is the clearest proof of what this partnership does. The fund is the largest single reason every full-time CIM student receives $2,000 a semester in Patron-backed scholarship support.</p>
+        <p class="body">In practice that means a student can take the summer internship instead of the second job, and can graduate without the debt that quietly narrows a first career decision. It is the difference between a degree and a head start.</p>
+        <div class="btns">
+          <a class="btn btn--primary" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
+          <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== 6. BOARD =============================== -->
+<section class="sec conc--light" id="board" aria-labelledby="boardH">
+  <div class="wrap">
+    <div class="rv" style="max-width:66ch">
+      <p class="eyebrow">Leadership</p>
+      <h2 id="boardH">Meet the CIM Board.</h2>
+      <p class="lede">Industry leaders who give the program their time, not only their support.</p>
+      <p class="body">The board sets direction, opens doors for students, and keeps the curriculum honest to what the field actually needs. Every member works in the industry the program feeds.</p>
+    </div>
+
+    <!-- BOARD: placeholders per the brief. Do not launch until real names, titles, orgs and headshots are supplied. -->
+    <ul class="board rv">
+      <li>
+        <div class="board__ph conc" aria-hidden="true"><svg viewBox="0 0 24 24" class="ic" stroke-width="1.5"><circle cx="12" cy="8.4" r="4"/><path d="M4 21v-1.4A6 6 0 0 1 10 13.6h4a6 6 0 0 1 6 6V21"/></svg></div>
+        <p class="board__n">[First Name Last Name]</p>
+        <p class="board__t">[Board Title]</p>
+        <p class="board__o">[Company / Organization]</p>
+      </li>
+      <li>
+        <div class="board__ph conc" aria-hidden="true"><svg viewBox="0 0 24 24" class="ic" stroke-width="1.5"><circle cx="12" cy="8.4" r="4"/><path d="M4 21v-1.4A6 6 0 0 1 10 13.6h4a6 6 0 0 1 6 6V21"/></svg></div>
+        <p class="board__n">[First Name Last Name]</p>
+        <p class="board__t">[Board Title]</p>
+        <p class="board__o">[Company / Organization]</p>
+      </li>
+      <li>
+        <div class="board__ph conc" aria-hidden="true"><svg viewBox="0 0 24 24" class="ic" stroke-width="1.5"><circle cx="12" cy="8.4" r="4"/><path d="M4 21v-1.4A6 6 0 0 1 10 13.6h4a6 6 0 0 1 6 6V21"/></svg></div>
+        <p class="board__n">[First Name Last Name]</p>
+        <p class="board__t">[Board Title]</p>
+        <p class="board__o">[Company / Organization]</p>
+      </li>
+      <li>
+        <div class="board__ph conc" aria-hidden="true"><svg viewBox="0 0 24 24" class="ic" stroke-width="1.5"><circle cx="12" cy="8.4" r="4"/><path d="M4 21v-1.4A6 6 0 0 1 10 13.6h4a6 6 0 0 1 6 6V21"/></svg></div>
+        <p class="board__n">[First Name Last Name]</p>
+        <p class="board__t">[Board Title]</p>
+        <p class="board__o">[Company / Organization]</p>
+      </li>
+      <li>
+        <div class="board__ph conc" aria-hidden="true"><svg viewBox="0 0 24 24" class="ic" stroke-width="1.5"><circle cx="12" cy="8.4" r="4"/><path d="M4 21v-1.4A6 6 0 0 1 10 13.6h4a6 6 0 0 1 6 6V21"/></svg></div>
+        <p class="board__n">[First Name Last Name]</p>
+        <p class="board__t">[Board Title]</p>
+        <p class="board__o">[Company / Organization]</p>
+      </li>
+    </ul>
+    <p class="board__note">Board names, titles and photographs to be supplied by the program.</p>
+  </div>
+</section>
+
+<!-- ============================= 7. FINAL CTA ============================= -->
+<section class="sec sec--red" id="support" aria-labelledby="supportH">
+  <div class="wrap">
+    <div class="rv sec--red__in">
+      <p class="eyebrow">Support the Program</p>
+      <h2 id="supportH">Partnership built this program. Partnership keeps it going.</h2>
+      <p class="lede">Education and industry started Chico State CIM together in 2007, and neither side has stepped back since.</p>
+      <p class="body">Your support pays for the scholarships, the equipment and the access that turn a student into a colleague. Give once, give every year, or bring your company in as a Patron and take a seat at the table.</p>
+      <div class="btns">
+        <a class="btn btn--white" href="#" data-cta="support">Support Chico State CIM</a>
+        <a class="btn btn--ghost-w" href="#" data-cta="patron">Become a CIM Patron</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =============================== FOOTER ================================= -->
+<footer class="foot conc--dark">
+  <div class="wrap">
+    <div class="foot__top">
+      <!-- LOGO SLOT: replace this text lockup with the supplied Chico State + CIM lockup (SVG preferred). Keep height ~44px in nav. -->
+      <a class="brand" href="#top">
+        <span class="brand__uni">Chico State</span>
+        <span class="brand__rule" aria-hidden="true"></span>
+        <span class="brand__unit">Concrete Industry<br />Management</span>
+      </a>
+      <nav aria-label="Footer navigation">
+        <ul class="foot__nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#patrons">Patrons</a></li>
+          <li><a href="#why">Why Support</a></li>
+          <li><a href="#scholarship">Scholarship</a></li>
+          <li><a href="#board">Board</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="foot__contact">
+      <a href="mailto:cim@csuchico.edu">cim@csuchico.edu</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15308986483">530-898-6483</a><span class="foot__sep" aria-hidden="true">&middot;</span>O'Connell Technology Center 236, Chico State
+    </p>
+
+    <div class="foot__bot">
+      <p style="margin:0">&copy; 2026 California State University, Chico &middot; Concrete Industry Management</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var d = document;
+  d.documentElement.classList.add("js");
+  function $(s,c){ return (c||d).querySelector(s); }
+  function $$(s,c){ return Array.prototype.slice.call((c||d).querySelectorAll(s)); }
+
+  /* ---------------------------------------------------------------------
+     Blue Flamingo: set the five destination URLs here. Leave "" to keep the
+     button pointing at the on-page final CTA section.
+     --------------------------------------------------------------------- */
+  const CTA_LINKS = { support: "", patron: "", discover: "", scholarship: "", students: "" };
+
+  var FALLBACK = { support:"#support", scholarship:"#support", students:"#support", patron:"#patrons", discover:"#about" };
+  $$("[data-cta]").forEach(function(a){
+    var k = a.getAttribute("data-cta"), url = CTA_LINKS[k] || "";
+    if(url){
+      a.href = url;
+      if(/^https?:\/\//i.test(url)){ a.target = "_blank"; a.rel = "noopener"; }
+    } else {
+      a.href = FALLBACK[k] || "#support";
+    }
+  });
+
+  /* --- keep --nav-h honest so anchor scroll-margin lands correctly --- */
+  var navIn = $(".nav__in");
+  function measureNav(){
+    if(navIn) d.documentElement.style.setProperty("--nav-h", navIn.offsetHeight + "px");
+  }
+  measureNav();
+  window.addEventListener("resize", measureNav);
+  if(d.fonts && d.fonts.ready) d.fonts.ready.then(measureNav);
+
+  /* --- mobile drawer --- */
+  var navToggle = $("#navToggle"), navDrawer = $("#navDrawer");
+  if(navToggle && navDrawer){
+    navToggle.addEventListener("click", function(){
+      var open = navDrawer.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close section menu" : "Open section menu");
+      measureNav();
+    });
+    $$("a", navDrawer).forEach(function(a){
+      a.addEventListener("click", function(){
+        navDrawer.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded","false");
+        navToggle.setAttribute("aria-label","Open section menu");
+        measureNav();
+      });
+    });
+  }
+
+  /* --- scroll reveal --- */
+  var rv = $$(".rv");
+  if(!("IntersectionObserver" in window) ||
+     (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    rv.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin:"0px 0px -8% 0px", threshold:0.08 });
+    rv.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
