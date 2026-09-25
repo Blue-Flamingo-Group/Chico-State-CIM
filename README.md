@@ -191,6 +191,50 @@ neutral silhouette in place of a headshot. The source says so:
 
 Do not launch with brackets on the page.
 
+## Motion
+
+Three moments, plus the existing subtle scroll reveal. Every one runs **once**,
+uses transform/opacity only, and ends on the static layout. All start-states are
+scoped to `html.js` (the inline script sets that class), so with JavaScript off
+the page renders finished.
+
+1. **Hero entrance, on load.** Eyebrow -> H1 -> lede -> paragraph -> buttons fade
+   and rise 14px in sequence (600ms each, 90ms stagger, ease-out). The red divider
+   between the copy panel and the photo draws in as the headline lands (700ms).
+   The hero photo makes one slow push-in, scale 1 -> 1.05 over 14s, then holds.
+   The page settles in about a second.
+2. **Stat strip count-up**, once, when the strip enters the viewport. `100%`,
+   `$80K` and `50+` count from zero over 1.2s with an ease-out, so they decelerate
+   into the final value. **`Since 2007` deliberately does not count** — walking a
+   founding year up from an earlier number puts years on screen that are not true.
+   It fades up with the group instead.
+3. **The `$1 million` moment**, once, when the scholarship panel enters view. The
+   gold rule under the number draws left to right (900ms) while the figure counts
+   from `$0` to `$1,000,000` in comma format; as it resolves, the number returns
+   to `$1` and the word `million` fades up beside it (500ms).
+
+**How the counters stay honest.** The finished strings live in the DOM. Each
+counter reads the element's own text, walks a number up to it, then writes the
+original string back — so no-JS, reduced motion and the final animated frame are
+byte-identical. No figure is generated from a number held in the script.
+
+**No layout shift.** `.stat__n` and `.schol__n` use `font-variant-numeric:
+tabular-nums`. `.schol__n` is `white-space: nowrap`, so its type size is capped by
+the **widest** state the counter passes through — the `$1,000,000` frame, not
+`$1 million`. That was measured across 360-1440px. Raising the cap without
+widening the column and re-measuring both strings pushes the number into the
+gutter. While the count runs, `million` is out of flow so the long figure has the
+whole column to itself.
+
+**Reduced motion.** Under `prefers-reduced-motion: reduce` every moment resolves
+straight to its end state and no JS animation runs: hero copy fully visible with
+the divider drawn, hero photo unscaled at its intended crop, stat figures as
+written, and the scholarship panel with its gold rule drawn and `million` at full
+opacity.
+
+**Nothing else animates.** In particular the concrete texture never moves. Do not
+add motion elsewhere; the restraint is the point.
+
 ## Accessibility
 
 Mobile-first. Body 16px on mobile, 18px from 820px. Fluid type throughout via

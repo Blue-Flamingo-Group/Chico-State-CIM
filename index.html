@@ -385,13 +385,17 @@ img{max-width:100%;height:auto;display:block}
    even when the text column is taller than the picture */
 .split__frame{position:relative;display:block;width:100%}
 .split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+/* The About frame stretches tall, so a wide photo is cropped horizontally.
+   72% keeps the kneeling worker inside the window at every width. */
+.split__frame--about img{object-position:72% 45%}
+.split__frame--patron img{object-position:center 45%}
 @media (min-width:900px){
   .split--fill{align-items:stretch}
   .split--fill .split__media{align-items:stretch}
   .split--fill .split__frame{height:100%;min-height:420px;max-height:920px}
-  .split--fill .split__frame img{
-    aspect-ratio:auto;height:100%;object-fit:cover;object-position:center
-  }
+  /* no object-position here: the per-photo anchors above own the crop window,
+     and this rule is more specific, so setting it here would override them. */
+  .split--fill .split__frame img{aspect-ratio:auto;height:100%;object-fit:cover}
 }
 /* red corner rule so photos read as designed, not dropped in */
 .split__frame::after{
@@ -447,12 +451,13 @@ img{max-width:100%;height:auto;display:block}
   display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:1fr;
   align-items:start;margin-top:clamp(26px,3.5vw,40px)
 }
-@media (min-width:920px){ .schol{grid-template-columns:minmax(0,.92fr) minmax(0,1fr)} }
-/* white-space:nowrap keeps "$1 million" on one line, so the type size is
-   capped to what the left column can hold — do not raise it without widening
-   the column, or the number spills into the gutter. */
+@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)} }
+/* white-space:nowrap keeps the figure on one line, so the type size is capped
+   to what the left column can hold — and the cap is set by the WIDEST state,
+   the "$1,000,000" frame the counter passes through, not by "$1 million".
+   Do not raise it without widening the column and re-measuring both. */
 .schol__n{
-  font-size:clamp(46px,8.1vw,80px);font-weight:800;color:var(--gold);
+  font-size:clamp(46px,7.6vw,78px);font-weight:800;color:var(--gold);
   line-height:.95;letter-spacing:-.04em;margin:0;display:block;white-space:nowrap
 }
 .schol__l{
@@ -525,6 +530,73 @@ img{max-width:100%;height:auto;display:block}
 
 /* ---------- inline icons --------------------------------------------------- */
 .ic{display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* ==========================================================================
+   MOTION — three moments, plus the existing scroll reveal.
+   Every start-state is scoped to html.js, which the inline script sets, so a
+   page with JavaScript off renders the finished layout. Every moment is
+   transform/opacity only (composited), runs ONCE, and ends static. Under
+   prefers-reduced-motion each one resolves straight to its end state.
+     1. hero    — staged entrance on load + a single slow photo drift
+     2. stats   — count-up on three of the four figures
+     3. schol   — the $1 million number counts, its gold rule draws
+   Nothing else on the page animates. The concrete texture never moves.
+   ========================================================================== */
+
+/* --- 1. hero: staged entrance ------------------------------------------- */
+html.js .hero__copy > *{opacity:0;transform:translateY(14px)}
+html.js .hero.is-ready .hero__copy > *{
+  opacity:1;transform:none;
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)
+}
+html.js .hero.is-ready .hero__copy > :nth-child(1){transition-delay:.04s}
+html.js .hero.is-ready .hero__copy > :nth-child(2){transition-delay:.13s}
+html.js .hero.is-ready .hero__copy > :nth-child(3){transition-delay:.22s}
+html.js .hero.is-ready .hero__copy > :nth-child(4){transition-delay:.31s}
+html.js .hero.is-ready .hero__copy > :nth-child(5){transition-delay:.40s}
+
+/* the red divider draws in as the headline lands */
+html.js .hero__rule{transform:scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.16,1,.3,1) .13s}
+html.js .hero.is-ready .hero__rule{transform:scaleX(1)}
+@media (min-width:980px){
+  html.js .hero__rule{transform:scaleY(0);transform-origin:center top}
+  html.js .hero.is-ready .hero__rule{transform:scaleY(1)}
+}
+
+/* one very slow push-in on the hero photo, then it stays put */
+.hero__media{overflow:hidden}
+html.js .hero__media img{transform:scale(1)}
+html.js .hero.is-ready .hero__media img{
+  /* a gentle ease-out, not a front-loaded one: an expressive curve spends the
+     whole move in the first second and then crawls, which fights the text
+     entrance. This reads as a genuinely slow push-in. */
+  transform:scale(1.05);transition:transform 14s ease-out;will-change:transform
+}
+
+/* --- 2 + 3. counters --------------------------------------------------- */
+/* tabular figures so a counting number keeps a steady width */
+.stat__n,.schol__n{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+/* the gold rule under $1 million draws left to right */
+.schol__l{position:relative;border-top:0}
+.schol__l::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--gold);
+  transform-origin:left center
+}
+html.js .schol__l::before{transform:scaleX(0);transition:transform .9s cubic-bezier(.16,1,.3,1) .12s}
+html.js .schol.is-lit .schol__l::before{transform:scaleX(1)}
+/* "million" arrives as the count resolves; it is display:none only while the
+   counter is running, so the finished string is always "$1 million" */
+html.js .schol__unit{opacity:0;transform:translateY(6px);transition:opacity .5s ease-out,transform .5s ease-out}
+html.js .schol__unit.is-in{opacity:1;transform:none}
+html.js .schol__n.is-counting .schol__unit{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  html.js .hero__copy > *{opacity:1;transform:none;transition:none}
+  html.js .hero__rule{transform:none;transition:none}
+  html.js .hero.is-ready .hero__media img{transform:none;transition:none;will-change:auto}
+  html.js .schol__l::before{transform:none;transition:none}
+  html.js .schol__unit{opacity:1;transform:none;transition:none}
+}
 
 /* ---------- scroll reveal (JS adds .js to <html>; no JS = always visible) --- */
 html.js .rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
@@ -599,11 +671,11 @@ html.js .rv.is-in{opacity:1;transform:none}
 
   <div class="stats__wrap conc--dark">
     <div class="wrap">
-      <dl class="stats">
+      <dl class="stats rv">
         <div class="stat"><dt class="stat__l vh">Program founded</dt><dd style="margin:0"><span class="stat__n">Since 2007</span><span class="stat__l">One of only five CIM programs in the country</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">Job placement</dt><dd style="margin:0"><span class="stat__n">100%</span><span class="stat__l">Job placement for CIM graduates</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">Starting salary</dt><dd style="margin:0"><span class="stat__n">$80K</span><span class="stat__l">Average starting salary out of the program</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">Industry partners</dt><dd style="margin:0"><span class="stat__n">50+</span><span class="stat__l">Industry partners behind the program</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Job placement</dt><dd style="margin:0"><span class="stat__n" data-count>100%</span><span class="stat__l">Job placement for CIM graduates</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Starting salary</dt><dd style="margin:0"><span class="stat__n" data-count>$80K</span><span class="stat__l">Average starting salary out of the program</span></dd></div>
+        <div class="stat"><dt class="stat__l vh">Industry partners</dt><dd style="margin:0"><span class="stat__n" data-count>50+</span><span class="stat__l">Industry partners behind the program</span></dd></div>
       </dl>
     </div>
   </div>
@@ -627,10 +699,10 @@ html.js .rv.is-in{opacity:1;transform:none}
           <a class="btn btn--ghost" href="#" data-cta="discover">Discover Chico State CIM</a>
         </div>
       </div>
-      <div class="split__media"><span class="split__frame">
-        <img src="assets/img/temp/about-student-plans.jpg"
-             alt="Temporary placeholder photo — a student works over technical drawings and components at a workbench."
-             width="1500" height="1000" loading="lazy" />
+      <div class="split__media"><span class="split__frame split__frame--about">
+        <img src="assets/img/temp/about-rebar-tying.jpg"
+             alt="Temporary placeholder photo — a worker in a yellow hard hat kneels on a reinforcing-steel mat, tying the grid before a concrete pour."
+             width="1400" height="859" loading="lazy" />
       </span></div>
     </div>
   </div>
@@ -649,10 +721,10 @@ html.js .rv.is-in{opacity:1;transform:none}
         <h3 style="margin-top:1.5em">More Than Financial Support</h3>
         <p class="body">Patron involvement helps connect students with the people, knowledge, and experiences that bring their education to life.</p>
       </div>
-      <div class="split__media"><span class="split__frame">
-        <img src="assets/img/temp/patron-industrial-site.jpg"
-             alt="Temporary placeholder photo — crews working on reinforced concrete columns at a large industrial construction site."
-             width="1300" height="946" loading="lazy" />
+      <div class="split__media"><span class="split__frame split__frame--patron">
+        <img src="assets/img/temp/patron-mixer-pour.jpg"
+             alt="Temporary placeholder photo — a mixer truck discharges concrete down its chute while two workers in high-visibility vests guide the placement."
+             width="1600" height="1067" loading="lazy" />
       </span></div>
     </div>
 
@@ -739,7 +811,7 @@ html.js .rv.is-in{opacity:1;transform:none}
 
     <div class="schol rv">
       <div>
-        <p class="schol__n">$1 million</p>
+        <p class="schol__n"><span class="schol__amt">$1</span> <span class="schol__unit">million</span></p>
         <h3 class="schol__l">A $1 Million Investment in the Next Generation</h3>
       </div>
       <div>
@@ -907,6 +979,98 @@ html.js .rv.is-in{opacity:1;transform:none}
         measureNav();
       });
     });
+  }
+
+  /* =====================================================================
+     MOTION. Three moments. Each runs once, ends on the static layout, and
+     is skipped entirely under prefers-reduced-motion (the CSS above already
+     resolves every start-state, so here we only skip the JS work).
+     ===================================================================== */
+  var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var HAS_IO = "IntersectionObserver" in window;
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+  function once(el, opts, fn){
+    if(!el) return;
+    if(!HAS_IO){ fn(); return; }
+    var o = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ o.disconnect(); fn(); } });
+    }, opts);
+    o.observe(el);
+  }
+
+  /* --- 1. hero: staged entrance + one slow photo drift --- */
+  var heroEl = $(".hero");
+  if(heroEl){
+    var ready = function(){ heroEl.classList.add("is-ready"); };
+    /* two frames so the start-state paints before the transition begins */
+    if(REDUCED) ready();
+    else requestAnimationFrame(function(){ requestAnimationFrame(ready); });
+    var heroImg = $(".hero__media img", heroEl);
+    if(heroImg) heroImg.addEventListener("transitionend", function(e){
+      if(e.propertyName === "transform") heroImg.style.willChange = "auto";
+    });
+  }
+
+  /* --- 2. stat strip: count three of the four figures ---
+     The finished strings live in the DOM. The counter reads each one, walks a
+     number up to it, then writes the original string back, so no-JS, reduced
+     motion and the final frame are byte-identical. "Since 2007" is deliberately
+     left alone: counting a founding year would flash years that are not true. */
+  function countTo(el, dur){
+    var orig = el.textContent;
+    var m = /^([^0-9]*)([0-9,]+)([\s\S]*)$/.exec(orig);
+    if(!m){ return; }
+    var pre = m[1], target = parseFloat(m[2].replace(/,/g, "")), suf = m[3], t0 = null;
+    function step(ts){
+      if(t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      if(p < 1){
+        el.textContent = pre + Math.round(target * easeOut(p)).toLocaleString("en-US") + suf;
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = orig;            /* exact final string, always */
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  var statStrip = $(".stats");
+  if(statStrip && !REDUCED){
+    once(statStrip, { threshold:0.35 }, function(){
+      $$("[data-count]", statStrip).forEach(function(el){ countTo(el, 1200); });
+    });
+  }
+
+  /* --- 3. scholarship: the $1 million moment --- */
+  var scholEl = $(".schol");
+  if(scholEl){
+    var amt = $(".schol__amt", scholEl), unit = $(".schol__unit", scholEl), num = $(".schol__n", scholEl);
+    if(REDUCED){
+      scholEl.classList.add("is-lit");
+      if(unit) unit.classList.add("is-in");
+    } else {
+      once(scholEl, { threshold:0.3 }, function(){
+        scholEl.classList.add("is-lit");
+        if(!amt || !num){ if(unit) unit.classList.add("is-in"); return; }
+        var orig = amt.textContent, t0 = null, DUR = 1400;
+        /* "million" is out of flow while the comma-formatted figure runs, so the
+           long number has the whole column; it drops back in as the count
+           resolves, which is the beat that reads as the total settling. */
+        num.classList.add("is-counting");
+        function step(ts){
+          if(t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR);
+          if(p < 1){
+            amt.textContent = "$" + Math.round(1000000 * easeOut(p)).toLocaleString("en-US");
+            requestAnimationFrame(step);
+          } else {
+            amt.textContent = orig;       /* back to "$1" */
+            num.classList.remove("is-counting");
+            if(unit) requestAnimationFrame(function(){ unit.classList.add("is-in"); });
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    }
   }
 
   /* --- scroll reveal --- */
