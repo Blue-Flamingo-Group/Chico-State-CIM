@@ -385,9 +385,10 @@ img{max-width:100%;height:auto;display:block}
    even when the text column is taller than the picture */
 .split__frame{position:relative;display:block;width:100%}
 .split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-/* The About frame stretches tall, so a wide photo is cropped horizontally.
-   72% keeps the kneeling worker inside the window at every width. */
-.split__frame--about img{object-position:72% 45%}
+/* The About frame stretches tall, so a wide photo is cropped horizontally
+   (never vertically at any breakpoint here). 40% centres the window on the
+   worker and the screed. */
+.split__frame--about img{object-position:40% center}
 .split__frame--patron img{object-position:center 45%}
 @media (min-width:900px){
   .split--fill{align-items:stretch}
@@ -696,9 +697,9 @@ html.js .rv.is-in{opacity:1;transform:none}
         </div>
       </div>
       <div class="split__media"><span class="split__frame split__frame--about">
-        <img src="assets/img/temp/about-rebar-tying.jpg"
-             alt="Temporary placeholder photo — a worker in a yellow hard hat kneels on a reinforcing-steel mat, tying the grid before a concrete pour."
-             width="1400" height="859" loading="lazy" />
+        <img src="assets/img/temp/about-screed-finish.jpg"
+             alt="Temporary placeholder photo — a worker guides a power screed across freshly poured concrete while a crew finishes the slab behind him."
+             width="1600" height="1067" loading="lazy" />
       </span></div>
     </div>
   </div>
