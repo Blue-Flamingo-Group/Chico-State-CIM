@@ -451,18 +451,20 @@ img{max-width:100%;height:auto;display:block}
   display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:1fr;
   align-items:start;margin-top:clamp(26px,3.5vw,40px)
 }
-@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)} }
-/* white-space:nowrap keeps the figure on one line, so the type size is capped
-   to what the left column can hold — and the cap is set by the WIDEST state,
-   the "$1,000,000" frame the counter passes through, not by "$1 million".
-   Do not raise it without widening the column and re-measuring both. */
+@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1.14fr) minmax(0,1fr)} }
+/* white-space:nowrap keeps "$1,000,000" on one line at every width, so the type
+   size is capped to what the left column can hold. Measured 360-1440px; raising
+   it without widening the column and re-measuring pushes the figure into the
+   gutter or clips a digit. */
 .schol__n{
-  font-size:clamp(46px,7.6vw,78px);font-weight:800;color:var(--gold);
+  font-size:clamp(44px,7.3vw,76px);font-weight:800;color:var(--gold);
   line-height:.95;letter-spacing:-.04em;margin:0;display:block;white-space:nowrap
 }
 .schol__l{
   font-size:clamp(16px,1.9vw,20px);color:#fff;line-height:1.35;font-weight:700;
-  margin:18px 0 0;max-width:26ch;letter-spacing:-.012em;
+  /* 32ch lands the gold rule at roughly the width of the counted figure, so it
+     reads as the number's underline rather than a stray dash. */
+  margin:18px 0 0;max-width:32ch;letter-spacing:-.012em;
   border-top:3px solid var(--gold);padding-top:16px
 }
 
@@ -584,18 +586,12 @@ html.js .hero.is-ready .hero__media img{
 }
 html.js .schol__l::before{transform:scaleX(0);transition:transform .9s cubic-bezier(.16,1,.3,1) .12s}
 html.js .schol.is-lit .schol__l::before{transform:scaleX(1)}
-/* "million" arrives as the count resolves; it is display:none only while the
-   counter is running, so the finished string is always "$1 million" */
-html.js .schol__unit{opacity:0;transform:translateY(6px);transition:opacity .5s ease-out,transform .5s ease-out}
-html.js .schol__unit.is-in{opacity:1;transform:none}
-html.js .schol__n.is-counting .schol__unit{display:none}
 
 @media (prefers-reduced-motion:reduce){
   html.js .hero__copy > *{opacity:1;transform:none;transition:none}
   html.js .hero__rule{transform:none;transition:none}
   html.js .hero.is-ready .hero__media img{transform:none;transition:none;will-change:auto}
   html.js .schol__l::before{transform:none;transition:none}
-  html.js .schol__unit{opacity:1;transform:none;transition:none}
 }
 
 /* ---------- scroll reveal (JS adds .js to <html>; no JS = always visible) --- */
@@ -811,7 +807,7 @@ html.js .rv.is-in{opacity:1;transform:none}
 
     <div class="schol rv">
       <div>
-        <p class="schol__n"><span class="schol__amt">$1</span> <span class="schol__unit">million</span></p>
+        <p class="schol__n">$1,000,000</p>
         <h3 class="schol__l">A $1 Million Investment in the Next Generation</h3>
       </div>
       <div>
@@ -1040,35 +1036,19 @@ html.js .rv.is-in{opacity:1;transform:none}
     });
   }
 
-  /* --- 3. scholarship: the $1 million moment --- */
+  /* --- 3. scholarship: the $1,000,000 moment ---
+     Same counter as the stat strip: it reads "$1,000,000" out of the DOM, walks
+     the digits up to it, and writes the original string back. It ends ON the
+     number, because the number is what is counting. */
   var scholEl = $(".schol");
   if(scholEl){
-    var amt = $(".schol__amt", scholEl), unit = $(".schol__unit", scholEl), num = $(".schol__n", scholEl);
+    var scholNum = $(".schol__n", scholEl);
     if(REDUCED){
       scholEl.classList.add("is-lit");
-      if(unit) unit.classList.add("is-in");
     } else {
       once(scholEl, { threshold:0.3 }, function(){
         scholEl.classList.add("is-lit");
-        if(!amt || !num){ if(unit) unit.classList.add("is-in"); return; }
-        var orig = amt.textContent, t0 = null, DUR = 1400;
-        /* "million" is out of flow while the comma-formatted figure runs, so the
-           long number has the whole column; it drops back in as the count
-           resolves, which is the beat that reads as the total settling. */
-        num.classList.add("is-counting");
-        function step(ts){
-          if(t0 === null) t0 = ts;
-          var p = Math.min(1, (ts - t0) / DUR);
-          if(p < 1){
-            amt.textContent = "$" + Math.round(1000000 * easeOut(p)).toLocaleString("en-US");
-            requestAnimationFrame(step);
-          } else {
-            amt.textContent = orig;       /* back to "$1" */
-            num.classList.remove("is-counting");
-            if(unit) requestAnimationFrame(function(){ unit.classList.add("is-in"); });
-          }
-        }
-        requestAnimationFrame(step);
+        if(scholNum) countTo(scholNum, 1400);
       });
     }
   }

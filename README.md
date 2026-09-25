@@ -208,10 +208,11 @@ the page renders finished.
    into the final value. **`Since 2007` deliberately does not count** — walking a
    founding year up from an earlier number puts years on screen that are not true.
    It fades up with the group instead.
-3. **The `$1 million` moment**, once, when the scholarship panel enters view. The
+3. **The `$1,000,000` moment**, once, when the scholarship panel enters view. The
    gold rule under the number draws left to right (900ms) while the figure counts
-   from `$0` to `$1,000,000` in comma format; as it resolves, the number returns
-   to `$1` and the word `million` fades up beside it (500ms).
+   from `$0` to `$1,000,000` over 1.4s. **It ends on the number**, because the
+   number is what is counting — there is no word to resolve into. The deck's H3
+   label, *A $1 Million Investment in the Next Generation*, sits under the rule.
 
 **How the counters stay honest.** The finished strings live in the DOM. Each
 counter reads the element's own text, walks a number up to it, then writes the
@@ -219,12 +220,17 @@ original string back — so no-JS, reduced motion and the final animated frame a
 byte-identical. No figure is generated from a number held in the script.
 
 **No layout shift.** `.stat__n` and `.schol__n` use `font-variant-numeric:
-tabular-nums`. `.schol__n` is `white-space: nowrap`, so its type size is capped by
-the **widest** state the counter passes through — the `$1,000,000` frame, not
-`$1 million`. That was measured across 360-1440px. Raising the cap without
-widening the column and re-measuring both strings pushes the number into the
-gutter. While the count runs, `million` is out of flow so the long figure has the
-whole column to itself.
+tabular-nums`, so the digits hold a steady width while they spin. `.schol__n` is
+`white-space: nowrap`, so its type size is capped to what the left column can
+hold: `$1,000,000` is a good deal wider than `$1 million` was, so the clamp is
+`clamp(44px, 7.3vw, 76px)` against a `1.14fr` column. Measured at 360, 390, 430,
+600, 768, 820, 900, 920, 960, 1024, 1100, 1280 and 1440 — one line everywhere,
+with at least 44px of slack at the tightest breakpoint. Raising the cap or
+narrowing the column without re-measuring will clip a digit.
+
+The gold rule is the `::before` of the H3 label, whose `max-width: 32ch` lands it
+at the width of the counted figure at desktop, so it reads as the number's
+underline. Re-check it if the figure or the type scale changes.
 
 **Reduced motion.** Under `prefers-reduced-motion: reduce` every moment resolves
 straight to its end state and no JS animation runs: hero copy fully visible with
