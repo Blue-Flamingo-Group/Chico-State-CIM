@@ -137,11 +137,11 @@ is what to ask for.
 
 ### 2. Photos
 All four images are temporary placeholders. Three are free stock (Unsplash /
-Pexels). **The About image, `about-generated-lab.jpg`, is AI-generated** —
+Pexels). **The About image, `about-generated-classroom.jpg`, is AI-generated** —
 Higgsfield, model `z_image`, 2026-09-25 — not stock and not a photograph of
 anything real. It stands in only so the slot can be reviewed, and **must be
-replaced with actual program photography before launch**; a generated person in
-a lab is not something a university can publish as its own.
+replaced with actual program photography before launch**; a generated
+classroom of students is not something a university can publish as its own.
 
 Every alt text starts with **"Temporary"** (`Temporary placeholder photo —` for
 the stock images, `Temporary AI-generated placeholder —` for the generated one),
@@ -269,9 +269,9 @@ horizontal scroll at 360px.
 - [ ] Replace the logo lockup in the nav **and** the footer.
 - [ ] Replace all four images and rewrite every alt text (grep
       `alt="Temporary`). Delete `assets/img/temp/`.
-- [ ] **Replace the AI-generated About image** (`about-generated-lab.jpg`) with
-      real program photography. This one is not negotiable — it is a synthetic
-      person in a synthetic lab.
+- [ ] **Replace the AI-generated About image** (`about-generated-classroom.jpg`)
+      with real program photography. This one is not negotiable — it is a
+      synthetic instructor teaching a synthetic class.
 - [ ] Replace the five board cards with real names, titles, orgs and headshots.
 - [ ] Confirm or remove the four hero stat-strip figures — the only copy on the
       page that is not from the approved deck.

@@ -2,7 +2,7 @@
 
 None of these are the client's photographs. Three are free stock images
 (Unsplash / Pexels) standing in so the layout can be reviewed with real pictures
-in it. **One — `about-generated-lab.jpg` — is AI-generated** (Higgsfield, model
+in it. **One — `about-generated-classroom.jpg` — is AI-generated** (Higgsfield, model
 `z_image`, 2026-09-25): it depicts nothing that actually happened and nobody who
 actually exists, and it must not ship.
 
@@ -16,7 +16,7 @@ Pexels; all are free-license.
 | File | Used in | Source | Replace with |
 |---|---|---|---|
 | `hero-concrete-pour.jpg` | Hero, right-hand full-bleed panel | https://images.unsplash.com/photo-1541888946425-d81bb19240f5 | A wide Chico State CIM shot: students on an active pour, a finishing crew, or a completed concrete structure. Needs to read at ~1300×930 and crop well at `object-position: center 56%`. |
-| `about-generated-lab.jpg` | §2 About CIM, right column | **AI-GENERATED** — Higgsfield, model `z_image`, 2026-09-25. Not stock, not a photograph. | CIM students in the concrete lab or classroom — cylinder testing, slump test, mix design work. **This one is not a photo of anything real and must be replaced with actual program photography before launch.** Portrait 1200×1600, so the two breakpoints crop on opposite axes: desktop crops horizontally (full height, Y inert), mobile crops vertically (full width). Anchored `object-position: center 25%`, and below 900px this one photo takes a square frame (`aspect-ratio: 1/1`) so the hard hat and the whole cylinder both fit. Re-check both when the photo changes. |
+| `about-generated-classroom.jpg` | §2 About CIM, right column | **AI-GENERATED** — Higgsfield, model `z_image`, 2026-09-25. Not stock, not a photograph. | A real CIM class: an instructor teaching, students, concrete samples on the bench. **The current file depicts nobody who exists and nothing that happened, and must be replaced with actual program photography before launch.** Portrait 1200×1600, so the breakpoints crop on opposite axes — desktop crops horizontally (full height, Y inert), mobile/tablet crops vertically (full width, ~900 of 1600px). Anchored `object-position: center 20%`, which holds the instructor's head (y~255) and the test cylinder (y~675-830) together with ~115px of headroom. Re-check when the photo changes. |
 | `patron-mixer-pour.jpg` | §3 Patron Program, left column | https://www.pexels.com/photo/37121352/ (Pexels, free license) | A Patron company at work: batch plant, mixer fleet, precast yard. Crop anchor is `.split__frame--patron img { object-position: center 45% }`. |
 | `why-jobsite-team.jpg` | §4 Why Support CIM, left column | https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9 | A CIM graduate or intern on a jobsite with a Patron-company team. Two or three people, working, not posed. |
 

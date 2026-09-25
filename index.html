@@ -388,16 +388,15 @@ img{max-width:100%;height:auto;display:block}
 /* This source is PORTRAIT (1200x1600), so the two breakpoints crop on opposite
    axes and only one half of the anchor does any work at a time:
      desktop (tall stretched frame) — crops horizontally, ~1072 of 1200px shown,
-       full height, so the Y value is inert and the hat always has headroom;
+       full height, so the Y value is inert and nothing is cut top or bottom;
      mobile/tablet (4:3 frame)      — crops vertically, ~900 of 1600px shown,
        full width, so the Y value is everything.
-   Head (hat top at y~215) to cylinder base (y~1310) is 1095px, wider than the
-   ~900px window a 4:3 frame would give, so below 900px this one photo gets a
-   square frame instead. That widens the window to ~1199px, which fits the hat
-   (115px of headroom) and all but the last few pixels of the cylinder. Every
-   other photo keeps 4:3. */
-.split__frame--about img{object-position:center 25%}
-@media (max-width:899px){ .split__frame--about img{aspect-ratio:1/1} }
+   The subject runs from the instructor's head (y~255) to the base of the test
+   cylinder on the front table (y~830) — 575px, comfortably inside the ~900px
+   mobile window. 20% puts the window at y 140-1040: ~115px of headroom above
+   his head, the cylinder and sample cubes whole, and the first rows of students
+   in the foreground. */
+.split__frame--about img{object-position:center 20%}
 .split__frame--patron img{object-position:center 45%}
 @media (min-width:900px){
   .split--fill{align-items:stretch}
@@ -706,8 +705,8 @@ html.js .rv.is-in{opacity:1;transform:none}
         </div>
       </div>
       <div class="split__media"><span class="split__frame split__frame--about">
-        <img src="assets/img/temp/about-generated-lab.jpg"
-             alt="Temporary AI-generated placeholder — student examining a concrete test cylinder in a materials lab. Replace with program photography."
+        <img src="assets/img/temp/about-generated-classroom.jpg"
+             alt="Temporary AI-generated placeholder — instructor teaching a Concrete Industry Management class. Replace with program photography."
              width="1200" height="1600" loading="lazy" />
       </span></div>
     </div>
