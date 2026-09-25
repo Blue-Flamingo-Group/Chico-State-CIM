@@ -385,14 +385,19 @@ img{max-width:100%;height:auto;display:block}
    even when the text column is taller than the picture */
 .split__frame{position:relative;display:block;width:100%}
 .split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-/* The About frame stretches tall, so a wide photo is cropped horizontally and
-   never vertically at any breakpoint here — cover is driven by height, so the
-   full source height is always shown and the subject is never cut head or foot.
-   The engineer sits well left of centre (roughly x 265-535 of 1600), and the
-   1280 window is only ~716 source px wide, so the anchor has to stay low: 16%
-   puts him left-of-centre with his shadow running out to the right. Anything
-   near 32% starts clipping his back. */
-.split__frame--about img{object-position:16% center}
+/* This source is PORTRAIT (1200x1600), so the two breakpoints crop on opposite
+   axes and only one half of the anchor does any work at a time:
+     desktop (tall stretched frame) — crops horizontally, ~1072 of 1200px shown,
+       full height, so the Y value is inert and the hat always has headroom;
+     mobile/tablet (4:3 frame)      — crops vertically, ~900 of 1600px shown,
+       full width, so the Y value is everything.
+   Head (hat top at y~215) to cylinder base (y~1310) is 1095px, wider than the
+   ~900px window a 4:3 frame would give, so below 900px this one photo gets a
+   square frame instead. That widens the window to ~1199px, which fits the hat
+   (115px of headroom) and all but the last few pixels of the cylinder. Every
+   other photo keeps 4:3. */
+.split__frame--about img{object-position:center 25%}
+@media (max-width:899px){ .split__frame--about img{aspect-ratio:1/1} }
 .split__frame--patron img{object-position:center 45%}
 @media (min-width:900px){
   .split--fill{align-items:stretch}
@@ -701,9 +706,9 @@ html.js .rv.is-in{opacity:1;transform:none}
         </div>
       </div>
       <div class="split__media"><span class="split__frame split__frame--about">
-        <img src="assets/img/temp/about-slab-inspection.jpg"
-             alt="Temporary placeholder photo — an engineer in a hard hat walks a freshly finished concrete slab with a clipboard, checking the work."
-             width="1600" height="1069" loading="lazy" />
+        <img src="assets/img/temp/about-generated-lab.jpg"
+             alt="Temporary AI-generated placeholder — student examining a concrete test cylinder in a materials lab. Replace with program photography."
+             width="1200" height="1600" loading="lazy" />
       </span></div>
     </div>
   </div>

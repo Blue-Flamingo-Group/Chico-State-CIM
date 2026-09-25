@@ -136,9 +136,17 @@ dark background, so a version that works on both light and dark, or two files,
 is what to ask for.
 
 ### 2. Photos
-All four photographs are temporary Unsplash placeholders. Every one has alt
-text starting **"Temporary placeholder photo —"** so nothing ships by accident:
-grep for that string. Full details, sources and replacement notes are in
+All four images are temporary placeholders. Three are free stock (Unsplash /
+Pexels). **The About image, `about-generated-lab.jpg`, is AI-generated** —
+Higgsfield, model `z_image`, 2026-09-25 — not stock and not a photograph of
+anything real. It stands in only so the slot can be reviewed, and **must be
+replaced with actual program photography before launch**; a generated person in
+a lab is not something a university can publish as its own.
+
+Every alt text starts with **"Temporary"** (`Temporary placeholder photo —` for
+the stock images, `Temporary AI-generated placeholder —` for the generated one),
+so `grep -n 'alt="Temporary' index.html` finds all four and nothing ships by
+accident. Sources, crop anchors and replacement notes are in
 `assets/img/temp/README.md`.
 
 ### 3. Copy — closed, with one exception
@@ -259,8 +267,11 @@ horizontal scroll at 360px.
 ## Go-live checklist
 
 - [ ] Replace the logo lockup in the nav **and** the footer.
-- [ ] Replace all four photos and rewrite every alt text (grep
-      `Temporary placeholder photo`). Delete `assets/img/temp/`.
+- [ ] Replace all four images and rewrite every alt text (grep
+      `alt="Temporary`). Delete `assets/img/temp/`.
+- [ ] **Replace the AI-generated About image** (`about-generated-lab.jpg`) with
+      real program photography. This one is not negotiable — it is a synthetic
+      person in a synthetic lab.
 - [ ] Replace the five board cards with real names, titles, orgs and headshots.
 - [ ] Confirm or remove the four hero stat-strip figures — the only copy on the
       page that is not from the approved deck.
