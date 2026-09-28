@@ -6,7 +6,7 @@
 
 <title>Chico State Concrete Industry Management — Building the Future of the Concrete Industry, Together</title>
 <meta name="description" content="Chico State’s Concrete Industry Management program connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom." />
-<meta name="theme-color" content="#9D2235" />
+<meta name="theme-color" content="#485253" />
 
 <!-- REVIEW BUILD. Remove this tag and the X-Robots-Tag rule in vercel.json before go-live. -->
 <meta name="robots" content="noindex,nofollow" />
@@ -26,15 +26,30 @@
    Single-file static landing page. No build step, no dependencies.
    Client: Blue Flamingo · Job ECC-2602.
 
-   BRAND RULES (California State University, Chico style guide)
-     Chico Red      #9D2235  dominant — primary buttons, rules, accent panels
-     Cornerstone    #75787B  neutral  — graphic use and large text only
-     Black / White           primary neutrals
+   BRAND RULES (California State University, Chico style guide + client palette)
+     Chico Red      #9D2235  dominant — every call to action, eyebrows, rules,
+                             the hero divider, the closing panel
+     White          #FFFFFF  primary ground; Red + White are the identity
+     Black (--ink)  #1C1D1F  headlines and hero copy
+     CLIENT PALETTE — complements red + white, never replaces it:
+       Bone   #E3E5DB  light concrete surfaces; small text on slate
+       Mist   #879597  GRAPHIC ONLY (hairlines, separators, placeholder icon
+                       strokes). Fails as small text on white and on slate.
+       Slate  #485253  header bar, dark concrete panels, body text on light
+       Teal   #007E95  quiet accent, LIGHT surfaces only, four placements:
+                       Patron tile icons + top borders, the .note left border,
+                       board titles. Never a CTA, eyebrow, headline or hero
+                       rule; never on slate (1.69:1).
      SECONDARY, ACCENT ONLY (university rule — never dominant):
-       Dusk Blue          #043546
-       Golden Hour Yellow #EBA70E
-       Canyon Stone       #D0D1C9
+       Golden Hour Yellow #EBA70E  large figures only: stat numbers, the
+                                   $1,000,000 and its rule, pull-quote bar,
+                                   focus rings on dark. Never small text.
+       Dusk Blue          #043546  token kept, not used on the page.
+     Cornerstone Gray and Canyon Stone were replaced by Slate and Bone.
      Terracotta and Orchard Green are NOT used anywhere on this page.
+     LOGO: official white lockup (assets/img/logo/cim-chico-state-white.png)
+     — white artwork, so it only ever sits on slate. That is why the header
+     is slate. A white header would need a dark/color version of the logo.
 
    TYPE
      Montserrat 400/500/600/700/800  — stand-in for the brand's Gotham.
@@ -45,7 +60,7 @@
 
    CONCRETE TEXTURE
      Pure CSS/SVG. Two feTurbulence tiles blended in 'overlay' over a
-     concrete-gray gradient: one large-scale cloud (baseFrequency .013) for
+     bone (light) or slate (dark) gradient: one large-scale cloud (baseFrequency .013) for
      the poured-slab mottling, one fine tile (.75) for surface tooth. Both
      tiles are built on a neutral #808080 base so 'overlay' leaves the
      backdrop untouched where the noise is neutral — that is what keeps it
@@ -53,34 +68,56 @@
      cloud layer. Never add crack or fracture patterns: the client said no.
 
    CONTRAST — measured, WCAG 2.1 AA (4.5:1 small text, 3:1 large/graphic).
+   Computed with the WCAG formula, not estimated. "rendered" = pixels sampled
+   from a screenshot, because the grain overlay shifts every surface.
    Do not move these colors around without re-measuring.
      Chico Red #9D2235 on white .................. 7.74:1  OK text
      white on Chico Red #9D2235 .................. 7.74:1  OK text
-     Chico Red #9D2235 on --conc-050 #f1f1ef ..... 6.72:1  OK text
-     Chico Red #9D2235 on --conc-100 #e6e6e2 ..... 6.07:1  OK text
-     Chico Red #9D2235 on deep concrete #bdbdb8 .. 4.10:1  GRAPHIC ONLY
-     Chico Red #9D2235 on charcoal #2b2c2c ....... 1.81:1  NEVER — do not
-                                                   put red text or a red
-                                                   outline label on the dark
-                                                   panel; use white or gold.
-     Cornerstone #75787B on white ................ 4.44:1  FAILS small text.
-                                                   This is why body copy uses
-                                                   --gray-700 below, not the
-                                                   published Cornerstone.
-     --gray-700 #5c5f62 on white ................. 6.43:1  OK
-     --gray-700 #5c5f62 on --conc-050 #f1f1ef .... 5.58:1  OK
-     --gray-700 #5c5f62 on --conc-100 #e6e6e2 .... 5.04:1  OK
-     --gray-700 #5c5f62 on deep concrete #d6d6d2 . 4.41:1  FAILS — deep
-                                                   concrete carries --ink only
+     Chico Red on --conc-050 #eff0ea ............. 6.75:1  OK text
+     Chico Red on Bone #e3e5db ................... 6.08:1  OK text
+     Chico Red on hero concrete, darkest rendered
+       #c8cbc1 (behind the hero buttons) ......... 4.70:1  OK text
+     Chico Red on Slate #485253 .................. 1.04:1  NEVER — red fill
+                                                   vanishes on slate. Every
+                                                   slate-surface CTA is
+                                                   .btn--white (red label on
+                                                   white, 7.74:1).
+     Slate #485253 on white ...................... 8.05:1  OK (body text)
+     Slate on --conc-050 #eff0ea ................. 7.03:1  OK
+     Slate on Bone #e3e5db ....................... 6.33:1  OK
+     Slate on light concrete, deepest #dbded2 .... 5.90:1  OK
+     Slate on hero concrete, darkest #c8cbc1 ..... 4.90:1  OK
      --ink #1c1d1f on white ..................... 16.87:1  OK
-     --ink #1c1d1f on deep concrete #bdbdb8 ...... 8.94:1  OK (hero copy)
-     Dusk Blue #043546 on white ................. 13.10:1  OK
-     Golden Hour #EBA70E on white ................ 2.09:1  NEVER text on white
-     Golden Hour #EBA70E on charcoal #232424 ..... 7.46:1  OK on dark panels
-     Golden Hour #EBA70E on charcoal #343535 ..... 5.90:1  OK on dark panels
-     white on charcoal #2b2c2c .................. 14.01:1  OK
-     Canyon Stone #D0D1C9 on charcoal #2b2c2c .... 9.10:1  OK
-     nav link #4a4d50 on white ................... 8.51:1  OK
+     --ink on hero concrete, darkest #c8cbc1 .... 10.26:1  OK (hero copy)
+     Teal #007E95 on white ....................... 4.75:1  OK text (board
+                                                   titles sit on white cards)
+     Teal on Bone #e3e5db ........................ 3.73:1  GRAPHIC ONLY
+     Teal on light concrete, darkest #e0e2d9 ..... 3.63:1  GRAPHIC ONLY
+     Teal on Slate #485253 ....................... 1.69:1  NEVER
+     Mist #879597 on white ....................... 3.10:1  GRAPHIC ONLY
+     Mist on Slate #485253 ....................... 2.60:1  DECORATIVE ONLY —
+                                                   separators, toggle outline
+                                                   (the white icon carries it)
+     Bone #E3E5DB on Slate header #485253 ........ 6.33:1  OK text (nav links)
+     Bone on dark concrete, rendered median
+       #424d4e ................................... 6.86:1  OK text
+     Bone on dark concrete, lightest rendered
+       #556061 ................................... 5.10:1  OK text
+     white on Slate #485253 ...................... 8.05:1  OK
+     white on nav hover tint #5a6364 ............. 6.17:1  OK
+     white on dark concrete, lightest #556061 .... 6.50:1  OK
+     #f0f0ee (dark-panel lede) on #556061 ........ 5.69:1  OK
+     ghost-w border (62% white) on #556061 ....... 3.65:1  OK graphic
+     Golden Hour #EBA70E on Slate #485253 ........ 3.86:1  LARGE/GRAPHIC ONLY
+     Golden Hour on dark concrete, median #424d4e  4.19:1  LARGE/GRAPHIC ONLY
+     Golden Hour on dark concrete, lightest
+       #556061 ................................... 3.11:1  LARGE/GRAPHIC ONLY
+                                                   — stat numbers (24px+/800)
+                                                   and $1,000,000 qualify;
+                                                   nothing smaller may be gold.
+     Golden Hour on Chico Red (focus ring) ....... 3.71:1  OK graphic
+     Golden Hour on white ........................ 2.09:1  NEVER on white
+     --red-900 #671622 on Bone (white-btn hover) . 9.62:1  OK
    ========================================================================== */
 
 :root{
@@ -92,24 +129,23 @@
 
   /* ---- neutrals ---- */
   --ink:#1c1d1f;
-  --gray-700:#5c5f62;     /* small body text on light — see contrast table */
-  --gray-500:#75787B;     /* published Cornerstone Gray — graphic/large only */
-  --gray-300:#c9cac5;
   --white:#ffffff;
+
+  /* ---- client palette (complements red + white; see BRAND RULES) ---- */
+  --bone:#E3E5DB;         /* light surfaces; text on slate */
+  --mist:#879597;         /* graphic only — hairlines, separators, icon strokes */
+  --slate:#485253;        /* header, dark panels; small body text on light */
+  --teal:#007E95;         /* quiet accent, LIGHT surfaces only — never a CTA */
 
   /* ---- secondary, accents only ---- */
   --dusk:#043546;
   --gold:#EBA70E;
-  --stone:#D0D1C9;
 
-  /* ---- concrete ---- */
-  --conc-050:#f1f1ef;
-  --conc-100:#e6e6e2;
-  --conc-200:#d6d6d2;
-  --conc-400:#bdbdb8;
-  --char-700:#3c3d3d;
-  --char-800:#2b2c2c;
-  --char-900:#1f2020;
+  /* ---- concrete (bone-based) ---- */
+  --conc-050:#eff0ea;
+  --conc-100:#e3e5db;
+  --conc-200:#d4d7cb;
+  --conc-400:#c0c4b6;
 
   --maxw:1160px;
   --gut:clamp(20px,5vw,40px);
@@ -155,7 +191,7 @@ strong{font-weight:700}
 img{max-width:100%;height:auto;display:block}
 
 :focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:3px}
-.conc--dark :focus-visible,.sec--red :focus-visible{outline-color:var(--gold)}
+.conc--dark :focus-visible,.sec--red :focus-visible,.nav :focus-visible{outline-color:var(--gold)}
 .skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--red);color:#fff;padding:13px 20px;font-weight:700;text-decoration:none}
 .skip:focus{left:8px;top:8px}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -170,26 +206,29 @@ img{max-width:100%;height:auto;display:block}
 .conc{
   background-color:var(--conc-200);
   background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#e0e0dc 0%,#d2d2cd 46%,#bcbcb7 100%);
+    linear-gradient(163deg,#e3e5db 0%,#d6d9cd 46%,#c6c9bd 100%);
   background-size:240px 240px,900px 900px,100% 100%;
   background-blend-mode:overlay,overlay,normal;
 }
-/* Softer tint for full sections — same surface, lifted so --gray-700 clears AA.
+/* Softer tint for full sections — same surface, lifted to bone so --slate clears AA.
    NOTE: this class is used on its own (without .conc), so it must repeat
    background-size and background-blend-mode. Without the blend mode the
    neutral #808080 grain tiles paint flat mid-gray over the whole section. */
 .conc--light{
   background-color:var(--conc-050);
   background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#f5f5f3 0%,#eeeeeb 55%,#e4e4e0 100%);
+    linear-gradient(163deg,#ebede5 0%,#e3e5db 55%,#dbded2 100%);
   background-size:240px 240px,900px 900px,100% 100%;
   background-blend-mode:overlay,overlay,normal;
 }
-/* Dark charcoal concrete. Scholarship panel and footer. */
+/* Dark slate concrete. Stat strip, scholarship panel and footer.
+   The grain overlay LIFTS a mid-dark backdrop, so the gradient sits below
+   slate on purpose: rendered, this surface measures #343c3d–#556061 with a
+   median of #424d4e. Lighten it and gold/bone text fall under AA. */
 .conc--dark{
-  background-color:var(--char-800);
+  background-color:var(--slate);
   background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#414242 0%,#2e2f2f 50%,#202121 100%);
+    linear-gradient(163deg,#434c4d 0%,#3a4344 50%,#2f3738 100%);
   background-size:240px 240px,900px 900px,100% 100%;
   background-blend-mode:overlay,overlay,normal;
   color:#fff;
@@ -225,8 +264,8 @@ img{max-width:100%;height:auto;display:block}
 }
 .eyebrow::before{content:"";width:24px;height:3px;background:var(--red);flex:none}
 @media (min-width:600px){ .eyebrow{font-size:12px;letter-spacing:.17em} .eyebrow::before{width:26px} }
-.conc--dark .eyebrow,.sec--red .eyebrow{color:var(--gold)}
-.conc--dark .eyebrow::before{background:var(--gold)}
+.conc--dark .eyebrow{color:var(--bone)}
+.conc--dark .eyebrow::before{background:var(--bone)}
 .sec--red .eyebrow{color:#fff}
 .sec--red .eyebrow::before{background:#fff}
 .lede{
@@ -236,8 +275,8 @@ img{max-width:100%;height:auto;display:block}
 }
 .conc--dark .lede{color:#f0f0ee}
 .sec--red .lede{color:#fff}
-.body{color:var(--gray-700);font-size:clamp(15.5px,1.6vw,17px);max-width:68ch}
-.conc--dark .body{color:var(--stone)}
+.body{color:var(--slate);font-size:clamp(15.5px,1.6vw,17px);max-width:68ch}
+.conc--dark .body{color:var(--bone)}
 .sec--red .body{color:#f7e8ea}
 
 /* ---------- buttons (site-wide; identical metrics in every section) ------- */
@@ -253,79 +292,69 @@ img{max-width:100%;height:auto;display:block}
 .btn--primary:hover{background:var(--red-800);border-color:var(--red-800);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(157,34,53,.3)}
 .btn--ghost{background:transparent;color:var(--red);border-color:var(--red)}
 .btn--ghost:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
-/* on dark charcoal and on the red panel */
+/* on dark slate and on the red panel */
 .btn--ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.62)}
 .btn--ghost-w:hover{background:rgba(255,255,255,.14);border-color:#fff;color:#fff;transform:translateY(-2px)}
 .btn--white{background:#fff;color:var(--red);border-color:#fff}
 .btn--white:hover{background:var(--conc-100);border-color:var(--conc-100);color:var(--red-900);transform:translateY(-2px)}
 .btn--lg{min-height:56px;padding:15px 34px;font-size:16.5px}
-/* Chico Red on charcoal is 1.81:1 — the fill alone does not delimit the
-   control. A hairline keeps the red primary style and clears 1.4.11. */
-.conc--dark .btn--primary{box-shadow:0 0 0 1px rgba(255,255,255,.3)}
-.conc--dark .btn--primary:hover{box-shadow:0 0 0 1px rgba(255,255,255,.45),0 6px 18px rgba(0,0,0,.35)}
+/* Chico Red on slate is 1.04:1 — a red fill vanishes there. On every slate
+   surface (header, scholarship panel) the primary is .btn--white instead:
+   white fill, Chico Red label, the same inversion the red panel uses. */
 @media (prefers-reduced-motion:reduce){ .btn:hover{transform:none} }
 .btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
 @media (max-width:519px){ .btns .btn{flex:1 1 100%} }
 .btns--center{justify-content:center}
 
-/* ---------- brand lockup (nav + footer) ----------------------------------- */
-.brand{
-  display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);
-  padding:8px 0;flex:none;max-width:60vw
-}
-.brand__uni{font-weight:800;font-size:16px;letter-spacing:-.025em;line-height:1.05;white-space:nowrap}
-.brand__rule{width:2px;align-self:stretch;min-height:34px;background:var(--red);flex:none}
-.brand__unit{
-  font-weight:600;font-size:9.5px;line-height:1.3;letter-spacing:.075em;
-  text-transform:uppercase;color:var(--gray-700);white-space:nowrap
-}
-@media (min-width:600px){
-  .brand__uni{font-size:19px}
-  .brand__unit{font-size:10.5px}
-  .brand__rule{min-height:40px}
-}
-.foot .brand{color:#fff}
-.foot .brand__unit{color:var(--stone)}
+/* ---------- official logo (nav + footer) ----------------------------------
+   White artwork on transparent — slate surfaces only. Height is set, width
+   follows the 826x320 aspect ratio. Never recolor, filter, crop or squash it. */
+.brand{display:flex;align-items:center;text-decoration:none;padding:10px 0;flex:none}
+.brand img{height:50px;width:auto;max-width:none}
+@media (max-width:429px){ .brand img{height:40px} }
+.foot .brand img{height:80px}
+@media (max-width:429px){ .foot .brand img{height:72px} }
 
 /* ---------- sticky nav ---------------------------------------------------- */
-.nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:3px solid var(--red)}
+/* Slate bar: the official logo is white artwork, so the header is dark. */
+.nav{position:sticky;top:0;z-index:100;background:var(--slate);border-bottom:3px solid var(--red)}
 .nav__in{
   max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
   min-height:68px;display:flex;align-items:center;gap:10px
 }
 .nav__links{display:none;gap:2px;align-items:center;margin-left:auto}
 .nav__links a{
-  color:#4a4d50;text-decoration:none;font-size:14px;font-weight:600;
+  color:var(--bone);text-decoration:none;font-size:14px;font-weight:600;
   padding:10px 12px;border-radius:var(--r);white-space:nowrap;
   display:inline-flex;align-items:center;min-height:44px
 }
-.nav__links a:hover,.nav__links a:focus-visible{color:var(--red);background:var(--conc-050)}
+.nav__links a:hover,.nav__links a:focus-visible{color:#fff;background:rgba(255,255,255,.1)}
 .nav__cta{margin-left:auto;flex:none}
 .nav__cta .btn{min-height:44px;padding:10px 18px;font-size:14px}
-.nav__links + .nav__cta{margin-left:10px}
 .nav__ctaLong{display:none}
 .nav__toggle{
-  background:var(--conc-050);color:var(--ink);border:1px solid var(--conc-200);
+  background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--mist);
   border-radius:var(--r);width:46px;height:46px;flex:none;padding:0;
   display:inline-flex;align-items:center;justify-content:center;cursor:pointer
 }
-.nav__toggle:hover{background:var(--conc-100);border-color:var(--gray-300)}
+.nav__toggle:hover{background:rgba(255,255,255,.16);border-color:var(--bone)}
 @media (min-width:1080px){
   .nav__links{display:flex}
+  .nav__links + .nav__cta{margin-left:10px}
   .nav__ctaLong{display:inline}
   .nav__ctaShort{display:none}
   .nav__toggle{display:none}
 }
 /* below 430px the bar has no room for a label — the primary CTA lives in the
-   drawer instead (a full-width .btn--primary is the first item there). */
-@media (max-width:429px){ .nav__cta{display:none} }
-.nav__drawer{display:none;padding:6px var(--gut) 20px;background:#fff;border-top:1px solid var(--conc-100)}
+   drawer instead (a full-width .btn--white is the last item there). */
+@media (max-width:429px){ .nav__cta{display:none} .nav__toggle{margin-left:auto} }
+.nav__drawer{display:none;padding:6px var(--gut) 20px;background:var(--slate);border-top:1px solid var(--mist)}
 .nav__drawer.is-open{display:block}
 .nav__drawer a.nav__dlink{
-  display:block;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;
-  padding:14px 4px;border-bottom:1px solid var(--conc-100);min-height:48px
+  display:block;color:var(--bone);text-decoration:none;font-weight:600;font-size:16px;
+  padding:14px 4px;border-bottom:1px solid rgba(135,149,151,.55);min-height:48px
 }
-.nav__drawer a.nav__dlink:hover{color:var(--red)}
+.nav__drawer a.nav__dlink:hover{color:#fff}
 .nav__drawer .btn{width:100%;margin-top:18px}
 
 /* ---------- hero ---------------------------------------------------------- */
@@ -370,7 +399,7 @@ img{max-width:100%;height:auto;display:block}
   font-size:clamp(24px,3.4vw,36px);font-weight:800;color:var(--gold);
   line-height:1.02;letter-spacing:-.03em;display:block
 }
-.stat__l{font-size:13px;color:var(--stone);margin-top:9px;line-height:1.4;font-weight:500;display:block}
+.stat__l{font-size:13px;color:var(--bone);margin-top:9px;line-height:1.4;font-weight:500;display:block}
 .stats__wrap{position:relative}
 
 /* ---------- split (text + photo) ------------------------------------------ */
@@ -414,7 +443,7 @@ img{max-width:100%;height:auto;display:block}
 
 /* ---------- highlighted note block ---------------------------------------- */
 .note{
-  background:#fff;border:1px solid var(--conc-200);border-left:5px solid var(--red);
+  background:#fff;border:1px solid var(--conc-200);border-left:5px solid var(--teal);
   border-radius:0 var(--r) var(--r) 0;padding:clamp(22px,3vw,32px);
   margin-top:clamp(30px,4vw,46px)
 }
@@ -430,13 +459,13 @@ img{max-width:100%;height:auto;display:block}
 .pgrid li{
   flex:1 1 238px;max-width:262px;min-width:0;
   background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  border-top:3px solid var(--red);padding:22px 20px 24px;
+  border-top:3px solid var(--teal);padding:22px 20px 24px;
   display:flex;flex-direction:column;gap:14px
 }
 @media (max-width:519px){
   .pgrid li{flex:1 1 100%;max-width:none;flex-direction:row;align-items:center;gap:14px}
 }
-.pgrid .ic{width:26px;height:26px;color:var(--red);flex:none}
+.pgrid .ic{width:26px;height:26px;color:var(--teal);flex:none}
 .pgrid b{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.006em}
 
 /* ---------- serif pull lines (Georgia) ------------------------------------ */
@@ -502,12 +531,12 @@ img{max-width:100%;height:auto;display:block}
   width:88px;height:88px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
   border:1px solid var(--conc-200);overflow:hidden
 }
-.board__ph svg{width:46px;height:46px;color:var(--gray-500)}
+.board__ph svg{width:46px;height:46px;color:var(--mist)}
 .board__n{font-size:15.5px;font-weight:700;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em;line-height:1.25}
-.board__t{font-size:13.5px;font-weight:600;color:var(--red);margin:0 0 3px;line-height:1.35}
-.board__o{font-size:13px;color:var(--gray-700);margin:0;line-height:1.35}
+.board__t{font-size:13.5px;font-weight:600;color:var(--teal);margin:0 0 3px;line-height:1.35}
+.board__o{font-size:13px;color:var(--slate);margin:0;line-height:1.35}
 .board__note{
-  margin:clamp(26px,3vw,36px) 0 0;font-size:13.5px;color:var(--gray-700);
+  margin:clamp(26px,3vw,36px) 0 0;font-size:13.5px;color:var(--slate);
   text-align:center;font-weight:500
 }
 
@@ -529,15 +558,15 @@ img{max-width:100%;height:auto;display:block}
 .foot__top{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
 .foot__nav{display:flex;flex-wrap:wrap;gap:0 20px;list-style:none;margin:0;padding:0}
 .foot__nav a{
-  color:var(--stone);text-decoration:none;font-size:14.5px;font-weight:600;
+  color:var(--bone);text-decoration:none;font-size:14.5px;font-weight:600;
   display:inline-flex;align-items:center;min-height:44px
 }
-.foot__nav a:hover{color:var(--gold)}
-.foot__contact{margin:clamp(26px,3vw,34px) 0 0;font-size:14.5px;color:var(--stone);line-height:1.7}
-.foot__contact a{color:var(--stone);text-decoration:underline}
-.foot__contact a:hover{color:var(--gold)}
+.foot__nav a:hover{color:#fff;text-decoration:underline}
+.foot__contact{margin:clamp(26px,3vw,34px) 0 0;font-size:14.5px;color:var(--bone);line-height:1.7}
+.foot__contact a{color:var(--bone);text-decoration:underline}
+.foot__contact a:hover{color:#fff}
 .foot__sep{color:rgba(255,255,255,.35);padding:0 6px}
-.foot__bot{border-top:1px solid rgba(255,255,255,.14);margin-top:26px;padding:18px 0 28px;font-size:13px;color:#a7a9a5}
+.foot__bot{border-top:1px solid var(--mist);margin-top:26px;padding:18px 0 28px;font-size:13px;color:var(--bone)}
 
 /* ---------- inline icons --------------------------------------------------- */
 .ic{display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
@@ -617,11 +646,8 @@ html.js .rv.is-in{opacity:1;transform:none}
 <!-- ============================== STICKY NAV ============================== -->
 <header class="nav">
   <div class="nav__in">
-    <!-- LOGO SLOT: replace this text lockup with the supplied Chico State + CIM lockup (SVG preferred). Keep height ~44px in nav. -->
     <a class="brand" href="#top">
-      <span class="brand__uni">Chico State</span>
-      <span class="brand__rule" aria-hidden="true"></span>
-      <span class="brand__unit">Concrete Industry<br />Management</span>
+      <img src="assets/img/logo/cim-chico-state-white.png" alt="Chico State Concrete Industry Management" width="826" height="320" />
     </a>
 
     <nav class="nav__links" aria-label="Section navigation">
@@ -633,7 +659,7 @@ html.js .rv.is-in{opacity:1;transform:none}
     </nav>
 
     <div class="nav__cta">
-      <a class="btn btn--primary" href="#" data-cta="support"><span class="nav__ctaShort">Support</span><span class="nav__ctaLong">Support Chico State CIM</span></a>
+      <a class="btn btn--white" href="#" data-cta="support"><span class="nav__ctaShort">Support</span><span class="nav__ctaLong">Support Chico State CIM</span></a>
     </div>
 
     <button class="nav__toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer" aria-label="Open section menu">
@@ -647,7 +673,7 @@ html.js .rv.is-in{opacity:1;transform:none}
     <a class="nav__dlink" href="#why">Why Support</a>
     <a class="nav__dlink" href="#scholarship">Scholarship</a>
     <a class="nav__dlink" href="#board">Board</a>
-    <a class="btn btn--primary" href="#" data-cta="support">Support Chico State CIM</a>
+    <a class="btn btn--white" href="#" data-cta="support">Support Chico State CIM</a>
   </div>
 </header>
 
@@ -829,7 +855,7 @@ html.js .rv.is-in{opacity:1;transform:none}
     <p class="pull rv">Supporting students today. Building the industry’s future.</p>
 
     <div class="btns rv">
-      <a class="btn btn--primary" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
+      <a class="btn btn--white" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
       <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
     </div>
   </div>
@@ -906,11 +932,8 @@ html.js .rv.is-in{opacity:1;transform:none}
 <footer class="foot conc--dark">
   <div class="wrap">
     <div class="foot__top">
-      <!-- LOGO SLOT: replace this text lockup with the supplied Chico State + CIM lockup (SVG preferred). Keep height ~44px in nav. -->
       <a class="brand" href="#top">
-        <span class="brand__uni">Chico State</span>
-        <span class="brand__rule" aria-hidden="true"></span>
-        <span class="brand__unit">Concrete Industry<br />Management</span>
+        <img src="assets/img/logo/cim-chico-state-white.png" alt="Chico State Concrete Industry Management" width="826" height="320" loading="lazy" />
       </a>
       <nav aria-label="Footer navigation">
         <ul class="foot__nav">

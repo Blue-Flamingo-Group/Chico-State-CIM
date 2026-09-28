@@ -22,7 +22,7 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 Seven sections, in order:
 
 1. **Hero** — concrete copy panel + full-bleed photo, split at ≥980px. Four-tile
-   stat strip on dark charcoal concrete underneath.
+   stat strip on dark slate concrete underneath.
 2. **About CIM** (`#about`) — H2, lede, two paragraphs, then the
    *From Classroom to Boardroom* H3 and its paragraph. Photo split; the photo
    stretches to the text column height. CTA: *Discover Chico State CIM* (outline).
@@ -35,7 +35,7 @@ Seven sections, in order:
 4. **Why Support CIM** (`#why`) — H2 and lede, two-column prose, a full-width
    21:9 photo band, then the industry-partners paragraph in a highlighted note
    block. CTA: *Support Chico State CIM* (primary).
-5. **Scholarship Feature** (`#scholarship`) — dark charcoal-concrete panel. H2
+5. **Scholarship Feature** (`#scholarship`) — dark slate-concrete panel. H2
    across the top, then the giant `$1 million` in Golden Hour Yellow beside the
    three paragraphs, with the *A $1 Million Investment in the Next Generation*
    H3 as the stat's label. Serif tagline, then two CTAs.
@@ -44,7 +44,7 @@ Seven sections, in order:
 7. **Final CTA** (`#support`) — Chico Red panel, centered, closing serif line,
    two CTAs.
 
-Sticky nav with a mobile drawer, then footer.
+Sticky slate nav (official logo) with a mobile drawer, then a slate footer.
 
 The giant `$1 million` is `white-space: nowrap`, so its maximum type size is
 capped to what the left column can hold. Raising it without widening the column
@@ -52,17 +52,27 @@ pushes the number into the gutter.
 
 ## Brand
 
-Chico State's published palette, used to the university's own rules.
+Chico State's published palette plus four colors the client added. **Chico Red
+and white stay the identity**; the client colors complement them and were
+applied deliberately sparingly — the client did not want a recolor.
 
 | Token | Hex | Role |
 |---|---|---|
-| Chico Red | `#9D2235` | **Dominant.** Primary buttons, rules, eyebrows, the closing panel. |
-| Cornerstone Gray | `#75787B` | Neutral. Graphic use and large text only — see contrast note. |
-| Black / White | `#1c1d1f` / `#ffffff` | Primary neutrals. |
-| Dusk Blue | `#043546` | Secondary — accent only. |
-| Golden Hour Yellow | `#EBA70E` | Secondary — accent only. Stat numbers and the giant `$1 million`, both on dark panels. |
-| Canyon Stone | `#D0D1C9` | Secondary — accent only. Body text on dark panels. |
+| Chico Red | `#9D2235` | **Dominant.** Every call to action, eyebrows, rules, the hero divider, the closing panel. |
+| White | `#ffffff` | Primary ground. |
+| Ink | `#1c1d1f` | Headlines and hero copy. |
+| Bone *(client)* | `#E3E5DB` | Light concrete surfaces (hero panel, Patron and Board sections); small text on slate. |
+| Mist *(client)* | `#879597` | **Graphic only** — hairlines, separators, placeholder icon strokes. Fails as text on white and on slate. |
+| Slate *(client)* | `#485253` | Header bar, dark concrete panels (stat strip, scholarship, footer), body text on light surfaces. |
+| Teal *(client)* | `#007E95` | Quiet accent, **light surfaces only**. Exactly four placements: Patron tile icons, Patron tile top borders, the `.note` left border, board member titles. |
+| Golden Hour Yellow | `#EBA70E` | Secondary. **Large figures only**: stat numbers, the `$1,000,000` and its drawn rule, the pull-quote bar, focus rings on dark. |
+| Dusk Blue | `#043546` | Token kept; not used on the page. |
 
+**Usage rule.** Maroon = brand + every call to action. Teal = supporting detail
+only — never a button, eyebrow, headline, the hero rule, or anything on slate
+(1.69:1). Neutrals are the client's bone/mist/slate. If in doubt, do less.
+
+Cornerstone Gray and Canyon Stone were retired in favour of Slate and Bone.
 Terracotta and Orchard Green are not used anywhere, per the university rule.
 
 **Type.** Montserrat 400/500/600/700/800 (Google Fonts) stands in for the
@@ -74,35 +84,39 @@ uppercase on the page.
 **Concrete texture.** Pure CSS/SVG, no image files. Two `feTurbulence` tiles —
 one large-scale cloud at `baseFrequency 0.011` for the poured-slab mottling,
 one fine tile at `0.75` for surface tooth — both built on a neutral `#808080`
-base and blended with `overlay` over a concrete-gray gradient. That neutral base
-is why it reads as poured concrete rather than TV static; keep the cloud layer's
-frequency low. Faint form-tie and panel-seam hairlines sit on top
-(`.seams` / `.ties`). **Never add crack or fracture patterns** — the client asked
-for smooth poured concrete, no cracks.
+base and blended with `overlay` over a bone (light) or slate (dark) gradient.
+That neutral base is why it reads as poured concrete rather than TV static; keep
+the cloud layer's frequency low. Faint form-tie and panel-seam hairlines sit on
+top (`.seams` / `.ties`). **Never add crack or fracture patterns** — the client
+asked for smooth poured concrete, no cracks.
+
+The overlay **lifts** a mid-dark backdrop noticeably, so the dark gradient is
+set below slate on purpose (`#434c4d → #3a4344 → #2f3738`); rendered, the panel
+measures `#343c3d`–`#556061`, median `#424d4e`. Lighten it and the gold figures
+and bone text drop under AA.
 
 ### Contrast — measured, WCAG 2.1 AA
 
-The full table is at the top of the stylesheet. The short version:
+The full table is at the top of the stylesheet; every pair was computed with the
+WCAG formula, and the grain-affected surfaces were measured from rendered pixels
+(worst case). The short version:
 
 | Pair | Ratio | Verdict |
 |---|---|---|
-| Chico Red `#9D2235` on white | 7.74:1 | text OK |
-| white on Chico Red | 7.74:1 | text OK |
-| Chico Red on light concrete `#e6e6e2` | 6.07:1 | text OK |
-| Chico Red on deep concrete `#bcbcb7` | ~4.1:1 | **graphic only** |
-| Chico Red on charcoal `#2b2c2c` | 1.81:1 | **never** — red never carries text or a label on the dark panels |
-| Cornerstone Gray `#75787B` on white | 4.44:1 | **fails** small text |
-| `--gray-700 #5c5f62` on white | 6.43:1 | text OK — this is why body copy uses `--gray-700`, not the published Cornerstone |
-| `--gray-700` on deep concrete `#d6d6d2` | 4.41:1 | **fails** — deep concrete carries `--ink` only (hero copy does) |
-| `--ink #1c1d1f` on white / deep concrete | 16.87 / 8.94 | OK |
-| Golden Hour `#EBA70E` on white | 2.09:1 | **never text on white** |
-| Golden Hour on charcoal `#232424` | 7.46:1 | OK — dark panels only |
-| white / Canyon Stone on charcoal | 14.01 / 9.10 | OK |
-
-One deliberate exception is documented in the CSS: the red primary button on the
-charcoal scholarship panel is 1.81:1 against its background, which is fine for
-the label (white on red, 7.74:1) but not enough of a boundary under WCAG 1.4.11.
-It carries a 1px white hairline for that reason. Do not remove it.
+| Chico Red on white / white on Chico Red | 7.74:1 | text OK |
+| Chico Red on bone `#e3e5db` | 6.08:1 | text OK |
+| Chico Red on hero concrete, darkest rendered `#c8cbc1` | 4.70:1 | text OK |
+| Chico Red on slate | 1.04:1 | **never** — every CTA on slate is the white button with a red label |
+| Slate on white / bone / hero darkest | 8.05 / 6.33 / 4.90 | text OK |
+| Ink on white / hero darkest | 16.87 / 10.26 | OK |
+| Teal on white | 4.75:1 | text OK (board titles on white cards) |
+| Teal on bone | 3.73:1 | **graphic only** |
+| Teal on slate | 1.69:1 | **never** |
+| Mist on white / slate | 3.10 / 2.60 | **graphic / decorative only** |
+| Bone on slate header / dark panel worst case `#556061` | 6.33 / 5.10 | text OK |
+| White on slate / dark panel worst case | 8.05 / 6.50 | OK |
+| Golden Hour on slate / dark panel worst case | 3.86 / 3.11 | **large text and graphics only** |
+| Golden Hour on white | 2.09:1 | **never** |
 
 ## Buttons
 
@@ -112,7 +126,9 @@ everywhere. 48px tall, 6px radius, 600 weight, 44px minimum tap target.
 - **Primary** — filled Chico Red, white label. Every *"Support…"* CTA.
 - **Secondary** — 2px outline. Chico Red on light, white on dark. Every
   *"Become a CIM Patron"* and *"Discover Chico State CIM"* CTA.
-- On the red closing panel the primary inverts to white-filled with red text.
+- On the red closing panel **and on every slate surface** (header CTA, drawer
+  CTA, scholarship panel) the primary inverts to white-filled with red text
+  (`.btn--white`). Chico Red on slate is 1.04:1, so a red fill would vanish.
 
 The Patron section's *Become a CIM Patron* is the section's main ask, so it is
 `.btn--lg` and centered — but it keeps the secondary style. That rule is
@@ -120,20 +136,19 @@ site-wide; do not promote it to a filled red button.
 
 ## What is still open
 
-### 1. Logo
-The Chico State + CIM lockup was not delivered. The nav and footer carry a text
-lockup instead: "Chico State" (Montserrat 800) + a thin Chico Red rule +
-"Concrete Industry Management" on two tracked lines. Both are marked in the
-source with:
+### 1. Logo — done
+The official lockup is in place in the nav and the footer:
+`assets/img/logo/cim-chico-state-white.png` (826×320, white artwork on
+transparent, trimmed). It is an `<img>` inside `<a class="brand">` with alt text
+"Chico State Concrete Industry Management" and explicit `width`/`height`, so it
+causes no layout shift. Heights: 50px in the nav (40px under 430px wide), 80px
+in the footer (72px on small phones), where the small "Concrete Industry
+Management" descriptor becomes readable. Never recolor, filter, crop or squash
+it.
 
-```
-<!-- LOGO SLOT: replace this text lockup with the supplied Chico State + CIM lockup (SVG preferred). Keep height ~44px in nav. -->
-```
-
-Replace the contents of `<a class="brand">` in **both** places. SVG preferred.
-Keep it to about 44px tall in the nav; the footer copy is the same markup on a
-dark background, so a version that works on both light and dark, or two files,
-is what to ask for.
+**The artwork is white, so it only works on a dark surface.** That is why the
+header is slate. If the header ever goes back to white, a dark or full-color
+version of the logo is needed — ask the client for one; do not recolor this file.
 
 ### 2. Photos
 All four images are temporary placeholders. Three are free stock (Unsplash /
@@ -266,7 +281,8 @@ horizontal scroll at 360px.
 
 ## Go-live checklist
 
-- [ ] Replace the logo lockup in the nav **and** the footer.
+- [x] Official logo in the nav **and** the footer (white lockup on slate).
+      A dark/color version is only needed if the header ever goes white.
 - [ ] Replace all four images and rewrite every alt text (grep
       `alt="Temporary`). Delete `assets/img/temp/`.
 - [ ] **Replace the AI-generated About image** (`about-generated-classroom.jpg`)
