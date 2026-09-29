@@ -41,7 +41,7 @@ Seven sections, in order:
    H3 as the stat's label. Serif tagline, then two CTAs.
 6. **Board** (`#board`) — H2, H3, lede, paragraph, five placeholder profile
    cards. No CTA.
-7. **Final CTA** (`#support`) — Chico Red panel, centered, closing serif line,
+7. **Final CTA** (`#support`) — deep-teal panel (`.sec--cta`), centered, closing serif line,
    two CTAs.
 
 Sticky slate nav (official logo) with a mobile drawer, then a slate footer.
@@ -52,25 +52,39 @@ pushes the number into the gutter.
 
 ## Brand
 
-Chico State's published palette plus four colors the client added. **Chico Red
-and white stay the identity**; the client colors complement them and were
-applied deliberately sparingly — the client did not want a recolor.
+**Chico Red (maroon) was removed from the whole page at the client's direction
+on 2026-09-29.** The page now runs on the four client colours plus white, ink
+and the university's Golden Hour gold. No maroon token, rule or colour value
+remains in `index.html`.
+
+**One action colour.**
+- **Teal = every call to action** (all primary buttons) plus the key accents:
+  header rule, hero divider, eyebrow bars, photo corner rules, note borders,
+  Patron tile icons.
+- **Slate = structure**: header bar, dark concrete panels, secondary (outline)
+  buttons, eyebrow text, Patron tile top rules, board titles, body text.
+- **Gold = large figures only**: stat numbers, the `$1,000,000` and its drawn
+  rule, the pull-quote bar, focus rings on dark. Never small text, never on teal.
 
 | Token | Hex | Role |
 |---|---|---|
-| Chico Red | `#9D2235` | **Dominant.** Every call to action, eyebrows, rules, the hero divider, the closing panel. |
-| White | `#ffffff` | Primary ground. |
-| Ink | `#1c1d1f` | Headlines and hero copy. |
-| Bone *(client)* | `#E3E5DB` | Light concrete surfaces (hero panel, Patron and Board sections); small text on slate. |
-| Mist *(client)* | `#879597` | **Graphic only** — hairlines, separators, placeholder icon strokes. Fails as text on white and on slate. |
-| Slate *(client)* | `#485253` | Header bar, dark concrete panels (stat strip, scholarship, footer), body text on light surfaces. |
-| Teal *(client)* | `#007E95` | Quiet accent, **light surfaces only**. Exactly four placements: Patron tile icons, Patron tile top borders, the `.note` left border, board member titles. |
-| Golden Hour Yellow | `#EBA70E` | Secondary. **Large figures only**: stat numbers, the `$1,000,000` and its drawn rule, the pull-quote bar, focus rings on dark. |
-| Dusk Blue | `#043546` | Token kept; not used on the page. |
+| `--teal` | `#007E95` | Client teal. CTA fills, bars, rules — graphic use. |
+| `--teal-ink` | `#005a6a` | Deep teal. Small teal text (links, white-button labels), primary-button edges, focus rings on light surfaces. |
+| `--teal-800` | `#006577` | Hover darken for teal fills; the closing CTA panel. |
+| `--slate` | `#485253` | See above. |
+| `--bone` | `#E3E5DB` | Light concrete surfaces (hero panel, Patron and Board sections); small text on slate. |
+| `--mist` | `#879597` | **Graphic only** — hairlines, separators, placeholder icon strokes. Fails as text on white and on slate. |
+| White / Ink | `#ffffff` / `#1c1d1f` | Ground; headlines and hero copy. |
+| `--gold` | `#EBA70E` | Large figures only (above). |
+| `--dusk` | `#043546` | Token kept; not used on the page. |
 
-**Usage rule.** Maroon = brand + every call to action. Teal = supporting detail
-only — never a button, eyebrow, headline, the hero rule, or anything on slate
-(1.69:1). Neutrals are the client's bone/mist/slate. If in doubt, do less.
+**Why two teals.** Client teal `#007E95` passes as small text only on pure white
+(4.75:1). On bone it is 3.73:1 and on the darkest hero concrete 2.89:1 — both
+fail. So client teal does the fills and graphics, and the deeper `--teal-ink`
+(≥4.78:1 on every light surface) does anything small: link text, white-button
+labels, the primary button's 2px edge (so the control boundary clears 3:1 on
+the hero concrete), and focus rings. `--teal-800` is the hover shade and the
+closing panel, where client teal read too bright at full-width.
 
 Cornerstone Gray and Canyon Stone were retired in favour of Slate and Bone.
 Terracotta and Orchard Green are not used anywhere, per the university rule.
@@ -99,23 +113,25 @@ and bone text drop under AA.
 
 The full table is at the top of the stylesheet; every pair was computed with the
 WCAG formula, and the grain-affected surfaces were measured from rendered pixels
-(worst case). The short version:
+(worst case; the darkest light surface is the hero concrete, `#c8cbc1`). The
+short version:
 
 | Pair | Ratio | Verdict |
 |---|---|---|
-| Chico Red on white / white on Chico Red | 7.74:1 | text OK |
-| Chico Red on bone `#e3e5db` | 6.08:1 | text OK |
-| Chico Red on hero concrete, darkest rendered `#c8cbc1` | 4.70:1 | text OK |
-| Chico Red on slate | 1.04:1 | **never** — every CTA on slate is the white button with a red label |
-| Slate on white / bone / hero darkest | 8.05 / 6.33 / 4.90 | text OK |
+| White on teal / teal-800 / teal-ink | 4.75 / 6.71 / 7.86 | text OK |
+| Teal-ink on white / bone / hero darkest | 7.86 / 6.18 / 4.78 | text, edges, focus rings OK |
+| Teal on white | 4.75:1 | OK |
+| Teal on bone / hero darkest | 3.73 / 2.89 | **graphic / decorative only** — never small text |
+| Teal on slate | 1.69:1 | **never bare** — teal fills on slate carry a 1px bone hairline (6.33:1; 5.10:1 on the lightest dark-panel spot) |
+| Slate on white / bone / hero darkest | 8.05 / 6.33 / 4.90 | text OK (body, eyebrows, secondary buttons) |
+| White on slate (secondary hover) | 8.05:1 | OK |
 | Ink on white / hero darkest | 16.87 / 10.26 | OK |
-| Teal on white | 4.75:1 | text OK (board titles on white cards) |
-| Teal on bone | 3.73:1 | **graphic only** |
-| Teal on slate | 1.69:1 | **never** |
 | Mist on white / slate | 3.10 / 2.60 | **graphic / decorative only** |
 | Bone on slate header / dark panel worst case `#556061` | 6.33 / 5.10 | text OK |
 | White on slate / dark panel worst case | 8.05 / 6.50 | OK |
+| 85% white outline on the teal-800 panel | 5.34:1 | graphic OK |
 | Golden Hour on slate / dark panel worst case | 3.86 / 3.11 | **large text and graphics only** |
+| Golden Hour on teal | 2.28:1 | **never** — focus ring on the CTA panel is white |
 | Golden Hour on white | 2.09:1 | **never** |
 
 ## Buttons
@@ -123,16 +139,19 @@ WCAG formula, and the grain-affected surfaces were measured from rendered pixels
 Site-wide, identical metrics in every section, so hierarchy reads the same
 everywhere. 48px tall, 6px radius, 600 weight, 44px minimum tap target.
 
-- **Primary** — filled Chico Red, white label. Every *"Support…"* CTA.
-- **Secondary** — 2px outline. Chico Red on light, white on dark. Every
-  *"Become a CIM Patron"* and *"Discover Chico State CIM"* CTA.
-- On the red closing panel **and on every slate surface** (header CTA, drawer
-  CTA, scholarship panel) the primary inverts to white-filled with red text
-  (`.btn--white`). Chico Red on slate is 1.04:1, so a red fill would vanish.
+- **Primary** — teal fill, white label, 2px deep-teal edge; hover darkens to
+  `--teal-800`. Every *"Support…"* CTA.
+- **Secondary** — 2px outline. Slate on light (fills slate on hover), white on
+  dark. Every *"Become a CIM Patron"* and *"Discover Chico State CIM"* CTA.
+- **On slate** (header CTA, drawer CTA, scholarship panel) the primary is marked
+  up `.btn--white` and rendered as a teal fill with a 1px bone hairline, because
+  teal on slate is 1.69:1.
+- **On the deep-teal closing panel** the primary is white-filled with a
+  deep-teal label (`.btn--white`); the outline button's border is 85% white.
 
 The Patron section's *Become a CIM Patron* is the section's main ask, so it is
 `.btn--lg` and centered — but it keeps the secondary style. That rule is
-site-wide; do not promote it to a filled red button.
+site-wide; do not promote it to a filled teal button.
 
 ## What is still open
 
@@ -222,7 +241,7 @@ scoped to `html.js` (the inline script sets that class), so with JavaScript off
 the page renders finished.
 
 1. **Hero entrance, on load.** Eyebrow -> H1 -> lede -> paragraph -> buttons fade
-   and rise 14px in sequence (600ms each, 90ms stagger, ease-out). The red divider
+   and rise 14px in sequence (600ms each, 90ms stagger, ease-out). The teal divider
    between the copy panel and the photo draws in as the headline lands (700ms).
    The hero photo makes one slow push-in, scale 1 -> 1.05 over 14s, then holds.
    The page settles in about a second.

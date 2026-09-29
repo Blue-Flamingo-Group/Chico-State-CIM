@@ -26,25 +26,35 @@
    Single-file static landing page. No build step, no dependencies.
    Client: Blue Flamingo · Job ECC-2602.
 
-   BRAND RULES (California State University, Chico style guide + client palette)
-     Chico Red      #9D2235  dominant — every call to action, eyebrows, rules,
-                             the hero divider, the closing panel
-     White          #FFFFFF  primary ground; Red + White are the identity
-     Black (--ink)  #1C1D1F  headlines and hero copy
-     CLIENT PALETTE — complements red + white, never replaces it:
+   BRAND RULES (client palette; Chico State type + gold carried over)
+     Chico Red (the university maroon) was REMOVED from this page at the
+     client's direction on 2026-09-29. No maroon token, rule or colour value
+     remains in this file.
+     ONE ACTION COLOUR:
+       Teal   #007E95  every call to action (primary fills), plus the key
+                       accents: header rule, hero divider, eyebrow bars, photo
+                       corner rules, note borders, Patron tile icons.
+       Slate  #485253  structure: header bar, dark concrete panels, secondary
+                       (outline) buttons, eyebrow text, Patron tile rules,
+                       board titles, body text on light surfaces.
+       Gold   #EBA70E  large figures only: stat numbers, the $1,000,000 and its
+                       rule, the pull-quote bar, focus rings on dark. Never
+                       small text; never on teal (2.28:1).
+     WHY TWO TEALS (plus a hover): client teal #007E95 fails as small text on
+     every light surface except white (3.73:1 on bone, 2.89:1 on the darkest
+     hero concrete). So:
+       --teal      #007E95  fills, bars, rules — graphic use
+       --teal-ink  #005a6a  small teal text (links, white-button labels),
+                            primary-button edges, focus rings on light —
+                            clears 4.5:1 on every light surface
+       --teal-800  #006577  hover darken for teal fills; the closing CTA panel
+     NEUTRALS:
+       White  #FFFFFF  primary ground
+       Ink    #1C1D1F  headlines and hero copy
        Bone   #E3E5DB  light concrete surfaces; small text on slate
        Mist   #879597  GRAPHIC ONLY (hairlines, separators, placeholder icon
                        strokes). Fails as small text on white and on slate.
-       Slate  #485253  header bar, dark concrete panels, body text on light
-       Teal   #007E95  quiet accent, LIGHT surfaces only, four placements:
-                       Patron tile icons + top borders, the .note left border,
-                       board titles. Never a CTA, eyebrow, headline or hero
-                       rule; never on slate (1.69:1).
-     SECONDARY, ACCENT ONLY (university rule — never dominant):
-       Golden Hour Yellow #EBA70E  large figures only: stat numbers, the
-                                   $1,000,000 and its rule, pull-quote bar,
-                                   focus rings on dark. Never small text.
-       Dusk Blue          #043546  token kept, not used on the page.
+     Dusk Blue #043546: token kept, not used on the page.
      Cornerstone Gray and Canyon Stone were replaced by Slate and Bone.
      Terracotta and Orchard Green are NOT used anywhere on this page.
      LOGO: official white lockup (assets/img/logo/cim-chico-state-white.png)
@@ -69,45 +79,59 @@
 
    CONTRAST — measured, WCAG 2.1 AA (4.5:1 small text, 3:1 large/graphic).
    Computed with the WCAG formula, not estimated. "rendered" = pixels sampled
-   from a screenshot, because the grain overlay shifts every surface.
+   from a screenshot, because the grain overlay shifts every surface. The
+   darkest light surface on the page is the hero concrete, #c8cbc1 rendered.
    Do not move these colors around without re-measuring.
-     Chico Red #9D2235 on white .................. 7.74:1  OK text
-     white on Chico Red #9D2235 .................. 7.74:1  OK text
-     Chico Red on --conc-050 #eff0ea ............. 6.75:1  OK text
-     Chico Red on Bone #e3e5db ................... 6.08:1  OK text
-     Chico Red on hero concrete, darkest rendered
-       #c8cbc1 (behind the hero buttons) ......... 4.70:1  OK text
-     Chico Red on Slate #485253 .................. 1.04:1  NEVER — red fill
-                                                   vanishes on slate. Every
-                                                   slate-surface CTA is
-                                                   .btn--white (red label on
-                                                   white, 7.74:1).
-     Slate #485253 on white ...................... 8.05:1  OK (body text)
+   Teal family
+     white on Teal #007E95 ....................... 4.75:1  OK text (CTA labels)
+     white on --teal-800 #006577 ................. 6.71:1  OK text (hover,
+                                                   closing panel copy)
+     white on --teal-ink #005a6a ................. 7.86:1  OK text (skip link)
+     --teal-ink on white ......................... 7.86:1  OK text / edge / ring
+     --teal-ink on --conc-050 #eff0ea ............ 6.86:1  OK
+     --teal-ink on Bone #e3e5db .................. 6.18:1  OK (white-btn hover)
+     --teal-ink on hero concrete, darkest #c8cbc1  4.78:1  OK — primary-button
+                                                   edge + focus ring there
+     Teal on white ............................... 4.75:1  graphic (and text-OK)
+     Teal on Bone #e3e5db ........................ 3.73:1  GRAPHIC ONLY
+     Teal on hero concrete, darkest #c8cbc1 ...... 2.89:1  DECORATIVE ONLY —
+                                                   eyebrow bar, divider; never
+                                                   a button edge here
+     Teal on Slate #485253 ....................... 1.69:1  NEVER bare — teal
+                                                   fills on slate carry a 1px
+                                                   bone hairline:
+     Bone hairline on Slate #485253 .............. 6.33:1  OK graphic
+     Bone hairline on dark concrete, lightest
+       #556061 ................................... 5.10:1  OK graphic
+     85% white ghost border on #006577 ........... 5.34:1  OK graphic
+     white focus ring on #006577 ................. 6.71:1  OK graphic
+     --teal-800 panel vs Slate footer ............ 1.20:1  hue-separated
+                                                   (decorative boundary)
+   Slate + neutrals
+     Slate #485253 on white ...................... 8.05:1  OK (body, labels,
+                                                   secondary buttons)
      Slate on --conc-050 #eff0ea ................. 7.03:1  OK
      Slate on Bone #e3e5db ....................... 6.33:1  OK
      Slate on light concrete, deepest #dbded2 .... 5.90:1  OK
-     Slate on hero concrete, darkest #c8cbc1 ..... 4.90:1  OK
+     Slate on hero concrete, darkest #c8cbc1 ..... 4.90:1  OK (eyebrow,
+                                                   secondary button)
+     white on Slate (secondary-button hover) ..... 8.05:1  OK
      --ink #1c1d1f on white ..................... 16.87:1  OK
      --ink on hero concrete, darkest #c8cbc1 .... 10.26:1  OK (hero copy)
-     Teal #007E95 on white ....................... 4.75:1  OK text (board
-                                                   titles sit on white cards)
-     Teal on Bone #e3e5db ........................ 3.73:1  GRAPHIC ONLY
-     Teal on light concrete, darkest #e0e2d9 ..... 3.63:1  GRAPHIC ONLY
-     Teal on Slate #485253 ....................... 1.69:1  NEVER
      Mist #879597 on white ....................... 3.10:1  GRAPHIC ONLY
      Mist on Slate #485253 ....................... 2.60:1  DECORATIVE ONLY —
                                                    separators, toggle outline
                                                    (the white icon carries it)
+   On slate / dark concrete
      Bone #E3E5DB on Slate header #485253 ........ 6.33:1  OK text (nav links)
      Bone on dark concrete, rendered median
        #424d4e ................................... 6.86:1  OK text
-     Bone on dark concrete, lightest rendered
-       #556061 ................................... 5.10:1  OK text
-     white on Slate #485253 ...................... 8.05:1  OK
+     Bone on dark concrete, lightest #556061 ..... 5.10:1  OK text
      white on nav hover tint #5a6364 ............. 6.17:1  OK
      white on dark concrete, lightest #556061 .... 6.50:1  OK
      #f0f0ee (dark-panel lede) on #556061 ........ 5.69:1  OK
      ghost-w border (62% white) on #556061 ....... 3.65:1  OK graphic
+   Gold
      Golden Hour #EBA70E on Slate #485253 ........ 3.86:1  LARGE/GRAPHIC ONLY
      Golden Hour on dark concrete, median #424d4e  4.19:1  LARGE/GRAPHIC ONLY
      Golden Hour on dark concrete, lightest
@@ -115,27 +139,23 @@
                                                    — stat numbers (24px+/800)
                                                    and $1,000,000 qualify;
                                                    nothing smaller may be gold.
-     Golden Hour on Chico Red (focus ring) ....... 3.71:1  OK graphic
+     Golden Hour on Teal #007E95 ................. 2.28:1  NEVER — focus ring
+                                                   on the CTA panel is white
      Golden Hour on white ........................ 2.09:1  NEVER on white
-     --red-900 #671622 on Bone (white-btn hover) . 9.62:1  OK
    ========================================================================== */
 
 :root{
-  /* ---- Chico Red (dominant) ---- */
-  --red:#9D2235;
-  --red-800:#7d1b2a;      /* hover darken */
-  --red-900:#671622;
-  --red-050:#fbf3f4;
-
   /* ---- neutrals ---- */
   --ink:#1c1d1f;
   --white:#ffffff;
 
-  /* ---- client palette (complements red + white; see BRAND RULES) ---- */
+  /* ---- client palette (see BRAND RULES) ---- */
+  --teal:#007E95;         /* THE action colour: CTA fills, bars, rules (graphic) */
+  --teal-800:#006577;     /* hover darken for teal fills; closing CTA panel */
+  --teal-ink:#005a6a;     /* small teal text, button edges, focus rings on light */
   --bone:#E3E5DB;         /* light surfaces; text on slate */
   --mist:#879597;         /* graphic only — hairlines, separators, icon strokes */
-  --slate:#485253;        /* header, dark panels; small body text on light */
-  --teal:#007E95;         /* quiet accent, LIGHT surfaces only — never a CTA */
+  --slate:#485253;        /* header, dark panels; secondary buttons, labels, body text */
 
   /* ---- secondary, accents only ---- */
   --dusk:#043546;
@@ -183,16 +203,17 @@ h3{font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.012em}
 h4{font-size:15px;font-weight:700;letter-spacing:-.005em}
 p{margin:0 0 1.05em;text-wrap:pretty}
 p:last-child{margin-bottom:0}
-a{color:var(--red);text-underline-offset:3px}
-a:hover{color:var(--red-800)}
+a{color:var(--teal-ink);text-underline-offset:3px}
+a:hover{color:var(--slate)}
 ul{margin:0 0 1.05em;padding-left:1.2em}
 li{margin-bottom:.4em}
 strong{font-weight:700}
 img{max-width:100%;height:auto;display:block}
 
-:focus-visible{outline:3px solid var(--red);outline-offset:2px;border-radius:3px}
-.conc--dark :focus-visible,.sec--red :focus-visible,.nav :focus-visible{outline-color:var(--gold)}
-.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--red);color:#fff;padding:13px 20px;font-weight:700;text-decoration:none}
+:focus-visible{outline:3px solid var(--teal-ink);outline-offset:2px;border-radius:3px}
+.conc--dark :focus-visible,.nav :focus-visible{outline-color:var(--gold)}
+.sec--cta :focus-visible{outline-color:#fff}      /* gold on teal is 2.28:1 */
+.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--teal-ink);color:#fff;padding:13px 20px;font-weight:700;text-decoration:none}
 .skip:focus{left:8px;top:8px}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
@@ -260,24 +281,24 @@ img{max-width:100%;height:auto;display:block}
 /* ---------- shared type patterns ----------------------------------------- */
 .eyebrow{
   font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--red);margin:0 0 14px;display:flex;align-items:center;gap:11px;line-height:1.4
+  color:var(--slate);margin:0 0 14px;display:flex;align-items:center;gap:11px;line-height:1.4
 }
-.eyebrow::before{content:"";width:24px;height:3px;background:var(--red);flex:none}
+.eyebrow::before{content:"";width:24px;height:3px;background:var(--teal);flex:none}
 @media (min-width:600px){ .eyebrow{font-size:12px;letter-spacing:.17em} .eyebrow::before{width:26px} }
 .conc--dark .eyebrow{color:var(--bone)}
 .conc--dark .eyebrow::before{background:var(--bone)}
-.sec--red .eyebrow{color:#fff}
-.sec--red .eyebrow::before{background:#fff}
+.sec--cta .eyebrow{color:#fff}
+.sec--cta .eyebrow::before{background:#fff}
 .lede{
   font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(18px,2.2vw,23px);line-height:1.5;color:var(--ink);
   max-width:60ch;margin:0 0 1.1em;font-weight:400
 }
 .conc--dark .lede{color:#f0f0ee}
-.sec--red .lede{color:#fff}
+.sec--cta .lede{color:#fff}
 .body{color:var(--slate);font-size:clamp(15.5px,1.6vw,17px);max-width:68ch}
 .conc--dark .body{color:var(--bone)}
-.sec--red .body{color:#f7e8ea}
+.sec--cta .body{color:#fff}
 
 /* ---------- buttons (site-wide; identical metrics in every section) ------- */
 .btn{
@@ -288,19 +309,23 @@ img{max-width:100%;height:auto;display:block}
   border:2px solid transparent;
   transition:background-color .16s,border-color .16s,color .16s,transform .16s,box-shadow .16s
 }
-.btn--primary{background:var(--red);color:#fff;border-color:var(--red)}
-.btn--primary:hover{background:var(--red-800);border-color:var(--red-800);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(157,34,53,.3)}
-.btn--ghost{background:transparent;color:var(--red);border-color:var(--red)}
-.btn--ghost:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
-/* on dark slate and on the red panel */
+.btn--primary{background:var(--teal);color:#fff;border-color:var(--teal-ink)}
+.btn--primary:hover{background:var(--teal-800);border-color:var(--teal-ink);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,90,106,.28)}
+/* the deep-teal 2px edge keeps the control boundary >=3:1 on the darkest hero
+   concrete (teal alone is 2.89:1 there) */
+.btn--ghost{background:transparent;color:var(--slate);border-color:var(--slate)}
+.btn--ghost:hover{background:var(--slate);border-color:var(--slate);color:#fff;transform:translateY(-2px)}
+/* on dark slate and on the closing CTA panel */
 .btn--ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.62)}
 .btn--ghost-w:hover{background:rgba(255,255,255,.14);border-color:#fff;color:#fff;transform:translateY(-2px)}
-.btn--white{background:#fff;color:var(--red);border-color:#fff}
-.btn--white:hover{background:var(--conc-100);border-color:var(--conc-100);color:var(--red-900);transform:translateY(-2px)}
+.btn--white{background:#fff;color:var(--teal-ink);border-color:#fff}
+.btn--white:hover{background:var(--conc-100);border-color:var(--conc-100);color:var(--teal-ink);transform:translateY(-2px)}
 .btn--lg{min-height:56px;padding:15px 34px;font-size:16.5px}
-/* Chico Red on slate is 1.04:1 — a red fill vanishes there. On every slate
-   surface (header, scholarship panel) the primary is .btn--white instead:
-   white fill, Chico Red label, the same inversion the red panel uses. */
+/* The primary CTA on slate (header, drawer, scholarship panel) is marked up as
+   .btn--white and rendered as a teal fill. Teal on slate is 1.69:1, so a 1px
+   bone hairline carries the control edge (6.33:1). */
+.nav .btn--white,.conc--dark .btn--white{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 0 0 1px var(--bone)}
+.nav .btn--white:hover,.conc--dark .btn--white:hover{background:var(--teal-800);border-color:var(--teal-800);color:#fff;box-shadow:0 0 0 1px #fff,0 6px 18px rgba(0,0,0,.3)}
 @media (prefers-reduced-motion:reduce){ .btn:hover{transform:none} }
 .btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
 @media (max-width:519px){ .btns .btn{flex:1 1 100%} }
@@ -317,7 +342,7 @@ img{max-width:100%;height:auto;display:block}
 
 /* ---------- sticky nav ---------------------------------------------------- */
 /* Slate bar: the official logo is white artwork, so the header is dark. */
-.nav{position:sticky;top:0;z-index:100;background:var(--slate);border-bottom:3px solid var(--red)}
+.nav{position:sticky;top:0;z-index:100;background:var(--slate);border-bottom:3px solid var(--teal)}
 .nav__in{
   max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
   min-height:68px;display:flex;align-items:center;gap:10px
@@ -370,8 +395,8 @@ img{max-width:100%;height:auto;display:block}
 .hero__lede{max-width:52ch}
 .hero__media{position:relative;min-height:290px;background:var(--conc-400)}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 56%;position:absolute;inset:0}
-/* Red rule between the concrete copy panel and the photo. */
-.hero__rule{height:6px;background:var(--red);position:relative;z-index:2}
+/* Teal rule between the concrete copy panel and the photo. */
+.hero__rule{height:6px;background:var(--teal);position:relative;z-index:2}
 @media (min-width:980px){
   .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1fr)}
   .hero__media{min-height:clamp(520px,54vw,640px)}
@@ -410,7 +435,7 @@ img{max-width:100%;height:auto;display:block}
   .split--media-first .split__media{order:-1}
 }
 .split__media{position:relative;display:flex;align-items:center}
-/* the frame hugs the photo, so the red rule stays pinned to the image edge
+/* the frame hugs the photo, so the teal rule stays pinned to the image edge
    even when the text column is taller than the picture */
 .split__frame{position:relative;display:block;width:100%}
 .split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
@@ -435,9 +460,9 @@ img{max-width:100%;height:auto;display:block}
      and this rule is more specific, so setting it here would override them. */
   .split--fill .split__frame img{aspect-ratio:auto;height:100%;object-fit:cover}
 }
-/* red corner rule so photos read as designed, not dropped in */
+/* teal corner rule so photos read as designed, not dropped in */
 .split__frame::after{
-  content:"";position:absolute;left:-10px;bottom:-10px;width:clamp(72px,12vw,118px);height:6px;background:var(--red)
+  content:"";position:absolute;left:-10px;bottom:-10px;width:clamp(72px,12vw,118px);height:6px;background:var(--teal)
 }
 @media (max-width:899px){ .split__frame::after{left:0} }
 
@@ -459,7 +484,7 @@ img{max-width:100%;height:auto;display:block}
 .pgrid li{
   flex:1 1 238px;max-width:262px;min-width:0;
   background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  border-top:3px solid var(--teal);padding:22px 20px 24px;
+  border-top:3px solid var(--slate);padding:22px 20px 24px;
   display:flex;flex-direction:column;gap:14px
 }
 @media (max-width:519px){
@@ -472,11 +497,11 @@ img{max-width:100%;height:auto;display:block}
 .pull{
   font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(20px,2.7vw,30px);line-height:1.34;letter-spacing:-.012em;
-  color:var(--ink);border-left:5px solid var(--red);padding:4px 0 4px clamp(20px,3vw,30px);
+  color:var(--ink);border-left:5px solid var(--teal);padding:4px 0 4px clamp(20px,3vw,30px);
   margin:clamp(30px,4vw,44px) 0 0;max-width:34ch
 }
 .conc--dark .pull{color:#fff;border-left-color:var(--gold)}
-/* closing line on the red panel — centered, so it takes a rule instead of a bar */
+/* closing line on the CTA panel — centered, so it takes a rule instead of a bar */
 .closing{
   font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(19px,2.5vw,27px);line-height:1.36;letter-spacing:-.012em;color:#fff;
@@ -511,7 +536,7 @@ img{max-width:100%;height:auto;display:block}
 .band img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 42%;border-radius:var(--r)}
 @media (min-width:760px){ .band img{aspect-ratio:21/9} }
 .band::after{
-  content:"";position:absolute;left:0;bottom:-6px;width:clamp(72px,12vw,118px);height:6px;background:var(--red)
+  content:"";position:absolute;left:0;bottom:-6px;width:clamp(72px,12vw,118px);height:6px;background:var(--teal)
 }
 
 /* ---------- two-column prose ---------------------------------------------- */
@@ -533,25 +558,28 @@ img{max-width:100%;height:auto;display:block}
 }
 .board__ph svg{width:46px;height:46px;color:var(--mist)}
 .board__n{font-size:15.5px;font-weight:700;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em;line-height:1.25}
-.board__t{font-size:13.5px;font-weight:600;color:var(--teal);margin:0 0 3px;line-height:1.35}
+.board__t{font-size:13.5px;font-weight:700;color:var(--slate);margin:0 0 3px;line-height:1.35}
 .board__o{font-size:13px;color:var(--slate);margin:0;line-height:1.35}
 .board__note{
   margin:clamp(26px,3vw,36px) 0 0;font-size:13.5px;color:var(--slate);
   text-align:center;font-weight:500
 }
 
-/* ---------- final red panel ------------------------------------------------ */
-.sec--red{background:var(--red);color:#fff;position:relative;overflow:hidden}
-.sec--red::before{
+/* ---------- closing CTA panel (deep teal) --------------------------------- */
+/* Client teal read bright at this size; the deeper tone has weight, and its
+   hue separates it from the slate footer directly below. White text 6.71:1. */
+.sec--cta{background:var(--teal-800);color:#fff;position:relative;overflow:hidden}
+.sec--cta::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
   background-image:var(--grain-cloud);background-size:900px 900px;mix-blend-mode:overlay
 }
-.sec--red > *{position:relative;z-index:1}
-.sec--red h2{color:#fff;max-width:20ch}
-.sec--red__in{max-width:62ch;margin:0 auto;text-align:center}
-.sec--red__in .eyebrow{justify-content:center}
-.sec--red__in h2,.sec--red__in .lede,.sec--red__in .body{margin-left:auto;margin-right:auto}
-.sec--red__in .btns{justify-content:center}
+.sec--cta > *{position:relative;z-index:1}
+.sec--cta h2{color:#fff;max-width:20ch}
+.sec--cta__in{max-width:62ch;margin:0 auto;text-align:center}
+.sec--cta__in .eyebrow{justify-content:center}
+.sec--cta__in h2,.sec--cta__in .lede,.sec--cta__in .body{margin-left:auto;margin-right:auto}
+.sec--cta__in .btns{justify-content:center}
+.sec--cta .btn--ghost-w{border-color:rgba(255,255,255,.85)}
 
 /* ---------- footer --------------------------------------------------------- */
 .foot{padding:clamp(40px,5vw,60px) 0 0;font-size:15px}
@@ -595,7 +623,7 @@ html.js .hero.is-ready .hero__copy > :nth-child(3){transition-delay:.22s}
 html.js .hero.is-ready .hero__copy > :nth-child(4){transition-delay:.31s}
 html.js .hero.is-ready .hero__copy > :nth-child(5){transition-delay:.40s}
 
-/* the red divider draws in as the headline lands */
+/* the teal divider draws in as the headline lands */
 html.js .hero__rule{transform:scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.16,1,.3,1) .13s}
 html.js .hero.is-ready .hero__rule{transform:scaleX(1)}
 @media (min-width:980px){
@@ -910,9 +938,9 @@ html.js .rv.is-in{opacity:1;transform:none}
 </section>
 
 <!-- ============================= 7. FINAL CTA ============================= -->
-<section class="sec sec--red" id="support" aria-labelledby="supportH">
+<section class="sec sec--cta" id="support" aria-labelledby="supportH">
   <div class="wrap">
-    <div class="rv sec--red__in">
+    <div class="rv sec--cta__in">
       <p class="eyebrow">Support the Program</p>
       <h2 id="supportH">Help Build What Comes Next</h2>
       <p class="lede">The strength of Chico State CIM comes from the people who believe in its students, its mission, and the future of the concrete industry.</p>
