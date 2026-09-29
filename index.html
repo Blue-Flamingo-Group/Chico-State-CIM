@@ -387,9 +387,17 @@ img{max-width:100%;height:auto;display:block}
 .hero__grid{display:grid;grid-template-columns:1fr}
 .hero__copy{padding:clamp(40px,7vw,84px) var(--gut) clamp(40px,6vw,76px);position:relative;z-index:1}
 .hero__copy > *{max-width:640px}
+/* >=980px: the copy is ONE ~600px block pushed against the photo divider.
+   It is positioned once, on the container (left padding soaks up the spare
+   width), so every child shares a single left edge. Right-aligning each child
+   instead made their left edges drift apart on wide screens, because each has
+   its own width cap. Below ~1400px the max() resolves to --gut: unchanged. */
 @media (min-width:980px){
-  .hero__copy > *{margin-left:auto;margin-right:0;max-width:600px}
-  .hero__copy{padding-right:clamp(40px,4vw,56px)}
+  .hero__copy > *{margin-left:0;margin-right:0;max-width:600px}
+  .hero__copy{
+    padding-right:clamp(40px,4vw,56px);
+    padding-left:max(var(--gut),calc(100% - 600px - clamp(40px,4vw,56px)))
+  }
 }
 .hero h1{max-width:19ch;font-size:clamp(30px,5.2vw,50px)}
 .hero__lede{max-width:52ch}
@@ -865,7 +873,7 @@ html.js .rv.is-in{opacity:1;transform:none}
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow">Scholarship Feature</p>
-      <h2 id="scholH">The Steve Gonzales Scholarship Fund</h2>
+      <h2 id="scholH">The Steve Gonsalves Scholarship Fund</h2>
     </div>
 
     <div class="schol rv">
@@ -874,7 +882,7 @@ html.js .rv.is-in{opacity:1;transform:none}
         <h3 class="schol__l">A $1 Million Investment in the Next Generation</h3>
       </div>
       <div>
-        <p class="body">The Steve Gonzales Scholarship Fund represents a $1 million investment in students and the future of the concrete industry.</p>
+        <p class="body">The Steve Gonsalves Scholarship Fund represents a $1 million investment in students and the future of the concrete industry.</p>
         <p class="body">Through this support, students can continue learning, developing their skills, and preparing to lead in an industry that helps shape the world around us.</p>
         <p class="body">The impact reaches beyond an individual student or classroom. Supporting students pursuing Concrete Industry Management helps strengthen the next generation of professionals who will bring their knowledge, leadership, and experience to the industry for years to come.</p>
       </div>
@@ -883,7 +891,7 @@ html.js .rv.is-in{opacity:1;transform:none}
     <p class="pull rv">Supporting students today. Building the industry’s future.</p>
 
     <div class="btns rv">
-      <a class="btn btn--white" href="#" data-cta="scholarship">Support the Steve Gonzales Scholarship Fund</a>
+      <a class="btn btn--white" href="#" data-cta="scholarship">Support the Steve Gonsalves Scholarship Fund</a>
       <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
     </div>
   </div>
