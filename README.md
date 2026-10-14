@@ -16,33 +16,39 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 
 ## The page
 
-**All copy on this page is the client's approved deck, verbatim.** See
+**All copy on this page is the client's revised copy of 2026-10-12, verbatim.** See
 "Copy" below for the one exception.
 
-Seven sections, in order:
+Seven sections, in order (reordered at the client's direction, 2026-10-12):
 
-1. **Hero** — concrete copy panel + full-bleed photo, split at ≥980px. Four-tile
-   stat strip on dark slate concrete underneath.
-2. **About CIM** (`#about`) — H2, lede, two paragraphs, then the
-   *From Classroom to Boardroom* H3 and its paragraph. Photo split; the photo
-   stretches to the text column height. CTA: *Discover Chico State CIM* (outline).
-3. **Patron Program** (`#patrons`) — H2, lede, paragraph, then the
+1. **Hero** — concrete copy panel + full-bleed photo, split at ≥980px. One CTA:
+   *Become a CIM Patron* (primary). Four-tile stat strip on dark slate concrete
+   underneath.
+2. **Why Support CIM** (`#why`, plain white) — H2 and lede, two-column prose, a
+   full-width 21:9 photo band, then the industry-partners paragraph in a
+   highlighted note block. CTA: *Support Chico State CIM* (primary).
+3. **Patron Program** (`#patrons`, light concrete) — H2, lede, paragraph, then the
    *More Than Financial Support* H3 and its paragraph, beside the photo. Below:
    the "Across CIM, Patron support can include:" line and seven icon + label
    tiles (inline SVG, no body text — the deck supplies none), then the
    both-sides paragraph in a highlighted note block.
    CTA: *Become a CIM Patron* (outline, large, centered).
-4. **Why Support CIM** (`#why`) — H2 and lede, two-column prose, a full-width
-   21:9 photo band, then the industry-partners paragraph in a highlighted note
-   block. CTA: *Support Chico State CIM* (primary).
+4. **Board** (`#board`, plain white) — H2, H3, lede, paragraph, five placeholder
+   profile cards. No CTA.
 5. **Scholarship Feature** (`#scholarship`) — dark slate-concrete panel. H2
    across the top, then the giant `$1 million` in Golden Hour Yellow beside the
    three paragraphs, with the *A $1 Million Investment in the Next Generation*
    H3 as the stat's label. Serif tagline, then two CTAs.
-6. **Board** (`#board`) — H2, H3, lede, paragraph, five placeholder profile
-   cards. No CTA.
-7. **Final CTA** (`#support`) — deep-teal panel (`.sec--cta`), centered, closing serif line,
-   two CTAs.
+6. **About CIM** (`#about`, plain white) — H2, lede, two paragraphs, then the
+   *From Classroom to Boardroom* H3 and its paragraph. Photo split; the photo
+   stretches to the text column height. CTA: *Discover Chico State CIM* (outline).
+7. **Final CTA** (`#support`) — deep-teal panel (`.sec--cta`), centered, closing
+   serif line, one CTA: *Become a CIM Patron*.
+
+Backgrounds alternate white / light concrete / white / dark / white / teal after
+the dark stat strip. Board moved from light concrete to plain white so it does
+not sit flush against the light Patron section. Nav, drawer and footer links
+follow the section order.
 
 Sticky slate nav (official logo) with a mobile drawer, then a slate footer.
 
@@ -140,9 +146,11 @@ Site-wide, identical metrics in every section, so hierarchy reads the same
 everywhere. 48px tall, 6px radius, 600 weight, 44px minimum tap target.
 
 - **Primary** — teal fill, white label, 2px deep-teal edge; hover darkens to
-  `--teal-800`. Every *"Support…"* CTA.
+  `--teal-800`. Every *"Support…"* CTA, plus *Become a CIM Patron* in the hero
+  and the closing panel, where the 2026-10-12 copy makes it the only (primary) CTA.
 - **Secondary** — 2px outline. Slate on light (fills slate on hover), white on
-  dark. Every *"Become a CIM Patron"* and *"Discover Chico State CIM"* CTA.
+  dark. The Patron section's *"Become a CIM Patron"*, *"Discover Chico State
+  CIM"* and *"Support CIM Students"*.
 - **On slate** (header CTA, drawer CTA, scholarship panel) the primary is marked
   up `.btn--white` and rendered as a teal fill with a 1px bone hairline, because
   teal on slate is 1.69:1.
@@ -185,8 +193,13 @@ accident. Sources, crop anchors and replacement notes are in
 
 ### 3. Copy — closed, with one exception
 
-The approved copy deck is in place, **verbatim**: em dashes, capitalization,
-punctuation and curly apostrophes as supplied. Do not paraphrase or "tidy" it.
+The client's revised copy (2026-10-12) is in place, **verbatim**: em dashes,
+capitalization and punctuation as supplied, apostrophes set curly. Do not
+paraphrase or "tidy" it.
+
+**Donor name: Gonsalves.** The client's documents spell it "Gonzales"; Sy
+confirmed on 2026-09-29 that the correct spelling is **Gonsalves**, and the page
+uses Gonsalves everywhere. Keep it that way when new copy arrives.
 
 Where the drafted structure had elements the deck does not cover, those elements
 were removed rather than filled with invented text. Gone: the material/business
