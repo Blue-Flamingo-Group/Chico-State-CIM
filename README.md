@@ -182,15 +182,15 @@ version of the logo is needed — ask the client for one; do not recolor this fi
 ### 2. Photos
 Three of the four photo slots now hold the client's own photographs (supplied
 2026-10-15, in `assets/img/photos/`): the 20-years group photo in the Why Support
-band, the Patrons-sponsored lab in the Patron section (cropped `30% 45%` to keep
-the sign and two faces), and a student on a jobsite in About. The AI-generated
+band, the $1M endowment check (from the client's Patrons flyer) in the Patron
+section, shown at 4:3 with `split--fill` removed so the check is never cropped, and a student on a jobsite in About. The AI-generated
 About placeholder is gone.
 
 **The hero is still a stock placeholder** (`assets/img/temp/hero-concrete-pour.jpg`,
 alt text starting "Temporary"). The client's set had nothing wide and high-res
-enough for it besides the lab shot, which is used in the Patron section. Unused
-from that set: a silo tour, a Cemex control-room visit, the $1M endowment check
-and the endowment banner group.
+enough for it besides the lab shot. Unused
+from that set: the Patrons-sponsored lab, a silo tour, a Cemex control-room
+visit and the endowment banner group.
 
 ### 3. Copy — closed, with one exception
 
