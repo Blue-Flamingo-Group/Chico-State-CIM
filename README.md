@@ -180,18 +180,17 @@ header is slate. If the header ever goes back to white, a dark or full-color
 version of the logo is needed — ask the client for one; do not recolor this file.
 
 ### 2. Photos
-All four images are temporary placeholders. Three are free stock (Unsplash /
-Pexels). **The About image, `about-generated-classroom.jpg`, is AI-generated** —
-Higgsfield, model `z_image`, 2026-09-25 — not stock and not a photograph of
-anything real. It stands in only so the slot can be reviewed, and **must be
-replaced with actual program photography before launch**; a generated
-classroom of students is not something a university can publish as its own.
+Three of the four photo slots now hold the client's own photographs (supplied
+2026-10-15, in `assets/img/photos/`): the 20-years group photo in the Why Support
+band, the Patrons-sponsored lab in the Patron section (cropped `30% 45%` to keep
+the sign and two faces), and a student on a jobsite in About. The AI-generated
+About placeholder is gone.
 
-Every alt text starts with **"Temporary"** (`Temporary placeholder photo —` for
-the stock images, `Temporary AI-generated placeholder —` for the generated one),
-so `grep -n 'alt="Temporary' index.html` finds all four and nothing ships by
-accident. Sources, crop anchors and replacement notes are in
-`assets/img/temp/README.md`.
+**The hero is still a stock placeholder** (`assets/img/temp/hero-concrete-pour.jpg`,
+alt text starting "Temporary"). The client's set had nothing wide and high-res
+enough for it besides the lab shot, which is used in the Patron section. Unused
+from that set: a silo tour, a Cemex control-room visit, the $1M endowment check
+and the endowment banner group.
 
 ### 3. Copy — closed, with one exception
 
@@ -323,11 +322,9 @@ horizontal scroll at 360px.
 
 - [x] Official logo in the nav **and** the footer (white lockup on slate).
       A dark/color version is only needed if the header ever goes white.
-- [ ] Replace all four images and rewrite every alt text (grep
-      `alt="Temporary`). Delete `assets/img/temp/`.
-- [ ] **Replace the AI-generated About image** (`about-generated-classroom.jpg`)
-      with real program photography. This one is not negotiable — it is a
-      synthetic instructor teaching a synthetic class.
+- [x] Replace the AI-generated About image with real program photography (2026-10-15).
+- [ ] Replace the hero stock photo and its alt text (grep `alt="Temporary`), then
+      delete `assets/img/temp/`.
 - [ ] Replace the five board cards with real names, titles, orgs and headshots.
 - [ ] Confirm or remove the four hero stat-strip figures — the only copy on the
       page that is not from the approved deck.
