@@ -19,7 +19,8 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 **All copy on this page is the client's revised copy of 2026-10-12, verbatim.** See
 "Copy" below for the one exception.
 
-Seven sections, in order (reordered at the client's direction, 2026-10-12):
+Seven sections, in order (reordered at the client's direction, 2026-10-12; the
+teal Support box moved to sit directly under the hero on 2026-10-15):
 
 1. **Hero** — concrete copy panel + full-bleed photo, split at ≥980px. One CTA:
    *Become a CIM Patron* (primary). Four-tile stat strip on dark slate concrete
@@ -164,11 +165,12 @@ site-wide; do not promote it to a filled teal button.
 ## What is still open
 
 ### 1. Logo — done
-The official lockup is in place in the nav and the footer:
-`assets/img/logo/cim-chico-state-white.png` (826×320, white artwork on
-transparent, trimmed). It is an `<img>` inside `<a class="brand">` with alt text
-"Chico State Concrete Industry Management" and explicit `width`/`height`, so it
-causes no layout shift. Heights: 50px in the nav (40px under 430px wide), 80px
+The client's all-white *CIM Chico Patrons* lockup (swapped in 2026-10-15) is in
+place in the nav and the footer: `assets/img/logo/cim-chico-patrons-white.png`
+(1014×603, white artwork on transparent, trimmed; untrimmed original in
+`assets/img/_originals/`). It is an `<img>` inside `<a class="brand">` with alt
+text "Chico CIM Patrons" and explicit `width`/`height`, so it causes no layout
+shift. Heights: 50px in the nav (40px under 430px wide), 80px
 in the footer (72px on small phones), where the small "Concrete Industry
 Management" descriptor becomes readable. Never recolor, filter, crop or squash
 it.
@@ -215,6 +217,12 @@ not deck copy. None duplicates its H2.
 and their labels. These are not in the deck; they came from csuchico.edu and the
 original brief, and are flagged separately with the client. Either get them
 confirmed or delete the `.stats` block; nothing else depends on it.
+
+**Round 3 naming (2026-10-15).** The client now says "Chico CIM" or "CIM at
+Chico State" — never "Chico State CIM". Buttons read *Become a Chico CIM Patron*,
+*Support Chico CIM* and *Discover CIM at Chico State*. Footer contact is
+seema@chicocimfoundation.com / (530) 521-7301; copyright line is "Chico CIM
+Patrons".
 
 ## CTA_LINKS
 
