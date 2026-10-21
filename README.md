@@ -16,6 +16,18 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 
 ## The page
 
+**Round 4 (client edits, 2026-10-21).** Why Support section removed (its 20-years
+group photo is now unused). New **How to Give** section (`#give`) after the
+Patron section: six giving-level tiles, the mail-a-check note, and a *Support
+Chico CIM* button that reveals the client's Zeffy embed in place (Zeffy's script
+loads on first click; without JS the button opens the hosted Zeffy form in a new
+tab). Every Patron/Support/Scholarship/Students CTA now lands on `#give`;
+*Discover CIM at Chico State* opens the official department page in a new tab.
+Board is now light concrete (Give took the white slot) with the six real
+officers. Hero eyebrow reads *Chico CIM Patrons*; Seema's contact sits under the
+Patron CTA; footer carries the PO Box and the nonprofit / Tax ID line. The
+section list below predates this round.
+
 **All copy on this page is the client's revised copy of 2026-10-12, verbatim.** See
 "Copy" below for the one exception.
 
@@ -212,10 +224,11 @@ The **eyebrow labels** (`ABOUT CIM`, `THE PATRON PROGRAM`, `WHY SUPPORT CIM`,
 `SCHOLARSHIP FEATURE`, `LEADERSHIP`, `SUPPORT THE PROGRAM`) are design elements,
 not deck copy. None duplicates its H2.
 
-**The one exception is the hero stat strip** — *Since 2007 / 100% / $80K / 50+*
-and their labels. These are not in the deck; they came from csuchico.edu and the
-original brief, and are flagged separately with the client. Either get them
-confirmed or delete the `.stats` block; nothing else depends on it.
+**The hero stat strip** — copy set by the client on 2026-10-21: *100% job placement
+opportunity / $80K average starting salary / One of only five CIM programs in
+the country / 50+ industry partners*. The client removed "Since 2007"; the
+third tile's figure "1 of 5" is ours (the label is the client's line verbatim) —
+swap it if the client objects.
 
 **Round 3 naming (2026-10-15).** The client now says "Chico CIM" or "CIM at
 Chico State" — never "Chico State CIM". Buttons read *Become a Chico CIM Patron*,
@@ -236,22 +249,15 @@ const CTA_LINKS = { support: "", patron: "", discover: "", scholarship: "", stud
 Paste the real destination URLs in. On load the script assigns them; anything
 starting `http://` or `https://` also gets `target="_blank" rel="noopener"`.
 
-Left empty, a key falls back to an on-page anchor so no button is ever dead:
-`support`, `scholarship` and `students` point at `#support`; `patron` points at
-`#patrons`; `discover` points at `#about`. That is the current state — **no
-external URLs are set yet.**
+Left empty, a key falls back to an on-page anchor so no button is ever dead.
+Current state (2026-10-21, client direction): `support`, `patron`, `scholarship`
+and `students` fall back to `#give`; `discover` is set to the official
+department page (opens in a new tab).
 
-## Board placeholder rule
+## Board
 
-The five board cards carry literal bracketed placeholders —
-`[First Name Last Name]`, `[Board Title]`, `[Company / Organization]` — and a
-neutral silhouette in place of a headshot. The source says so:
-
-```
-<!-- BOARD: placeholders per the brief. Do not launch until real names, titles, orgs and headshots are supplied. -->
-```
-
-Do not launch with brackets on the page.
+Six cards (2 / 3 / 6 across) with the client's names, titles and companies
+(2026-10-21). Neutral silhouettes stand in for headshots until they arrive.
 
 ## Motion
 
@@ -325,10 +331,10 @@ horizontal scroll at 360px.
 - [x] Replace the AI-generated About image with real program photography (2026-10-15).
 - [ ] Replace the hero stock photo and its alt text (grep `alt="Temporary`), then
       delete `assets/img/temp/`.
-- [ ] Replace the five board cards with real names, titles, orgs and headshots.
-- [ ] Confirm or remove the four hero stat-strip figures — the only copy on the
-      page that is not from the approved deck.
-- [ ] Fill in `CTA_LINKS` with the five real destination URLs.
+- [x] Board names, titles and companies (2026-10-21).
+- [ ] Board headshots.
+- [x] Hero stat-strip copy set by the client (2026-10-21).
+- [x] CTAs routed: all giving buttons to `#give`, Discover to the department page.
 - [ ] **Remove the noindex in both places:**
       `<meta name="robots" content="noindex,nofollow" />` in `index.html`, and
       the `X-Robots-Tag` header block in `vercel.json`.
