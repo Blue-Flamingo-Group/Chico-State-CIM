@@ -256,8 +256,10 @@ department page (opens in a new tab).
 
 ## Board
 
-Six cards (2 / 3 / 6 across) with the client's names, titles and companies
-(2026-10-21). Neutral silhouettes stand in for headshots until they arrive.
+Six cards (2 / 3 / 6 across) with the client's names, titles, companies and
+headshots (2026-10-21). Headshots are 360px square crops in `assets/img/board/`;
+Chris Schenone's source was a full-length jobsite photo, cropped to head and
+shoulders.
 
 ## Motion
 
@@ -332,7 +334,7 @@ horizontal scroll at 360px.
 - [ ] Replace the hero stock photo and its alt text (grep `alt="Temporary`), then
       delete `assets/img/temp/`.
 - [x] Board names, titles and companies (2026-10-21).
-- [ ] Board headshots.
+- [x] Board headshots (2026-10-21).
 - [x] Hero stat-strip copy set by the client (2026-10-21).
 - [x] CTAs routed: all giving buttons to `#give`, Discover to the department page.
 - [ ] **Remove the noindex in both places:**
