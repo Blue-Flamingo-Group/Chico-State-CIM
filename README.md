@@ -351,7 +351,7 @@ horizontal scroll at 360px.
 - [x] Add the canonical tag with the live domain (2026-10-23):
       `<link rel="canonical" href="https://<domain>/" />`, and set `og:url` to
       match.
-- [ ] Add an `og:image` (1200×630) once real photography exists.
+- [x] Add an `og:image` (1200×630) — cropped from the hero photo (2026-10-23).
 - [ ] Re-run the Playwright screenshots and re-check contrast if any color
       moved.
 
