@@ -4,14 +4,24 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
-    },
+    }
+  ],
+  "redirects": [
     {
       "source": "/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-      ]
+      "has": [
+        {
+          "type": "host",
+          "value": "www.chicocimfoundation.com"
+        }
+      ],
+      "destination": "https://chicocimfoundation.com/$1",
+      "permanent": true
     }
   ]
 }

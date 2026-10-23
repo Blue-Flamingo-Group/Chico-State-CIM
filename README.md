@@ -345,10 +345,10 @@ horizontal scroll at 360px.
 - [x] Board headshots (2026-10-21).
 - [x] Hero stat-strip copy set by the client (2026-10-21).
 - [x] CTAs routed: all giving buttons to `#give`, Discover to the department page.
-- [ ] **Remove the noindex in both places:**
+- [x] **Remove the noindex in both places** (2026-10-23, domain chicocimfoundation.com):
       `<meta name="robots" content="noindex,nofollow" />` in `index.html`, and
       the `X-Robots-Tag` header block in `vercel.json`.
-- [ ] Add the canonical tag with the live domain:
+- [x] Add the canonical tag with the live domain (2026-10-23):
       `<link rel="canonical" href="https://<domain>/" />`, and set `og:url` to
       match.
 - [ ] Add an `og:image` (1200×630) once real photography exists.
