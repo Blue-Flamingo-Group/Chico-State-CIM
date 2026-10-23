@@ -7,14 +7,24 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 
 ## Layout
 - `index.html` — the entire site (inline `<style>` + one inline `<script>`).
-- `assets/img/temp/` — four temporary Unsplash photos + their own README. All
-  four are placeholders. See "Swap point 2" below.
+- `assets/img/photos/` — client photography (hero, Patron, About).
+- `assets/img/patrons/` — the 32 Patron logos for the logo wall (trimmed WebP).
 - `_verify/` — Playwright screenshots (git-ignored).
 - `deploy.sh` — Vercel deploy for the client review link.
 - `vercel.json` — `cleanUrls`, asset caching, and the `X-Robots-Tag` noindex
   header. The header comes off at launch.
 
 ## The page
+
+**Round 5 (client edits, 2026-10-23).** Hero is now the client's lab photo
+(`photos/hero-student-lab.jpg`, from `_NP_5750.jpg`, anchored `30% 40%` so the
+student and scale stay in frame on desktop); the stock placeholder and
+`assets/img/temp/` are gone. New **Patron logo wall** (`.pwall`) inside the
+Patron section, above its button: 32 logos on white tiles, 3 / 4 / 8 columns,
+each logo given an inline width so wordmarks and square marks carry similar
+weight. Of the 36 client files, four were duplicates and left out (CNCA
+white-text, the second Granite, Hanford with fleur, the Spirit Advisors icon).
+Contact email (Patron section + footer) is now ChicoCIMFoundation@gmail.com.
 
 **Round 4 (client edits, 2026-10-21).** Why Support section removed (its 20-years
 group photo is now unused). New **How to Give** section (`#give`) after the
@@ -198,9 +208,8 @@ band, the $1M endowment check (from the client's Patrons flyer) in the Patron
 section, shown at 4:3 with `split--fill` removed so the check is never cropped, and a student on a jobsite in About. The AI-generated
 About placeholder is gone.
 
-**The hero is still a stock placeholder** (`assets/img/temp/hero-concrete-pour.jpg`,
-alt text starting "Temporary"). The client's set had nothing wide and high-res
-enough for it besides the lab shot. Unused
+**The hero was a stock placeholder until round 5**, when the client supplied a
+lab photo. Unused
 from that set: the Patrons-sponsored lab, a silo tour, a Cemex control-room
 visit and the endowment banner group.
 
@@ -233,7 +242,7 @@ swap it if the client objects.
 **Round 3 naming (2026-10-15).** The client now says "Chico CIM" or "CIM at
 Chico State" — never "Chico State CIM". Buttons read *Become a Chico CIM Patron*,
 *Support Chico CIM* and *Discover CIM at Chico State*. Footer contact is
-seema@chicocimfoundation.com / (530) 521-7301; copyright line is "Chico CIM
+ChicoCIMFoundation@gmail.com (since round 5) / (530) 521-7301; copyright line is "Chico CIM
 Patrons".
 
 ## CTA_LINKS
@@ -331,8 +340,7 @@ horizontal scroll at 360px.
 - [x] Official logo in the nav **and** the footer (white lockup on slate).
       A dark/color version is only needed if the header ever goes white.
 - [x] Replace the AI-generated About image with real program photography (2026-10-15).
-- [ ] Replace the hero stock photo and its alt text (grep `alt="Temporary`), then
-      delete `assets/img/temp/`.
+- [x] Replace the hero stock photo with client photography (2026-10-23).
 - [x] Board names, titles and companies (2026-10-21).
 - [x] Board headshots (2026-10-21).
 - [x] Hero stat-strip copy set by the client (2026-10-21).

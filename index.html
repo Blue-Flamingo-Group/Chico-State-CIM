@@ -401,7 +401,7 @@ img{max-width:100%;height:auto;display:block}
 .hero h1{max-width:19ch;font-size:clamp(30px,5.2vw,50px)}
 .hero__lede{max-width:52ch}
 .hero__media{position:relative;min-height:290px;background:var(--conc-400)}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 56%;position:absolute;inset:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:30% 40%;position:absolute;inset:0}
 /* Teal rule between the concrete copy panel and the photo. */
 .hero__rule{height:6px;background:var(--teal);position:relative;z-index:2}
 @media (min-width:980px){
@@ -499,6 +499,19 @@ img{max-width:100%;height:auto;display:block}
 }
 .pgrid .ic{width:26px;height:26px;color:var(--teal);flex:none}
 .pgrid b{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.006em}
+
+/* ---------- Patron logo wall (32 logos: 3 / 4 / 8 columns, short row centered) */
+/* Each logo carries an inline width so wide wordmarks and square marks read at
+   roughly the same visual weight; max-height catches the tall ones. */
+.pwall{--cols:3;--gap:8px;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--gap);margin:18px 0 0;padding:0;list-style:none}
+@media (min-width:520px){ .pwall{--cols:4;--gap:12px} }
+@media (min-width:1100px){ .pwall{--cols:8} }
+.pwall li{
+  flex:0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+  aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;
+  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r)
+}
+.pwall img{height:auto;max-height:66%;object-fit:contain}
 
 /* ---------- serif pull lines (Georgia) ------------------------------------ */
 .pull{
@@ -727,9 +740,9 @@ html.js .rv.is-in{opacity:1;transform:none}
     </div>
     <div class="hero__media">
       <div class="hero__rule" aria-hidden="true"></div>
-      <img src="assets/img/temp/hero-concrete-pour.jpg"
-           alt="Temporary placeholder photo — a construction crew stands at the edge of a large reinforced concrete slab on a jobsite."
-           width="1300" height="866" fetchpriority="high" />
+      <img src="assets/img/photos/hero-student-lab.jpg"
+           alt="A Chico CIM student in safety glasses pours aggregate from a sieve into a bowl on a lab scale."
+           width="2000" height="1333" fetchpriority="high" />
     </div>
   </div>
 
@@ -817,11 +830,49 @@ html.js .rv.is-in{opacity:1;transform:none}
       <p>It is a relationship that benefits both sides: students gain greater access to the industry they are preparing to enter, while industry professionals have an opportunity to participate in developing its next generation.</p>
     </div>
 
+    <div class="rv">
+      <p class="pintro" id="patronWall">Our Chico CIM Patrons</p>
+      <ul class="pwall" aria-labelledby="patronWall">
+      <li><img src="assets/img/patrons/711-materials.webp" alt="711 Materials" width="159" height="74" loading="lazy" style="width:62%" /></li>
+      <li><img src="assets/img/patrons/angelus-block.webp" alt="Angelus Block Co." width="202" height="85" loading="lazy" style="width:65%" /></li>
+      <li><img src="assets/img/patrons/basalite.webp" alt="Basalite Concrete Products" width="480" height="114" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/bulk-exchange.webp" alt="Bulk Exchange" width="480" height="81" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/calportland.webp" alt="CalPortland" width="447" height="194" loading="lazy" style="width:64%" /></li>
+      <li><img src="assets/img/patrons/cemex.webp" alt="CEMEX" width="288" height="76" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/central-concrete.webp" alt="Central Concrete Supply Co." width="480" height="154" loading="lazy" style="width:74%" /></li>
+      <li><img src="assets/img/patrons/cnca.webp" alt="California Nevada Cement Association" width="200" height="36" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/conco.webp" alt="The Conco Companies" width="480" height="237" loading="lazy" style="width:60%" /></li>
+      <li><img src="assets/img/patrons/crh.webp" alt="CRH" width="240" height="240" loading="lazy" style="width:42%" /></li>
+      <li><img src="assets/img/patrons/crystal-waters.webp" alt="Crystal Waters Consulting" width="480" height="203" loading="lazy" style="width:65%" /></li>
+      <li><img src="assets/img/patrons/folsom-ready-mix.webp" alt="Folsom Ready Mix" width="480" height="125" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/granite.webp" alt="Granite Construction" width="480" height="73" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/hanford.webp" alt="Hanford Sand &amp; Gravel" width="472" height="158" loading="lazy" style="width:73%" /></li>
+      <li><img src="assets/img/patrons/hcd.webp" alt="HC&amp;D" width="294" height="225" loading="lazy" style="width:48%" /></li>
+      <li><img src="assets/img/patrons/holliday-rock.webp" alt="Holliday Rock" width="480" height="145" loading="lazy" style="width:77%" /></li>
+      <li><img src="assets/img/patrons/knife-river.webp" alt="Knife River" width="221" height="240" loading="lazy" style="width:40%" /></li>
+      <li><img src="assets/img/patrons/largo.webp" alt="Largo Concrete" width="219" height="56" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/level-10.webp" alt="Level 10 Construction" width="240" height="240" loading="lazy" style="width:42%" /></li>
+      <li><img src="assets/img/patrons/mitsubishi-cement.webp" alt="Mitsubishi Cement Corporation" width="249" height="68" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/national-cement.webp" alt="National Cement" width="480" height="69" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/oldcastle.webp" alt="Oldcastle Infrastructure" width="292" height="240" loading="lazy" style="width:47%" /></li>
+      <li><img src="assets/img/patrons/pan-pacific.webp" alt="Pan Pacific Cement" width="348" height="240" loading="lazy" style="width:51%" /></li>
+      <li><img src="assets/img/patrons/quikrete.webp" alt="Quikrete" width="480" height="126" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/robertsons.webp" alt="Robertson’s" width="480" height="92" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/spirit-advisors.webp" alt="Spirit Advisors" width="480" height="159" loading="lazy" style="width:73%" /></li>
+      <li><img src="assets/img/patrons/swinerton.webp" alt="Swinerton" width="374" height="240" loading="lazy" style="width:53%" /></li>
+      <li><img src="assets/img/patrons/teichert.webp" alt="Teichert" width="249" height="240" loading="lazy" style="width:43%" /></li>
+      <li><img src="assets/img/patrons/vanguard.webp" alt="Vanguard Construction" width="480" height="177" loading="lazy" style="width:69%" /></li>
+      <li><img src="assets/img/patrons/vulcan.webp" alt="Vulcan Materials Company" width="480" height="205" loading="lazy" style="width:65%" /></li>
+      <li><img src="assets/img/patrons/west-coast-bohringer.webp" alt="West Coast Bohringer" width="166" height="122" loading="lazy" style="width:49%" /></li>
+      <li><img src="assets/img/patrons/west-coast-outlaws.webp" alt="West Coast Outlaws" width="332" height="240" loading="lazy" style="width:50%" /></li>
+      </ul>
+    </div>
+
     <div class="btns btns--center rv" style="margin-top:clamp(32px,4vw,46px)">
       <a class="btn btn--ghost btn--lg" href="#" data-cta="patron">Become a Chico CIM Patron</a>
     </div>
     <p class="pcontact rv">
-      <a href="mailto:seema@chicocimfoundation.com">seema@chicocimfoundation.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a>
+      <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a>
     </p>
   </div>
 </section>
@@ -991,7 +1042,7 @@ html.js .rv.is-in{opacity:1;transform:none}
     </div>
 
     <p class="foot__contact">
-      <a href="mailto:seema@chicocimfoundation.com">seema@chicocimfoundation.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a><span class="foot__sep" aria-hidden="true">&middot;</span>PO Box 3983, Chico, CA 95927
+      <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a><span class="foot__sep" aria-hidden="true">&middot;</span>PO Box 3983, Chico, CA 95927
     </p>
 
     <p class="foot__legal">Chico CIM Patrons is an independent nonprofit educational foundation supporting the Concrete Industry Management program at California State University, Chico. Tax ID 20-4079618.</p>
