@@ -4,865 +4,511 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Chico State Concrete Industry Management — Building the Future of the Concrete Industry, Together</title>
-<meta name="description" content="CIM at Chico State connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom." />
-<meta name="theme-color" content="#485253" />
-
-<!-- REVIEW BUILD. Remove this tag and the X-Robots-Tag rule in vercel.json before go-live. -->
+<title>Chico CIM Patrons | Supporting Concrete Industry Management at Chico State</title>
+<meta name="description" content="Chico CIM Patrons is a nonprofit uniting concrete industry leaders to support Chico State's Concrete Industry Management students." />
+<meta name="theme-color" content="#2F7E99" />
 <link rel="canonical" href="https://chicocimfoundation.com/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chicocimfoundation.com/" />
-<meta property="og:site_name" content="Chico State Concrete Industry Management" />
-<meta property="og:title" content="Chico State Concrete Industry Management — Building the Future of the Concrete Industry, Together" />
-<meta property="og:description" content="CIM at Chico State connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom." />
+<meta property="og:site_name" content="Chico CIM Patrons" />
+<meta property="og:title" content="Chico CIM Patrons | Supporting Concrete Industry Management at Chico State" />
+<meta property="og:description" content="Chico CIM Patrons is a nonprofit uniting concrete industry leaders to support Chico State's Concrete Industry Management students." />
 <meta property="og:image" content="https://chicocimfoundation.com/assets/img/photos/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="A Chico CIM student in safety glasses pours aggregate into a bowl on a lab scale." />
+<meta property="og:image:alt" content="Chico CIM Patrons hold the CIM Program Endowment banner." />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet" />
 <style>
 /* ==========================================================================
-   CHICO STATE — CONCRETE INDUSTRY MANAGEMENT
-   Single-file static landing page. No build step, no dependencies.
+   CHICO CIM PATRONS — V4 (foundation rebrand, 2026-10-26)
+   Single-file static page. No build step, no dependencies.
    Client: Blue Flamingo · Job ECC-2602.
 
-   BRAND RULES (client palette; Chico State type + gold carried over)
-     Chico Red (the university maroon) was REMOVED from this page at the
-     client's direction on 2026-09-29. No maroon token, rule or colour value
-     remains in this file.
-     ONE ACTION COLOUR:
-       Teal   #007E95  every call to action (primary fills), plus the key
-                       accents: header rule, hero divider, eyebrow bars, photo
-                       corner rules, note borders, Patron tile icons.
-       Slate  #485253  structure: header bar, dark concrete panels, secondary
-                       (outline) buttons, eyebrow text, Patron tile rules,
-                       board titles, body text on light surfaces.
-       Gold   #EBA70E  large figures only: stat numbers, the $1,000,000 and its
-                       rule, the pull-quote bar, focus rings on dark. Never
-                       small text; never on teal (2.28:1).
-     WHY TWO TEALS (plus a hover): client teal #007E95 fails as small text on
-     every light surface except white (3.73:1 on bone, 2.89:1 on the darkest
-     hero concrete). So:
-       --teal      #007E95  fills, bars, rules — graphic use
-       --teal-ink  #005a6a  small teal text (links, white-button labels),
-                            primary-button edges, focus rings on light —
-                            clears 4.5:1 on every light surface
-       --teal-800  #006577  hover darken for teal fills; the closing CTA panel
-     NEUTRALS:
-       White  #FFFFFF  primary ground
-       Ink    #1C1D1F  headlines and hero copy
-       Bone   #E3E5DB  light concrete surfaces; small text on slate
-       Mist   #879597  GRAPHIC ONLY (hairlines, separators, placeholder icon
-                       strokes). Fails as small text on white and on slate.
-     Dusk Blue #043546: token kept, not used on the page.
-     Cornerstone Gray and Canyon Stone were replaced by Slate and Bone.
-     Terracotta and Orchard Green are NOT used anywhere on this page.
-     LOGO: Chico CIM Patrons white lockup (assets/img/logo/cim-chico-patrons-white.png)
-     — white artwork, so it only ever sits on slate. That is why the header
-     is slate. A white header would need a dark/color version of the logo.
+   Brand (client's V4 edits doc, from the business card and flyer):
+     teal #2F7E99 · orange #F25338 · yellow #E9D62A · green #257A38
+     aqua #BBDEDA · charcoal #2F2F22 · light teal #EEF6F5
+   Type: Abolition → Bebas Neue (display/labels); Avenir Next → Nunito Sans.
 
-   TYPE
-     Montserrat 400/500/600/700/800  — stand-in for the brand's Gotham.
-     Georgia (system serif)          — stand-in for Masqualero. Pull-quote
-                                       and section ledes only.
-     Headlines: Montserrat 800, tight tracking, sentence case.
-     Eyebrows:  uppercase, tracked out. The only uppercase on the page.
+   LOGO: one swappable file per variant. To change the logo, replace
+   assets/img/logo/logo-color.png (header) and logo-reverse.png (footer).
 
-   CONCRETE TEXTURE
-     Pure CSS/SVG. Two feTurbulence tiles blended in 'overlay' over a
-     bone (light) or slate (dark) gradient: one large-scale cloud (baseFrequency .013) for
-     the poured-slab mottling, one fine tile (.75) for surface tooth. Both
-     tiles are built on a neutral #808080 base so 'overlay' leaves the
-     backdrop untouched where the noise is neutral — that is what keeps it
-     reading as concrete rather than TV static. Keep baseFrequency LOW on the
-     cloud layer. Never add crack or fracture patterns: the client said no.
-
-   CONTRAST — measured, WCAG 2.1 AA (4.5:1 small text, 3:1 large/graphic).
-   Computed with the WCAG formula, not estimated. "rendered" = pixels sampled
-   from a screenshot, because the grain overlay shifts every surface. The
-   darkest light surface on the page is the hero concrete, #c8cbc1 rendered.
-   Do not move these colors around without re-measuring.
-   Teal family
-     white on Teal #007E95 ....................... 4.75:1  OK text (CTA labels)
-     white on --teal-800 #006577 ................. 6.71:1  OK text (hover,
-                                                   closing panel copy)
-     white on --teal-ink #005a6a ................. 7.86:1  OK text (skip link)
-     --teal-ink on white ......................... 7.86:1  OK text / edge / ring
-     --teal-ink on --conc-050 #eff0ea ............ 6.86:1  OK
-     --teal-ink on Bone #e3e5db .................. 6.18:1  OK (white-btn hover)
-     --teal-ink on hero concrete, darkest #c8cbc1  4.78:1  OK — primary-button
-                                                   edge + focus ring there
-     Teal on white ............................... 4.75:1  graphic (and text-OK)
-     Teal on Bone #e3e5db ........................ 3.73:1  GRAPHIC ONLY
-     Teal on hero concrete, darkest #c8cbc1 ...... 2.89:1  DECORATIVE ONLY —
-                                                   eyebrow bar, divider; never
-                                                   a button edge here
-     Teal on Slate #485253 ....................... 1.69:1  NEVER bare — teal
-                                                   fills on slate carry a 1px
-                                                   bone hairline:
-     Bone hairline on Slate #485253 .............. 6.33:1  OK graphic
-     Bone hairline on dark concrete, lightest
-       #556061 ................................... 5.10:1  OK graphic
-     85% white ghost border on #006577 ........... 5.34:1  OK graphic
-     white focus ring on #006577 ................. 6.71:1  OK graphic
-     --teal-800 panel vs Slate footer ............ 1.20:1  hue-separated
-                                                   (decorative boundary)
-   Slate + neutrals
-     Slate #485253 on white ...................... 8.05:1  OK (body, labels,
-                                                   secondary buttons)
-     Slate on --conc-050 #eff0ea ................. 7.03:1  OK
-     Slate on Bone #e3e5db ....................... 6.33:1  OK
-     Slate on light concrete, deepest #dbded2 .... 5.90:1  OK
-     Slate on hero concrete, darkest #c8cbc1 ..... 4.90:1  OK (eyebrow,
-                                                   secondary button)
-     white on Slate (secondary-button hover) ..... 8.05:1  OK
-     --ink #1c1d1f on white ..................... 16.87:1  OK
-     --ink on hero concrete, darkest #c8cbc1 .... 10.26:1  OK (hero copy)
-     Mist #879597 on white ....................... 3.10:1  GRAPHIC ONLY
-     Mist on Slate #485253 ....................... 2.60:1  DECORATIVE ONLY —
-                                                   separators, toggle outline
-                                                   (the white icon carries it)
-   On slate / dark concrete
-     Bone #E3E5DB on Slate header #485253 ........ 6.33:1  OK text (nav links)
-     Bone on dark concrete, rendered median
-       #424d4e ................................... 6.86:1  OK text
-     Bone on dark concrete, lightest #556061 ..... 5.10:1  OK text
-     white on nav hover tint #5a6364 ............. 6.17:1  OK
-     white on dark concrete, lightest #556061 .... 6.50:1  OK
-     #f0f0ee (dark-panel lede) on #556061 ........ 5.69:1  OK
-     ghost-w border (62% white) on #556061 ....... 3.65:1  OK graphic
-   Gold
-     Golden Hour #EBA70E on Slate #485253 ........ 3.86:1  LARGE/GRAPHIC ONLY
-     Golden Hour on dark concrete, median #424d4e  4.19:1  LARGE/GRAPHIC ONLY
-     Golden Hour on dark concrete, lightest
-       #556061 ................................... 3.11:1  LARGE/GRAPHIC ONLY
-                                                   — stat numbers (24px+/800)
-                                                   and $1,000,000 qualify;
-                                                   nothing smaller may be gold.
-     Golden Hour on Teal #007E95 ................. 2.28:1  NEVER — focus ring
-                                                   on the CTA panel is white
-     Golden Hour on white ........................ 2.09:1  NEVER on white
+   CONTACT EMAIL: seema@chicocimfoundation.com is not live yet (no MX record
+   on 2026-10-26), so the client's fallback ChicoCIMFoundation@gmail.com is
+   used. Search this file for "ChicoCIMFoundation@gmail.com" to switch.
    ========================================================================== */
-
 :root{
-  /* ---- neutrals ---- */
-  --ink:#1c1d1f;
-  --white:#ffffff;
-
-  /* ---- client palette (see BRAND RULES) ---- */
-  --teal:#007E95;         /* THE action colour: CTA fills, bars, rules (graphic) */
-  --teal-800:#006577;     /* hover darken for teal fills; closing CTA panel */
-  --teal-ink:#005a6a;     /* small teal text, button edges, focus rings on light */
-  --bone:#E3E5DB;         /* light surfaces; text on slate */
-  --mist:#879597;         /* graphic only — hairlines, separators, icon strokes */
-  --slate:#485253;        /* header, dark panels; secondary buttons, labels, body text */
-
-  /* ---- secondary, accents only ---- */
-  --dusk:#043546;
-  --gold:#EBA70E;
-
-  /* ---- concrete (bone-based) ---- */
-  --conc-050:#eff0ea;
-  --conc-100:#e3e5db;
-  --conc-200:#d4d7cb;
-  --conc-400:#c0c4b6;
-
-  --maxw:1160px;
-  --gut:clamp(20px,5vw,40px);
-  --r:6px;
-  --nav-h:68px;
-  --shadow:0 1px 2px rgba(28,29,31,.05),0 8px 24px rgba(28,29,31,.07);
-
-  /* Concrete grain tiles. Neutral #808080 base + grayscaled fractal noise,
-     blended with 'overlay' so neutral areas leave the backdrop alone. */
-  --grain-cloud:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='900' height='900' fill='%23808080'/%3E%3Crect width='900' height='900' filter='url(%23c)' opacity='0.44'/%3E%3C/svg%3E");
-  --grain-fine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' fill='%23808080'/%3E%3Crect width='240' height='240' filter='url(%23f)' opacity='0.16'/%3E%3C/svg%3E");
+  --teal:#2F7E99; --teal-dk:#256A82; --orange:#F25338; --orange-dk:#D9432A;
+  --yellow:#E9D62A; --green:#257A38; --aqua:#BBDEDA; --char:#2F2F22;
+  --lt:#EEF6F5; --paper:#F5F5F0; --line:#D9DED9; --muted:#55574B;
+  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --body:"Avenir Next","Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1180px; --nav-h:96px;
 }
-
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
-}
-body{
-  margin:0;
-  font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;
-  font-size:16px;
-  line-height:1.62;
-  color:var(--ink);
-  background:var(--white);
-  overflow-x:hidden;
-}
-@media (min-width:820px){ body{font-size:18px} }
-
-h1,h2,h3,h4{margin:0 0 .5em;line-height:1.12;color:var(--ink);font-weight:800;letter-spacing:-.022em;text-wrap:balance}
-h1{font-size:clamp(30px,5.6vw,54px);line-height:1.06}
-h2{font-size:clamp(25px,3.9vw,40px)}
-h3{font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.012em}
-h4{font-size:15px;font-weight:700;letter-spacing:-.005em}
-p{margin:0 0 1.05em;text-wrap:pretty}
-p:last-child{margin-bottom:0}
-a{color:var(--teal-ink);text-underline-offset:3px}
-a:hover{color:var(--slate)}
-ul{margin:0 0 1.05em;padding-left:1.2em}
-li{margin-bottom:.4em}
-strong{font-weight:700}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--char);font:400 17px/1.65 var(--body);overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
+a{color:var(--teal)}
+h1,h2,h3,h4{margin:0;font-family:var(--body);font-weight:900;line-height:1.1;letter-spacing:-.01em}
+p{margin:0 0 1em}
+[id]{scroll-margin-top:calc(var(--nav-h) + 8px)}
+.skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:8px 14px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sec{padding:clamp(64px,8vw,104px) 0}
+.sec--lt{background:var(--lt)}
+.sec--dark{background:var(--char);color:#fff}
+.label{font:400 clamp(22px,2.2vw,30px)/1 var(--display);letter-spacing:.02em;color:var(--teal);margin:0 0 10px;text-transform:uppercase}
+.label--orange{color:var(--orange)} .label--yellow{color:var(--yellow)} .label--green{color:var(--green)}
+.h2{font-size:clamp(34px,4.4vw,52px);margin-bottom:18px}
+.lede{font-size:clamp(17px,1.5vw,19px);max-width:46em}
+.group{font:400 clamp(24px,2.2vw,30px)/1 var(--display);letter-spacing:.02em;text-transform:uppercase;padding-bottom:12px;border-bottom:2px solid var(--aqua);margin:56px 0 28px}
 
-:focus-visible{outline:3px solid var(--teal-ink);outline-offset:2px;border-radius:3px}
-.conc--dark :focus-visible,.nav :focus-visible{outline-color:var(--gold)}
-.sec--cta :focus-visible{outline-color:#fff}      /* gold on teal is 2.28:1 */
-.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--teal-ink);color:#fff;padding:13px 20px;font-weight:700;text-decoration:none}
-.skip:focus{left:8px;top:8px}
-.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* stripe */
+.stripe{display:flex;height:8px}
+.stripe span{flex:1}
+.stripe span:nth-child(1){background:var(--orange)} .stripe span:nth-child(2){background:var(--teal)}
+.stripe span:nth-child(3){background:var(--yellow)} .stripe span:nth-child(4){background:var(--green)}
+.stripe span:nth-child(5){background:var(--aqua)}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
-.sec{padding:clamp(56px,8vw,104px) 0;scroll-margin-top:calc(var(--nav-h) + 8px)}
-.sec--tint{background:var(--conc-050)}
-.prose{max-width:70ch}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4em;min-height:48px;padding:12px 26px;border-radius:4px;border:2px solid transparent;font:900 17px/1.2 var(--body);text-decoration:none;text-align:center;transition:background .15s,color .15s,border-color .15s}
+.btn--orange{background:var(--orange);color:#fff}
+.btn--orange:hover{background:var(--orange-dk)}
+.btn--outline{border-color:#fff;color:#fff}
+.btn--outline:hover{background:#fff;color:var(--teal)}
+.btn--outline-dark{border-color:#fff;color:#fff}
+.btn--outline-dark:hover{background:#fff;color:var(--char)}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
 
-/* ---------- concrete surfaces -------------------------------------------- */
-/* Light poured concrete. Used for the hero copy panel and section tints. */
-.conc{
-  background-color:var(--conc-200);
-  background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#e3e5db 0%,#d6d9cd 46%,#c6c9bd 100%);
-  background-size:240px 240px,900px 900px,100% 100%;
-  background-blend-mode:overlay,overlay,normal;
+/* header */
+.nav{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 var(--line)}
+.nav__in{display:flex;align-items:center;gap:24px;max-width:var(--wrap);margin:0 auto;padding:14px 24px}
+.brand img{width:clamp(170px,17vw,230px);height:auto}
+.nav__links{display:flex;gap:clamp(14px,1.8vw,30px);margin-left:auto}
+.nav__links a{color:var(--char);font-weight:800;font-size:16px;text-decoration:none;white-space:nowrap}
+.nav__links a:hover{color:var(--teal)}
+.nav__give{padding:10px 30px}
+.nav__toggle{display:none;margin-left:auto;background:none;border:2px solid var(--char);border-radius:4px;width:46px;height:44px;color:var(--char);cursor:pointer}
+.nav__drawer{display:none;flex-direction:column;padding:8px 24px 20px;border-top:1px solid var(--line)}
+.nav__drawer a:not(.btn){color:var(--char);font-weight:800;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.nav__drawer .btn{margin-top:16px}
+@media (max-width:1080px){
+  .nav__links{display:none}
+  .nav__toggle{display:inline-flex;align-items:center;justify-content:center}
+  .nav__give{margin-left:0}
+  .nav__drawer.is-open{display:flex}
 }
-/* Softer tint for full sections — same surface, lifted to bone so --slate clears AA.
-   NOTE: this class is used on its own (without .conc), so it must repeat
-   background-size and background-blend-mode. Without the blend mode the
-   neutral #808080 grain tiles paint flat mid-gray over the whole section. */
-.conc--light{
-  background-color:var(--conc-050);
-  background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#ebede5 0%,#e3e5db 55%,#dbded2 100%);
-  background-size:240px 240px,900px 900px,100% 100%;
-  background-blend-mode:overlay,overlay,normal;
-}
-/* Dark slate concrete. Stat strip, scholarship panel and footer.
-   The grain overlay LIFTS a mid-dark backdrop, so the gradient sits below
-   slate on purpose: rendered, this surface measures #343c3d–#556061 with a
-   median of #424d4e. Lighten it and gold/bone text fall under AA. */
-.conc--dark{
-  background-color:var(--slate);
-  background-image:var(--grain-fine),var(--grain-cloud),
-    linear-gradient(163deg,#434c4d 0%,#3a4344 50%,#2f3738 100%);
-  background-size:240px 240px,900px 900px,100% 100%;
-  background-blend-mode:overlay,overlay,normal;
-  color:#fff;
-}
-.conc--dark h2,.conc--dark h3{color:#fff}
-/* Form-tie / panel-seam lines. Deliberately faint — one hairline per bay.
-   These are seams, not cracks. Do not increase the opacity. */
-.seams{position:relative;isolation:isolate}
-.seams::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(180deg,rgba(0,0,0,.07) 1px,transparent 1px);
-  background-size:clamp(160px,20vw,280px) 100%,100% clamp(180px,24vw,320px);
-}
-.seams > *{position:relative;z-index:1}
-.seams--light::before{
-  background-image:
-    linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px),
-    linear-gradient(180deg,rgba(255,255,255,.4) 1px,transparent 1px);
-}
-/* Form-tie dots — four per bay, tiny, only on the dark panel. */
-.ties{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.38;
-  background-image:radial-gradient(circle at 1.5px 1.5px,rgba(255,255,255,.14) 1.4px,transparent 1.6px);
-  background-size:clamp(160px,20vw,280px) clamp(180px,24vw,320px);
-  background-position:16px 22px;
-}
+@media (max-width:520px){ .nav__give{display:none} }
 
-/* ---------- shared type patterns ----------------------------------------- */
-.eyebrow{
-  font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 14px;display:flex;align-items:center;gap:11px;line-height:1.4
-}
-.eyebrow::before{content:"";width:24px;height:3px;background:var(--teal);flex:none}
-@media (min-width:600px){ .eyebrow{font-size:12px;letter-spacing:.17em} .eyebrow::before{width:26px} }
-.conc--dark .eyebrow{color:var(--bone)}
-.conc--dark .eyebrow::before{background:var(--bone)}
-.sec--cta .eyebrow{color:#fff}
-.sec--cta .eyebrow::before{background:#fff}
-.lede{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(18px,2.2vw,23px);line-height:1.5;color:var(--ink);
-  max-width:60ch;margin:0 0 1.1em;font-weight:400
-}
-.conc--dark .lede{color:#f0f0ee}
-.sec--cta .lede{color:#fff}
-.body{color:var(--slate);font-size:clamp(15.5px,1.6vw,17px);max-width:68ch}
-.conc--dark .body{color:var(--bone)}
-.sec--cta .body{color:#fff}
+/* hero */
+.hero{position:relative;background:var(--teal);color:#fff;overflow:hidden;padding:clamp(56px,8vw,110px) 0}
+.hero::after{content:"CIM";position:absolute;right:-2%;top:-6%;font:400 clamp(220px,30vw,460px)/.85 var(--display);color:rgba(255,255,255,.07);pointer-events:none}
+.hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(38px,4vw,58px);margin-bottom:24px}
+.hero p:not(.label){font-size:clamp(17px,1.6vw,20px);margin-bottom:32px}
+.hero__photo img{width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:0 24px 50px rgba(0,0,0,.25)}
+@media (max-width:900px){ .hero__grid{grid-template-columns:1fr} }
 
-/* ---------- buttons (site-wide; identical metrics in every section) ------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  min-height:48px;padding:12px 24px;border-radius:var(--r);
-  font:inherit;font-weight:600;font-size:15.5px;letter-spacing:-.005em;
-  text-decoration:none;cursor:pointer;text-align:center;
-  border:2px solid transparent;
-  transition:background-color .16s,border-color .16s,color .16s,transform .16s,box-shadow .16s
-}
-.btn--primary{background:var(--teal);color:#fff;border-color:var(--teal-ink)}
-.btn--primary:hover{background:var(--teal-800);border-color:var(--teal-ink);color:#fff;transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,90,106,.28)}
-/* the deep-teal 2px edge keeps the control boundary >=3:1 on the darkest hero
-   concrete (teal alone is 2.89:1 there) */
-.btn--ghost{background:transparent;color:var(--slate);border-color:var(--slate)}
-.btn--ghost:hover{background:var(--slate);border-color:var(--slate);color:#fff;transform:translateY(-2px)}
-/* on dark slate and on the closing CTA panel */
-.btn--ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.62)}
-.btn--ghost-w:hover{background:rgba(255,255,255,.14);border-color:#fff;color:#fff;transform:translateY(-2px)}
-.btn--white{background:#fff;color:var(--teal-ink);border-color:#fff}
-.btn--white:hover{background:var(--conc-100);border-color:var(--conc-100);color:var(--teal-ink);transform:translateY(-2px)}
-.btn--lg{min-height:56px;padding:15px 34px;font-size:16.5px}
-/* The primary CTA on slate (header, drawer, scholarship panel) is marked up as
-   .btn--white and rendered as a teal fill. Teal on slate is 1.69:1, so a 1px
-   bone hairline carries the control edge (6.33:1). */
-.nav .btn--white,.conc--dark .btn--white{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 0 0 1px var(--bone)}
-.nav .btn--white:hover,.conc--dark .btn--white:hover{background:var(--teal-800);border-color:var(--teal-800);color:#fff;box-shadow:0 0 0 1px #fff,0 6px 18px rgba(0,0,0,.3)}
-@media (prefers-reduced-motion:reduce){ .btn:hover{transform:none} }
-.btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
-@media (max-width:519px){ .btns .btn{flex:1 1 100%} }
-.btns--center{justify-content:center}
-
-/* ---------- official logo (nav + footer) ----------------------------------
-   White artwork on transparent — slate surfaces only. Height is set, width
-   follows the 826x320 aspect ratio. Never recolor, filter, crop or squash it. */
-.brand{display:flex;align-items:center;text-decoration:none;padding:10px 0;flex:none}
-.brand img{height:50px;width:auto;max-width:none}
-@media (max-width:429px){ .brand img{height:40px} }
-.foot .brand img{height:80px}
-@media (max-width:429px){ .foot .brand img{height:72px} }
-
-/* ---------- sticky nav ---------------------------------------------------- */
-/* Slate bar: the official logo is white artwork, so the header is dark. */
-.nav{position:sticky;top:0;z-index:100;background:var(--slate);border-bottom:3px solid var(--teal)}
-.nav__in{
-  max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
-  min-height:68px;display:flex;align-items:center;gap:10px
-}
-.nav__links{display:none;gap:2px;align-items:center;margin-left:auto}
-.nav__links a{
-  color:var(--bone);text-decoration:none;font-size:14px;font-weight:600;
-  padding:10px 12px;border-radius:var(--r);white-space:nowrap;
-  display:inline-flex;align-items:center;min-height:44px
-}
-.nav__links a:hover,.nav__links a:focus-visible{color:#fff;background:rgba(255,255,255,.1)}
-.nav__cta{margin-left:auto;flex:none}
-.nav__cta .btn{min-height:44px;padding:10px 18px;font-size:14px}
-.nav__ctaLong{display:none}
-.nav__toggle{
-  background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--mist);
-  border-radius:var(--r);width:46px;height:46px;flex:none;padding:0;
-  display:inline-flex;align-items:center;justify-content:center;cursor:pointer
-}
-.nav__toggle:hover{background:rgba(255,255,255,.16);border-color:var(--bone)}
-@media (min-width:1080px){
-  .nav__links{display:flex}
-  .nav__links + .nav__cta{margin-left:10px}
-  .nav__ctaLong{display:inline}
-  .nav__toggle{display:none}
-}
-/* below 430px the bar has no room for a label — the primary CTA lives in the
-   drawer instead (a full-width .btn--white is the last item there). */
-@media (max-width:429px){ .nav__cta{display:none} .nav__toggle{margin-left:auto} }
-.nav__drawer{display:none;padding:6px var(--gut) 20px;background:var(--slate);border-top:1px solid var(--mist)}
-.nav__drawer.is-open{display:block}
-.nav__drawer a.nav__dlink{
-  display:block;color:var(--bone);text-decoration:none;font-weight:600;font-size:16px;
-  padding:14px 4px;border-bottom:1px solid rgba(135,149,151,.55);min-height:48px
-}
-.nav__drawer a.nav__dlink:hover{color:#fff}
-.nav__drawer .btn{width:100%;margin-top:18px}
-
-/* ---------- hero ---------------------------------------------------------- */
-.hero{position:relative}
-.hero__grid{display:grid;grid-template-columns:1fr}
-.hero__copy{padding:clamp(40px,7vw,84px) var(--gut) clamp(40px,6vw,76px);position:relative;z-index:1}
-.hero__copy > *{max-width:640px}
-/* >=980px: the copy is ONE ~600px block pushed against the photo divider.
-   It is positioned once, on the container (left padding soaks up the spare
-   width), so every child shares a single left edge. Right-aligning each child
-   instead made their left edges drift apart on wide screens, because each has
-   its own width cap. Below ~1400px the max() resolves to --gut: unchanged. */
-@media (min-width:980px){
-  .hero__copy > *{margin-left:0;margin-right:0;max-width:600px}
-  .hero__copy{
-    padding-right:clamp(40px,4vw,56px);
-    padding-left:max(var(--gut),calc(100% - 600px - clamp(40px,4vw,56px)))
-  }
-}
-.hero h1{max-width:19ch;font-size:clamp(30px,5.2vw,50px)}
-.hero__lede{max-width:52ch}
-.hero__media{position:relative;min-height:290px;background:var(--conc-400)}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:30% 40%;position:absolute;inset:0}
-/* Teal rule between the concrete copy panel and the photo. */
-.hero__rule{height:6px;background:var(--teal);position:relative;z-index:2}
-@media (min-width:980px){
-  .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1fr)}
-  .hero__media{min-height:clamp(520px,54vw,640px)}
-  .hero__rule{position:absolute;top:0;bottom:0;left:0;width:6px;height:auto}
+/* stats */
+.stats{background:var(--char);color:#fff}
+.stats ul{list-style:none;margin:0 auto;padding:0 24px;max-width:var(--wrap);display:grid;grid-template-columns:repeat(4,1fr)}
+.stats li{padding:34px 26px;border-left:1px solid rgba(255,255,255,.15)}
+.stats li:first-child{border-left:0;padding-left:0}
+.stats b{display:block;font:400 clamp(48px,5vw,68px)/1 var(--display);color:var(--yellow);margin-bottom:8px}
+.stats span{font-size:16px;line-height:1.45;color:#e8e8e0}
+@media (max-width:900px){
+  .stats ul{grid-template-columns:1fr 1fr}
+  .stats li{border-left:0;padding:26px 12px 26px 0;border-top:1px solid rgba(255,255,255,.15)}
+  .stats li:nth-child(-n+2){border-top:0}
 }
 
-/* stat strip */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);margin:0}
-@media (min-width:900px){ .stats{grid-template-columns:repeat(4,1fr)} }
-.stat{
-  background:transparent;padding:clamp(20px,3vw,30px) clamp(16px,2.2vw,26px);
-  border-top:1px solid rgba(255,255,255,.12)
-}
-.stat:nth-child(-n+2){border-top:0}
-.stat + .stat{border-left:1px solid rgba(255,255,255,.12)}
-.stat:nth-child(3){border-left:0}
-/* On the 2-column mobile grid every tile keeps identical padding, so the two
-   rows share one left edge. The flush-left first tile is a desktop-only move. */
-@media (min-width:900px){
-  .stat{border-top:0}
-  .stat:nth-child(3){border-left:1px solid rgba(255,255,255,.12)}
-  .stat:first-child{padding-left:0}
-}
-.stat__n{
-  font-size:clamp(24px,3.4vw,36px);font-weight:800;color:var(--gold);
-  line-height:1.02;letter-spacing:-.03em;display:block
-}
-.stat__l{font-size:13px;color:var(--bone);margin-top:9px;line-height:1.4;font-weight:500;display:block}
-.stats__wrap{position:relative}
+/* who */
+.who__top{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;margin-bottom:48px}
+.who__top p{font-size:clamp(17px,1.5vw,19px)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card3{background:var(--paper);padding:30px 30px 34px;border-top:6px solid var(--orange)}
+.card3:nth-child(2){border-color:var(--teal)} .card3:nth-child(3){border-color:var(--green)}
+.card3 h3{font:400 clamp(32px,3vw,40px)/1 var(--display);letter-spacing:.02em;margin-bottom:12px}
+.card3 p{margin:0;color:var(--muted)}
+@media (max-width:860px){ .who__top,.cards3{grid-template-columns:1fr} .who__top{gap:8px} }
 
-/* ---------- split (text + photo) ------------------------------------------ */
-.split{display:grid;gap:clamp(28px,4vw,52px);grid-template-columns:1fr;align-items:center}
-.split--fill{align-items:stretch}
-@media (min-width:900px){
-  .split{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px)}
-  .split--media-first .split__media{order:-1}
-}
-.split__media{position:relative;display:flex;align-items:center}
-/* the frame hugs the photo, so the teal rule stays pinned to the image edge
-   even when the text column is taller than the picture */
-.split__frame{position:relative;display:block;width:100%}
-.split__frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
-/* This source is PORTRAIT (1200x1600), so the two breakpoints crop on opposite
-   axes and only one half of the anchor does any work at a time:
-     desktop (tall stretched frame) — crops horizontally, ~1072 of 1200px shown,
-       full height, so the Y value is inert and nothing is cut top or bottom;
-     mobile/tablet (4:3 frame)      — crops vertically, ~900 of 1600px shown,
-       full width, so the Y value is everything.
-   The subject runs from the instructor's head (y~255) to the base of the test
-   cylinder on the front table (y~830) — 575px, comfortably inside the ~900px
-   mobile window. 20% puts the window at y 140-1040: ~115px of headroom above
-   his head, the cylinder and sample cubes whole, and the first rows of students
-   in the foreground. */
-.split__frame--about img{object-position:center 20%}
-.split__frame--patron img{object-position:center 40%}
-@media (min-width:900px){
-  .split--fill{align-items:stretch}
-  .split--fill .split__media{align-items:stretch}
-  .split--fill .split__frame{height:100%;min-height:420px;max-height:920px}
-  /* no object-position here: the per-photo anchors above own the crop window,
-     and this rule is more specific, so setting it here would override them. */
-  .split--fill .split__frame img{aspect-ratio:auto;height:100%;object-fit:cover}
-}
-/* teal corner rule so photos read as designed, not dropped in */
-.split__frame::after{
-  content:"";position:absolute;left:-10px;bottom:-10px;width:clamp(72px,12vw,118px);height:6px;background:var(--teal)
-}
-@media (max-width:899px){ .split__frame::after{left:0} }
+/* leadership */
+.subhead{font-size:clamp(20px,1.9vw,24px);font-weight:800;margin-bottom:10px}
+.officers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:36px 28px}
+.officer img{width:100%;aspect-ratio:1;object-fit:cover;border-bottom:7px solid var(--orange);margin-bottom:16px;background:#dfe7e5}
+.officer:nth-child(5n+2) img{border-color:var(--teal)}
+.officer:nth-child(5n+3) img{border-color:var(--yellow)}
+.officer:nth-child(5n+4) img{border-color:var(--green)}
+.officer:nth-child(5n+5) img{border-color:var(--aqua)}
+.officer h4{font-size:21px;margin-bottom:4px}
+.officer .role{display:block;color:var(--teal-dk);font-weight:800}
+.officer .job{display:block;color:var(--muted);font-size:16px;line-height:1.45}
+@media (max-width:900px){ .officers{grid-template-columns:repeat(2,1fr)} }
+.board-intro{font-size:18px}
+.board-intro a{font-weight:900}
+.directors{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);column-gap:44px}
+.directors li{padding:14px 0;border-bottom:1px solid #cddcd9}
+.directors b{display:block;font-weight:900}
+.directors span{color:var(--muted);font-size:16px}
+@media (max-width:900px){ .directors{grid-template-columns:1fr 1fr} }
+@media (max-width:600px){ .directors{grid-template-columns:1fr} }
 
-/* ---------- highlighted note block ---------------------------------------- */
-.note{
-  background:#fff;border:1px solid var(--conc-200);border-left:5px solid var(--teal);
-  border-radius:0 var(--r) var(--r) 0;padding:clamp(22px,3vw,32px);
-  margin-top:clamp(30px,4vw,46px)
-}
-.note p{font-size:clamp(16px,1.8vw,18.5px);color:var(--ink);margin:0;max-width:76ch;line-height:1.55}
+/* why */
+.why{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(36px,5vw,72px);align-items:start}
+.reasons{list-style:none;margin:32px 0 0;padding:0}
+.reasons li{display:grid;grid-template-columns:84px 1fr;margin-bottom:30px}
+.reasons .n{font:400 96px/.85 var(--display);color:var(--orange)}
+.reasons li:nth-child(2) .n{color:var(--teal)} .reasons li:nth-child(3) .n{color:var(--green)}
+.reasons h3{font-size:clamp(20px,2vw,24px);margin-bottom:10px}
+.reasons p{margin:0;color:var(--muted)}
+.why__side figure{margin:0 0 28px}
+.why__side figure img{border-bottom:6px solid var(--yellow);width:100%}
+.why__side figcaption{font-size:15px;color:var(--muted);margin-top:10px}
+.why__side a{display:block}
+.why__side a img{border:1px solid var(--line);width:100%}
+@media (max-width:900px){ .why{grid-template-columns:1fr} }
+@media (max-width:520px){ .reasons li{grid-template-columns:58px 1fr} .reasons .n{font-size:72px} }
 
-/* ---------- Patron support tiles (7 items, centered last row) -------------- */
-/* Icon + label only: the approved copy deck supplies no card body text. */
-.pintro{
-  margin:clamp(30px,4vw,46px) 0 0;font-size:clamp(16px,1.8vw,18px);
-  font-weight:600;color:var(--ink);max-width:60ch
-}
-.pgrid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:18px;padding:0;list-style:none}
-.pgrid li{
-  flex:1 1 238px;max-width:262px;min-width:0;
-  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  border-top:3px solid var(--slate);padding:22px 20px 24px;
-  display:flex;flex-direction:column;gap:14px
-}
-@media (max-width:519px){
-  .pgrid li{flex:1 1 100%;max-width:none;flex-direction:row;align-items:center;gap:14px}
-}
-.pgrid .ic{width:26px;height:26px;color:var(--teal);flex:none}
-.pgrid b{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.006em}
+.pwall{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.pwall li{display:flex;align-items:center;justify-content:center;aspect-ratio:2/1;border:1px solid var(--line);background:#fff;padding:12px;text-align:center;font-weight:800;font-size:15px;line-height:1.25;color:var(--muted)}
+.pwall img{max-height:100%;object-fit:contain}
+@media (max-width:900px){ .pwall{grid-template-columns:repeat(4,1fr)} }
+@media (max-width:600px){ .pwall{grid-template-columns:repeat(2,1fr)} .pwall li{font-size:14px} }
 
-/* ---------- Patron logo wall (32 logos: 3 / 4 / 8 columns, short row centered) */
-/* Each logo carries an inline width so wide wordmarks and square marks read at
-   roughly the same visual weight; max-height catches the tall ones. */
-.pwall{--cols:3;--gap:8px;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--gap);margin:18px 0 0;padding:0;list-style:none}
-@media (min-width:520px){ .pwall{--cols:4;--gap:12px} }
-@media (min-width:1100px){ .pwall{--cols:8} }
-.pwall li{
-  flex:0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
-  aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;
-  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r)
-}
-.pwall img{height:auto;max-height:66%;object-fit:contain}
+/* patrons week */
+.week p:not(.label){font-size:clamp(17px,1.5vw,19px);color:#e8e8e0}
+.save{margin-top:32px;border:3px solid var(--yellow);padding:22px 28px}
+.save .label{margin-bottom:6px}
+.save strong{display:block;font-size:clamp(19px,1.8vw,22px);font-weight:900}
+.save span{color:#e8e8e0}
 
-/* ---------- serif pull lines (Georgia) ------------------------------------ */
-.pull{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(20px,2.7vw,30px);line-height:1.34;letter-spacing:-.012em;
-  color:var(--ink);border-left:5px solid var(--teal);padding:4px 0 4px clamp(20px,3vw,30px);
-  margin:clamp(30px,4vw,44px) 0 0;max-width:34ch
-}
-.conc--dark .pull{color:#fff;border-left-color:var(--gold)}
-/* closing line on the CTA panel — centered, so it takes a rule instead of a bar */
-.closing{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(19px,2.5vw,27px);line-height:1.36;letter-spacing:-.012em;color:#fff;
-  margin:clamp(26px,3.4vw,36px) auto 0;max-width:32ch;
-  padding-top:clamp(22px,3vw,28px);border-top:3px solid rgba(255,255,255,.45)
-}
+/* giving impact */
+.impact{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.icard{display:flex;flex-direction:column}
+.icard__body{display:flex;flex-direction:column;flex:1;padding:clamp(28px,3.4vw,48px)}
+.icard__body .btn{margin-top:auto;align-self:flex-start}
+.icard--teal{background:var(--teal);color:#fff}
+.icard--gray{background:var(--paper)}
+.icard--gray img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.big{font:400 clamp(60px,7vw,104px)/1 var(--display);margin:6px 0 14px}
+.icard--gray .big{font-size:clamp(52px,5.4vw,78px)}
+.bio{display:grid;grid-template-columns:120px 1fr;gap:24px;background:var(--teal-dk);padding:24px;margin:10px 0 28px}
+.bio img{border-bottom:5px solid var(--yellow);width:120px}
+.bio h4{font-size:20px;margin-bottom:8px}
+.bio p{margin:0;font-size:16px}
+.prog{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.prog i{height:14px;background:rgba(255,255,255,.18)}
+.prog i.on{background:var(--yellow)}
+.prog-l{font-weight:900;margin:10px 0 30px}
+@media (max-width:900px){ .impact{grid-template-columns:1fr} }
+@media (max-width:520px){ .bio{grid-template-columns:1fr} }
 
-/* ---------- scholarship panel --------------------------------------------- */
-.schol{
-  display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:1fr;
-  align-items:start;margin-top:clamp(26px,3.5vw,40px)
-}
-@media (min-width:920px){ .schol{grid-template-columns:minmax(0,1.14fr) minmax(0,1fr)} }
-/* white-space:nowrap keeps "$1,000,000" on one line at every width, so the type
-   size is capped to what the left column can hold. Measured 360-1440px; raising
-   it without widening the column and re-measuring pushes the figure into the
-   gutter or clips a digit. */
-.schol__n{
-  font-size:clamp(44px,7.3vw,76px);font-weight:800;color:var(--gold);
-  line-height:.95;letter-spacing:-.04em;margin:0;display:block;white-space:nowrap
-}
-.schol__l{
-  font-size:clamp(16px,1.9vw,20px);color:#fff;line-height:1.35;font-weight:700;
-  /* 32ch lands the gold rule at roughly the width of the counted figure, so it
-     reads as the number's underline rather than a stray dash. */
-  margin:18px 0 0;max-width:32ch;letter-spacing:-.012em;
-  border-top:3px solid var(--gold);padding-top:16px
-}
+/* auction */
+.auction__top{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:center}
+.auction__top p:not(.label){color:#e8e8e0;font-size:clamp(17px,1.5vw,19px);margin:0}
+.auction__btns{flex-direction:column;align-items:flex-start}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:48px 0}
+.num{padding:30px 40px;color:var(--char)}
+.num b{display:block;font:400 clamp(60px,7vw,96px)/1 var(--display)}
+.num span{font-weight:700;font-size:17px}
+.num--aqua{background:var(--aqua)} .num--yellow{background:var(--yellow)}
+.flow h3{font:400 clamp(26px,2.4vw,32px)/1 var(--display);letter-spacing:.02em;color:var(--yellow);margin-bottom:20px}
+.flow ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.flow li{border-top:4px solid var(--orange);padding-top:14px;color:#e8e8e0;font-size:16px}
+.flow li:nth-child(2){border-color:var(--teal)} .flow li:nth-child(3){border-color:var(--yellow)} .flow li:nth-child(4){border-color:var(--green)}
+.flow b{display:block;font:400 40px/1 var(--display);color:#fff;margin-bottom:6px}
+.flow strong{color:#fff}
+.donor{display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center;background:#fff;color:var(--char);padding:32px;margin-top:48px}
+.donor h3{font-size:clamp(20px,2vw,24px);margin-bottom:10px}
+.donor p{color:var(--muted)}
+.donor a{font-weight:900}
+@media (max-width:900px){ .auction__top{grid-template-columns:1fr} .auction__btns{flex-direction:row} .flow ul{grid-template-columns:1fr 1fr} }
+@media (max-width:600px){ .nums,.flow ul,.donor{grid-template-columns:1fr} .donor img{width:130px} }
 
-/* ---------- board --------------------------------------------------------- */
-/* Six cards: 2 / 3 / 6 across, so rows never leave an orphan. */
-.board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:clamp(30px,4vw,46px);padding:0;list-style:none}
-@media (min-width:760px){ .board{grid-template-columns:repeat(3,minmax(0,1fr))} }
-@media (min-width:1100px){ .board{grid-template-columns:repeat(6,minmax(0,1fr))} }
-.board li{
-  min-width:0;text-align:center;
-  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);padding:26px 13px 24px
-}
-.board__n,.board__t,.board__o{text-wrap:balance}
-.board__ph{
-  width:88px;height:88px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
-  border:1px solid var(--conc-200);overflow:hidden
-}
-.board__ph img{width:100%;height:100%;object-fit:cover}
-.board__n{font-size:15.5px;font-weight:700;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em;line-height:1.25}
-.board__t{font-size:13.5px;font-weight:700;color:var(--slate);margin:0 0 3px;line-height:1.35}
-.board__o{font-size:13px;color:var(--slate);margin:0;line-height:1.35}
-/* ---------- how to give ---------------------------------------------------- */
-.levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:clamp(26px,3.5vw,40px) 0 0;padding:0;list-style:none}
-@media (min-width:760px){ .levels{grid-template-columns:repeat(3,minmax(0,1fr))} }
-@media (min-width:1100px){ .levels{grid-template-columns:repeat(6,minmax(0,1fr))} }
-.levels li{
-  background:#fff;border:1px solid var(--conc-200);border-radius:var(--r);
-  border-top:3px solid var(--teal);padding:20px 18px 22px;display:flex;flex-direction:column;gap:6px
-}
-.levels__n{font-size:14.5px;font-weight:700;color:var(--teal-ink)}
-.levels__a{font-size:clamp(20px,2.2vw,25px);font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.15}
-.levels__a small{display:block;font-size:13.5px;font-weight:500;color:var(--slate);letter-spacing:0;margin-top:2px}
-.give__form{margin-top:clamp(24px,3vw,34px);max-width:760px}
-.pcontact{margin:18px 0 0;text-align:center;font-size:14.5px;color:var(--slate);line-height:1.7}
-.pcontact a{color:var(--teal-ink);text-decoration:underline}
-.pcontact .foot__sep{color:var(--mist)}
+.iam{background:var(--orange)}
+.iam img{max-width:1100px;width:100%;margin:0 auto;padding:clamp(24px,4vw,48px) 24px}
 
-/* ---------- closing CTA panel (deep teal) --------------------------------- */
-/* Client teal read bright at this size; the deeper tone has weight, and its
-   hue separates it from the slate footer directly below. White text 6.71:1. */
-.sec--cta{background:var(--teal-800);color:#fff;position:relative;overflow:hidden}
-.sec--cta::before{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;
-  background-image:var(--grain-cloud);background-size:900px 900px;mix-blend-mode:overlay
-}
-.sec--cta > *{position:relative;z-index:1}
-.sec--cta h2{color:#fff;max-width:20ch}
-.sec--cta__in{max-width:62ch;margin:0 auto;text-align:center}
-.sec--cta__in .eyebrow{justify-content:center}
-.sec--cta__in h2,.sec--cta__in .lede,.sec--cta__in .body{margin-left:auto;margin-right:auto}
-.sec--cta__in .btns{justify-content:center}
-.sec--cta .btn--ghost-w{border-color:rgba(255,255,255,.85)}
+/* give */
+.goes{list-style:none;margin:36px 0 18px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.goes li{background:var(--paper);padding:24px 26px;border-top:5px solid var(--teal)}
+.goes li:nth-child(2){border-color:var(--orange)} .goes li:nth-child(3){border-color:var(--green)}
+.goes h3{font:400 28px/1 var(--display);letter-spacing:.02em;margin-bottom:10px}
+.goes p{margin:0;color:var(--muted)}
+.levels{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.levels li{background:var(--lt);padding:20px 16px;text-align:center;border-bottom:5px solid var(--aqua)}
+.levels b{display:block;font:400 28px/1 var(--display);letter-spacing:.02em}
+.levels span{font-weight:800;color:var(--teal-dk)}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.way{padding:32px;border:2px solid var(--line)}
+.way h3{font-size:24px;margin-bottom:10px}
+.way p{color:var(--muted)}
+.way--online{border-color:var(--orange)}
+.fine{margin-top:32px;font-size:16px;color:var(--muted)}
+.fine p{margin:0 0 6px}
+@media (max-width:900px){ .goes,.ways{grid-template-columns:1fr} .levels{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:520px){ .levels{grid-template-columns:repeat(2,1fr)} }
 
-/* ---------- footer --------------------------------------------------------- */
-.foot{padding:clamp(40px,5vw,60px) 0 0;font-size:15px}
-.foot__top{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
-.foot__nav{display:flex;flex-wrap:wrap;gap:0 20px;list-style:none;margin:0;padding:0}
-.foot__nav a{
-  color:var(--bone);text-decoration:none;font-size:14.5px;font-weight:600;
-  display:inline-flex;align-items:center;min-height:44px
-}
-.foot__nav a:hover{color:#fff;text-decoration:underline}
-.foot__contact{margin:clamp(26px,3vw,34px) 0 0;font-size:14.5px;color:var(--bone);line-height:1.7}
-.foot__contact a{color:var(--bone);text-decoration:underline}
-.foot__contact a:hover{color:#fff}
-.foot__sep{color:rgba(255,255,255,.35);padding:0 6px}
-.foot__legal{margin:14px 0 0;font-size:13.5px;color:var(--bone);line-height:1.6;max-width:78ch}
-.foot__bot{border-top:1px solid var(--mist);margin-top:26px;padding:18px 0 28px;font-size:13px;color:var(--bone)}
+/* program */
+.program{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
+.mini{display:flex;gap:40px;margin:8px 0 30px}
+.mini b{display:block;font:400 54px/1 var(--display);color:var(--teal)}
+.mini span{font-weight:700;font-size:16px;color:var(--muted)}
+.program img{width:100%;max-width:420px;margin-left:auto;border-bottom:6px solid var(--green)}
+@media (max-width:860px){ .program{grid-template-columns:1fr} .program img{margin:0} }
+.btn--teal{background:var(--teal);color:#fff}
+.btn--teal:hover{background:var(--teal-dk)}
 
-/* ---------- inline icons --------------------------------------------------- */
-.ic{display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+/* careers */
+.tags{list-style:none;margin:30px 0 44px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tags li{background:#fff;border:1px solid var(--aqua);padding:8px 16px;border-radius:999px;font-weight:700;font-size:15px}
+.careers2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.quote{background:var(--teal);color:#fff;padding:clamp(28px,3.4vw,44px);margin:0}
+.quote p{font-size:clamp(20px,2vw,24px);font-weight:700;line-height:1.45}
+.quote footer{font-size:16px;color:#dceff0}
+.thirty{background:var(--char);color:#fff;padding:clamp(28px,3.4vw,44px)}
+.thirty .label{color:var(--yellow)}
+.thirty h3{font-size:clamp(26px,2.6vw,32px);margin-bottom:14px}
+.thirty p{color:#e8e8e0}
+.thirty ul{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px;font-weight:800}
+@media (max-width:860px){ .careers2{grid-template-columns:1fr} }
 
-/* ==========================================================================
-   MOTION — three moments, plus the existing scroll reveal.
-   Every start-state is scoped to html.js, which the inline script sets, so a
-   page with JavaScript off renders the finished layout. Every moment is
-   transform/opacity only (composited), runs ONCE, and ends static. Under
-   prefers-reduced-motion each one resolves straight to its end state.
-     1. hero    — staged entrance on load + a single slow photo drift
-     2. stats   — count-up on three of the four figures
-     3. schol   — the $1 million number counts, its gold rule draws
-   Nothing else on the page animates. The concrete texture never moves.
-   ========================================================================== */
-
-/* --- 1. hero: staged entrance ------------------------------------------- */
-html.js .hero__copy > *{opacity:0;transform:translateY(14px)}
-html.js .hero.is-ready .hero__copy > *{
-  opacity:1;transform:none;
-  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)
-}
-html.js .hero.is-ready .hero__copy > :nth-child(1){transition-delay:.04s}
-html.js .hero.is-ready .hero__copy > :nth-child(2){transition-delay:.13s}
-html.js .hero.is-ready .hero__copy > :nth-child(3){transition-delay:.22s}
-html.js .hero.is-ready .hero__copy > :nth-child(4){transition-delay:.31s}
-html.js .hero.is-ready .hero__copy > :nth-child(5){transition-delay:.40s}
-
-/* the teal divider draws in as the headline lands */
-html.js .hero__rule{transform:scaleX(0);transform-origin:left center;transition:transform .7s cubic-bezier(.16,1,.3,1) .13s}
-html.js .hero.is-ready .hero__rule{transform:scaleX(1)}
-@media (min-width:980px){
-  html.js .hero__rule{transform:scaleY(0);transform-origin:center top}
-  html.js .hero.is-ready .hero__rule{transform:scaleY(1)}
-}
-
-/* one very slow push-in on the hero photo, then it stays put */
-.hero__media{overflow:hidden}
-html.js .hero__media img{transform:scale(1)}
-html.js .hero.is-ready .hero__media img{
-  /* a gentle ease-out, not a front-loaded one: an expressive curve spends the
-     whole move in the first second and then crawls, which fights the text
-     entrance. This reads as a genuinely slow push-in. */
-  transform:scale(1.05);transition:transform 14s ease-out;will-change:transform
-}
-
-/* --- 2 + 3. counters --------------------------------------------------- */
-/* tabular figures so a counting number keeps a steady width */
-.stat__n,.schol__n{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-/* the gold rule under $1 million draws left to right */
-.schol__l{position:relative;border-top:0}
-.schol__l::before{
-  content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--gold);
-  transform-origin:left center
-}
-html.js .schol__l::before{transform:scaleX(0);transition:transform .9s cubic-bezier(.16,1,.3,1) .12s}
-html.js .schol.is-lit .schol__l::before{transform:scaleX(1)}
-
-@media (prefers-reduced-motion:reduce){
-  html.js .hero__copy > *{opacity:1;transform:none;transition:none}
-  html.js .hero__rule{transform:none;transition:none}
-  html.js .hero.is-ready .hero__media img{transform:none;transition:none;will-change:auto}
-  html.js .schol__l::before{transform:none;transition:none}
-}
-
-/* ---------- scroll reveal (JS adds .js to <html>; no JS = always visible) --- */
-html.js .rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
-html.js .rv.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  html.js .rv{opacity:1;transform:none;transition:none}
-}
+/* footer */
+.foot{background:var(--char);color:#e8e8e0;font-size:16px}
+.foot__in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:56px 24px 40px}
+.foot__logo{width:230px;margin-bottom:18px}
+.foot h3{font:400 22px/1 var(--display);letter-spacing:.03em;color:var(--yellow);margin-bottom:12px}
+.foot a{color:#fff}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin-bottom:6px}
+.foot address{font-style:normal;line-height:1.8}
+@media (max-width:860px){ .foot__in{grid-template-columns:1fr} }
 </style>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to main content</a>
 
-<!-- ============================== STICKY NAV ============================== -->
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 <header class="nav">
   <div class="nav__in">
-    <a class="brand" href="#top">
-      <img src="assets/img/logo/cim-chico-patrons-white.png" alt="Chico CIM Patrons" width="1014" height="603" />
-    </a>
-
+    <a class="brand" href="#top"><img src="assets/img/logo/logo-color.png" alt="Chico CIM Patrons" width="862" height="308" /></a>
     <nav class="nav__links" aria-label="Section navigation">
+      <a href="#who">Who We Are</a>
+      <a href="#leadership">Leadership</a>
       <a href="#patrons">Patrons</a>
-      <a href="#board">Board</a>
-      <a href="#scholarship">Scholarship</a>
-      <a href="#about">About</a>
+      <a href="#scholarship">Giving Impact</a>
+      <a href="#auction">CIM Auction</a>
+      <a href="#program">The Program</a>
     </nav>
-
-    <div class="nav__cta">
-      <a class="btn btn--white" href="#" data-cta="support" aria-label="Support Chico CIM">Support<span class="nav__ctaLong"> Chico CIM</span></a>
-    </div>
-
+    <a class="btn btn--orange nav__give" href="#give">Give</a>
     <button class="nav__toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer" aria-label="Open section menu">
-      <svg class="ic" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.1" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
   </div>
-
-  <div class="nav__drawer" id="navDrawer">
-    <a class="nav__dlink" href="#patrons">Patrons</a>
-    <a class="nav__dlink" href="#board">Board</a>
-    <a class="nav__dlink" href="#scholarship">Scholarship</a>
-    <a class="nav__dlink" href="#about">About</a>
-    <a class="btn btn--white" href="#" data-cta="support">Support Chico CIM</a>
-  </div>
+  <nav class="nav__drawer" id="navDrawer" aria-label="Section menu">
+    <a href="#who">Who We Are</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#patrons">Patrons</a>
+    <a href="#scholarship">Giving Impact</a>
+    <a href="#auction">CIM Auction</a>
+    <a href="#program">The Program</a>
+    <a class="btn btn--orange" href="#give">Give</a>
+  </nav>
 </header>
 
 <main id="main">
 
-<!-- =============================== 1. HERO ================================ -->
+<!-- HERO -->
 <section class="hero" aria-labelledby="heroH">
-  <div class="hero__grid">
-    <div class="hero__copy conc seams seams--light">
-      <p class="eyebrow">Chico CIM Patrons</p>
+  <div class="wrap hero__grid">
+    <div>
+      <p class="label label--yellow">Chico CIM Patrons · A Nonprofit Foundation</p>
       <h1 id="heroH">Building the Future of the Concrete Industry, Together</h1>
-      <p class="lede hero__lede">CIM at Chico State connects education and industry to prepare the next generation of leaders—from the classroom to the boardroom.</p>
-      <p class="body" style="color:var(--ink);max-width:58ch">CIM at Chico State and concrete industry professionals have worked together to create opportunities for students to learn, connect, and prepare for meaningful careers throughout the industry.</p>
+      <p>Chico CIM Patrons is a nonprofit of concrete industry leaders: producers, contractors, suppliers, and alumni committed to the students of Chico State's Concrete Industry Management program. Through scholarships, internships, and mentorship, we help prepare the people who will lead our industry.</p>
       <div class="btns">
-        <a class="btn btn--primary" href="#" data-cta="patron">Become a Chico CIM Patron</a>
+        <a class="btn btn--orange" href="#give">Become a Patron</a>
+        <a class="btn btn--outline" href="#leadership">Meet Our Leadership</a>
       </div>
     </div>
-    <div class="hero__media">
-      <div class="hero__rule" aria-hidden="true"></div>
-      <img src="assets/img/photos/hero-student-lab.jpg"
-           alt="A Chico CIM student in safety glasses pours aggregate from a sieve into a bowl on a lab scale."
-           width="2000" height="1333" fetchpriority="high" />
-    </div>
-  </div>
-
-  <div class="stats__wrap conc--dark">
-    <div class="wrap">
-      <dl class="stats rv">
-        <div class="stat"><dt class="stat__l vh">Job placement</dt><dd style="margin:0"><span class="stat__n" data-count>100%</span><span class="stat__l">Job placement opportunity</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">Starting salary</dt><dd style="margin:0"><span class="stat__n" data-count>$80K</span><span class="stat__l">Average starting salary</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">National standing</dt><dd style="margin:0"><span class="stat__n">1 of 5</span><span class="stat__l">One of only five CIM programs in the country</span></dd></div>
-        <div class="stat"><dt class="stat__l vh">Industry partners</dt><dd style="margin:0"><span class="stat__n" data-count>50+</span><span class="stat__l">Industry partners</span></dd></div>
-      </dl>
+    <div class="hero__photo">
+      <img src="assets/img/photos/hero-patrons-group.jpg" alt="Chico CIM Patrons and students hold the CIM Program Endowment banner." width="1400" height="966" fetchpriority="high" />
     </div>
   </div>
 </section>
 
-<!-- ============================= 2. SUPPORT  ============================= -->
-<section class="sec sec--cta" id="support" aria-labelledby="supportH">
-  <div class="wrap">
-    <div class="rv sec--cta__in">
-      <p class="eyebrow">Support the Program</p>
-      <h2 id="supportH">Help Build What Comes Next</h2>
-      <p class="lede">The strength of CIM at Chico State comes from the people who believe in its students, its mission, and the future of the concrete industry.</p>
-      <p class="body">Through financial support, mentorship, industry involvement, and partnership, you can help create opportunities for students while contributing your knowledge and experience to the next generation of concrete industry professionals.</p>
-      <p class="closing">From the classroom to the boardroom, we’re building the future of the industry together.</p>
-      <div class="btns">
-        <a class="btn btn--white" href="#" data-cta="patron">Become a Chico CIM Patron</a>
-      </div>
-    </div>
-  </div>
+<!-- STATS -->
+<section class="stats" aria-label="CIM by the numbers">
+  <ul>
+    <li><b>1 of 5</b><span>CIM programs in the nation, and the only one in the West</span></li>
+    <li><b>260</b><span>CIM graduates over 20 years, leading teams across the industry</span></li>
+    <li><b>60+</b><span>Companies engaged with CIM students and the program</span></li>
+    <li><b>~100%</b><span>Job placement rate across CIM programs nationwide</span></li>
+  </ul>
 </section>
 
-<!-- ============================ 3. PATRON PROGRAM ========================= -->
-<section class="sec conc--light" id="patrons" aria-labelledby="patronsH">
+<!-- WHO WE ARE -->
+<section class="sec" id="who" aria-labelledby="whoH">
   <div class="wrap">
-    <div class="split split--media-first rv">
+    <div class="who__top">
       <div>
-        <p class="eyebrow">The Patron Program</p>
-        <h2 id="patronsH">Built With Industry. Strengthened by Partnership.</h2>
-        <p class="lede">Since Chico State joined the national CIM program in 2007, industry professionals have played an important role in supporting the program and its students.</p>
-        <p class="body">The Chico CIM Patrons Program brings together concrete producers, suppliers, contractors, association leaders, consultants, alumni, and other professionals who share an investment in developing the industry’s future workforce.</p>
-
-        <h3 style="margin-top:1.5em">More Than Financial Support</h3>
-        <p class="body">Patron involvement helps connect students with the people, knowledge, and experiences that bring their education to life.</p>
+        <p class="label">About the Foundation</p>
+        <h2 class="h2" id="whoH">Who We Are</h2>
       </div>
-      <div class="split__media"><span class="split__frame split__frame--patron">
-        <img src="assets/img/photos/patrons-endowment-check.jpg"
-             alt="Industry and university leaders hold a $1,000,000 check made out to the Chico State University Foundation for the CIM Program Endowment, October 20, 2022."
-             width="1500" height="1035" loading="lazy" />
-      </span></div>
+      <p>Chico CIM Patrons is an independent nonprofit educational foundation. Our members are concrete producers, suppliers, contractors, consultants, associations, and alumni who share one goal: preparing the next leaders of our industry. Every Patron company has a seat on our board, and every dollar we raise supports CIM students at Chico State.</p>
     </div>
+    <div class="cards3">
+      <div class="card3"><h3>Fund</h3><p>Scholarships, program funding, and the Steve Gonsalves Scholarship Fund.</p></div>
+      <div class="card3"><h3>Connect</h3><p>Internships, mentorship, guest speakers, field visits, and Patrons Week.</p></div>
+      <div class="card3"><h3>Steward</h3><p>An industry-led board that directs and accounts for every gift.</p></div>
+    </div>
+  </div>
+</section>
 
-    <p class="pintro rv" id="patronSupport">Across CIM, Patron support can include:</p>
-    <ul class="pgrid rv" aria-labelledby="patronSupport">
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.4 8.6 12 4.2l9.6 4.4-9.6 4.4z"/><path d="M6.2 10.7V15c0 1.5 2.6 2.7 5.8 2.7S17.8 16.5 17.8 15v-4.3"/><path d="M21.6 8.6v5.1"/></svg>
-        <b>Scholarships and program funding</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.2 8.2h17.6v11a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1z"/><path d="M8.8 8.2V5.9a1.6 1.6 0 0 1 1.6-1.6h3.2a1.6 1.6 0 0 1 1.6 1.6v2.3"/><path d="M3.2 13.2h17.6"/></svg>
-        <b>Internships and professional networking</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7.6" r="3.4"/><path d="M2.6 20.4v-1.2A5.4 5.4 0 0 1 8 13.8h2a5.4 5.4 0 0 1 5.4 5.4v1.2"/><path d="M16.4 4.6a3.4 3.4 0 0 1 0 6"/><path d="M17.6 14a5.4 5.4 0 0 1 3.8 5.2v1.2"/></svg>
-        <b>Mentorship</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2.7 2.7 0 0 1 2.7 2.7v5.4a2.7 2.7 0 0 1-5.4 0V5.9A2.7 2.7 0 0 1 12 3.2z"/><path d="M6.4 11a5.6 5.6 0 0 0 11.2 0"/><path d="M12 16.6v4.2"/><path d="M8.8 20.8h6.4"/></svg>
-        <b>Guest lecturers and industry speakers</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6.6-5.9 6.6-10.4A6.6 6.6 0 0 0 5.4 10.6C5.4 15.1 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
-        <b>Field visits and hands-on experiences</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.3"/><path d="M12 2.2v2.7M12 19.1v2.7M21.8 12h-2.7M4.9 12H2.2M18.9 5.1l-1.9 1.9M7 17l-1.9 1.9M18.9 18.9 17 17M7 7 5.1 5.1"/></svg>
-        <b>Equipment and in-kind resources</b>
-      </li>
-      <li>
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.4" cy="7.8" r="3.6"/><path d="M2.6 20.4v-1.3a5.4 5.4 0 0 1 5.4-5.4h2.8a5.4 5.4 0 0 1 3.4 1.2"/><path d="m15.4 18.1 2.1 2.1 4.1-4.6"/></svg>
-        <b>Student and program recruitment support</b>
-      </li>
+<!-- LEADERSHIP -->
+<section class="sec sec--lt" id="leadership" aria-labelledby="leadH">
+  <div class="wrap">
+    <p class="label">Chico CIM Patrons</p>
+    <h2 class="h2" id="leadH">Leadership</h2>
+    <p class="subhead">Industry Experience. Shared Commitment.</p>
+    <p class="lede">Our leadership represents an important connection between education and industry—helping CIM remain connected to the people, organizations, and opportunities shaping the concrete industry.</p>
+
+    <h3 class="group">Executive Officers</h3>
+    <ul class="officers">
+      <li class="officer"><img src="assets/img/board/seema-sehrawat.jpg" alt="Seema Sehrawat" width="600" height="600" loading="lazy" /><h4>Seema Sehrawat</h4><span class="role">Executive Director</span><span class="job">Chico CIM Patrons</span></li>
+      <li class="officer"><img src="assets/img/board/dana-davis.jpg" alt="Dana Davis" width="360" height="360" loading="lazy" /><h4>Dana Davis</h4><span class="role">Chair</span><span class="job">President, Teichert Materials</span></li>
+      <li class="officer"><img src="assets/img/board/francisco-rivera.jpg" alt="Francisco Rivera" width="360" height="360" loading="lazy" /><h4>Francisco Rivera</h4><span class="role">Vice Chair</span><span class="job">Senior Vice President, Cement Commercial, CEMEX</span></li>
+      <li class="officer"><img src="assets/img/board/chris-schenone.jpg" alt="Chris Schenone" width="360" height="360" loading="lazy" /><h4>Chris Schenone</h4><span class="role">Vice Chair, NorCal</span><span class="job">Operations Manager - Readymix, Northern CA, CalPortland</span></li>
+      <li class="officer"><img src="assets/img/board/tom-maher.jpg" alt="Tom Maher" width="360" height="360" loading="lazy" /><h4>Tom Maher</h4><span class="role">Vice Chair, SoCal</span><span class="job">VP of Sales &amp; Technical Services, Holliday Rock Co., Inc.</span></li>
+      <li class="officer"><img src="assets/img/board/ash-wear.jpg" alt="Ash Wear" width="360" height="360" loading="lazy" /><h4>Ash Wear</h4><span class="role">Secretary</span><span class="job">Cement Sales Manager, CEMEX</span></li>
+      <li class="officer"><img src="assets/img/board/stephan-buol.jpg" alt="Stephan Buol" width="360" height="360" loading="lazy" /><h4>Stephan Buol</h4><span class="role">Treasurer</span><span class="job">Accounts Manager, Teichert</span></li>
     </ul>
 
-    <div class="note rv">
-      <p>It is a relationship that benefits both sides: students gain greater access to the industry they are preparing to enter, while industry professionals have an opportunity to participate in developing its next generation.</p>
+    <h3 class="group">Board of Directors</h3>
+    <p class="board-intro">Every Chico CIM Patron company holds a seat on our board, with a vote on budget and priorities. <a href="#patrons">Meet our Patrons →</a></p>
+    <ul class="directors">
+      <li><b>Brian Rose</b><span>7-11 Materials</span></li>
+      <li><b>Alex Nichols, Ron Coburn</b><span>A&amp;A Ready Mix</span></li>
+      <li><b>Eddie Antonini</b><span>Angelus Block</span></li>
+      <li><b>Frank Cvetovac Jr.</b><span>Basalite Concrete Products</span></li>
+      <li><b>Paul Foley</b><span>Bulk Exchange</span></li>
+      <li><b>Tom Tietz, Clay Slocum</b><span>California Nevada Cement Association</span></li>
+      <li><b>Carissa Fannucchi-Christie</b><span>California Precast Concrete Association</span></li>
+      <li><b>Bill Mullen, Wyatt Roseman</b><span>CalPortland</span></li>
+      <li><b>Jaymi Fridley</b><span>CHRYSO / Verifi (Saint-Gobain)</span></li>
+      <li><b>Chad Watson, Jon Boone, Wiatt Chase</b><span>The Conco Companies</span></li>
+      <li><b>Eric Emerson</b><span>CRH</span></li>
+      <li><b>Crystal Waters</b><span>Crystal Waters Consulting</span></li>
+      <li><b>Scott Humphrey, Cody Stauffer</b><span>Dave Humphrey Enterprises</span></li>
+      <li><b>Michelle Hardy</b><span>ECO Material Technologies</span></li>
+      <li><b>Greg Bridges</b><span>Elite Ready Mix / Vanguard Construction</span></li>
+      <li><b>Brent Coulson</b><span>Euclid Chemical</span></li>
+      <li><b>Derek Miller, Josh Neff</b><span>Folsom Ready Mix</span></li>
+      <li><b>Ian Firth</b><span>Granite Construction</span></li>
+      <li><b>Mike McGrath</b><span>Granite Rock Company</span></li>
+      <li><b>Preston Hanford III</b><span>Hanford Sand &amp; Gravel</span></li>
+      <li><b>Eileen Mori-Mishina, Wade Wakayama</b><span>HC&amp;D</span></li>
+      <li><b>Greg Mecurio</b><span>Independent Floor Testing &amp; Inspection</span></li>
+      <li><b>Phillip Albanese</b><span>Joseph J. Albanese</span></li>
+      <li><b>Dave Smith</b><span>Knife River</span></li>
+      <li><b>Chris Forster</b><span>Largo Concrete</span></li>
+      <li><b>Jim Evans</b><span>Level 10 Construction</span></li>
+      <li><b>Tanner Olsen</b><span>Marr B. Olsen</span></li>
+      <li><b>Greg Guecia</b><span>Master Builders Solutions</span></li>
+      <li><b>Yanetli Navarro Hernandez</b><span>Mathews Ready Mix</span></li>
+      <li><b>Austin Marshall, Nancy Quintero</b><span>Mitsubishi Cement</span></li>
+      <li><b>Cole Jacobs</b><span>National Cement</span></li>
+      <li><b>Rowdy Cordero</b><span>Nevada Cement</span></li>
+      <li><b>Gene Ceccotti</b><span>North Bay Rock &amp; Ready Mix</span></li>
+      <li><b>Ross Sakamoto, Dymetrius Espinosa</b><span>Oldcastle Infrastructure</span></li>
+      <li><b>Keith Perrine</b><span>Pan Pacific Cement</span></li>
+      <li><b>Greg Odenthal</b><span>Pinnacle Consulting</span></li>
+      <li><b>Will Magill</b><span>The Quikrete Companies</span></li>
+      <li><b>Todd Dragna, Bill Taylor</b><span>Robertson's Ready Mix</span></li>
+      <li><b>Chris Kirkpatrick, Bob Sheehan</b><span>Sika</span></li>
+      <li><b>Greg Juell</b><span>Sousa Ready Mix</span></li>
+      <li><b>Nathan Green</b><span>Spirit Advisors Group</span></li>
+      <li><b>Trevor Prater</b><span>Swinerton Concrete</span></li>
+      <li><b>Herb Burton, Abbey Sanderson</b><span>Vulcan Materials Company</span></li>
+      <li><b>Todd Smith</b><span>West Coast Outlaws / Bohringer</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHY BECOME A PATRON + WALL -->
+<section class="sec" id="patrons" aria-labelledby="whyH">
+  <div class="wrap">
+    <div class="why">
+      <div>
+        <p class="label label--orange">Join Today!</p>
+        <h2 class="h2" id="whyH">Why Become a Patron</h2>
+        <p class="lede">Since Chico State joined the national CIM program in 2007, industry has stood behind its students. As a Chico CIM Patron, you will:</p>
+        <ol class="reasons">
+          <li><span class="n" aria-hidden="true">1</span><div><h3>Gain access to a pipeline of highly skilled, ACI-certified graduates</h3><p>Students immersed in business, science, and concrete-specific classes, with hands-on labs on high-tech equipment, ready for challenges in concrete technology, quality assurance, and management.</p></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><h3>Strengthen your company's reputation</h3><p>Align with a program supported by the CIM National Steering Committee, with access to exclusive events and networking, and a vote on the Patrons Board.</p></div></li>
+          <li><span class="n" aria-hidden="true">3</span><div><h3>Maximize your ROI through student success</h3><p>Paid internships with companies like yours, travel to industry competitions, and yearly scholarships that help students cover rent, tuition, and books.</p></div></li>
+        </ol>
+      </div>
+      <div class="why__side">
+        <figure>
+          <img src="assets/img/photos/cim-lab-students.jpg" alt="Three CIM students talk in the lab beneath the Concrete Industry Management Patrons sign." width="845" height="564" loading="lazy" />
+          <figcaption>The CIM lab, renovated with support from Chico CIM Patrons.</figcaption>
+        </figure>
+        <a href="#auction"><img src="assets/img/graphics/cim-auction-banner.png" alt="Support the CIM Auction: every donation, bid, sponsorship and share helps. Get involved today." width="600" height="200" loading="lazy" /></a>
+      </div>
     </div>
 
-    <div class="rv">
-      <p class="pintro" id="patronWall">Our Chico CIM Patrons</p>
-      <ul class="pwall" aria-labelledby="patronWall">
+    <h3 class="group" id="patronWall">Our Chico CIM Patrons</h3>
+    <!-- 49 Patrons, alphabetical (Appendix B). Text tiles = logo still owed by the client;
+         to add one, swap the text for an <img> like its neighbours. -->
+    <ul class="pwall" aria-labelledby="patronWall">
       <li><img src="assets/img/patrons/711-materials.webp" alt="711 Materials" width="159" height="74" loading="lazy" style="width:62%" /></li>
+      <li>A&amp;A Ready Mix</li>
       <li><img src="assets/img/patrons/angelus-block.webp" alt="Angelus Block Co." width="202" height="85" loading="lazy" style="width:65%" /></li>
       <li><img src="assets/img/patrons/basalite.webp" alt="Basalite Concrete Products" width="480" height="114" loading="lazy" style="width:80%" /></li>
       <li><img src="assets/img/patrons/bulk-exchange.webp" alt="Bulk Exchange" width="480" height="81" loading="lazy" style="width:80%" /></li>
+      <li><img src="assets/img/patrons/cnca.webp" alt="California Nevada Cement Association" width="200" height="36" loading="lazy" style="width:80%" /></li>
+      <li>California Precast Concrete Association</li>
       <li><img src="assets/img/patrons/calportland.webp" alt="CalPortland" width="447" height="194" loading="lazy" style="width:64%" /></li>
       <li><img src="assets/img/patrons/cemex.webp" alt="CEMEX" width="288" height="76" loading="lazy" style="width:80%" /></li>
-      <li><img src="assets/img/patrons/central-concrete.webp" alt="Central Concrete Supply Co." width="480" height="154" loading="lazy" style="width:74%" /></li>
-      <li><img src="assets/img/patrons/cnca.webp" alt="California Nevada Cement Association" width="200" height="36" loading="lazy" style="width:80%" /></li>
+      <li>CHRYSO / Verifi (Saint-Gobain)</li>
       <li><img src="assets/img/patrons/conco.webp" alt="The Conco Companies" width="480" height="237" loading="lazy" style="width:60%" /></li>
       <li><img src="assets/img/patrons/crh.webp" alt="CRH" width="240" height="240" loading="lazy" style="width:42%" /></li>
       <li><img src="assets/img/patrons/crystal-waters.webp" alt="Crystal Waters Consulting" width="480" height="203" loading="lazy" style="width:65%" /></li>
+      <li>Dave Humphrey Enterprises</li>
+      <li>ECO Material Technologies</li>
+      <li>Elite Ready Mix</li>
+      <li>Euclid Chemical</li>
       <li><img src="assets/img/patrons/folsom-ready-mix.webp" alt="Folsom Ready Mix" width="480" height="125" loading="lazy" style="width:80%" /></li>
       <li><img src="assets/img/patrons/granite.webp" alt="Granite Construction" width="480" height="73" loading="lazy" style="width:80%" /></li>
+      <li>Granite Rock Company</li>
       <li><img src="assets/img/patrons/hanford.webp" alt="Hanford Sand &amp; Gravel" width="472" height="158" loading="lazy" style="width:73%" /></li>
       <li><img src="assets/img/patrons/hcd.webp" alt="HC&amp;D" width="294" height="225" loading="lazy" style="width:48%" /></li>
       <li><img src="assets/img/patrons/holliday-rock.webp" alt="Holliday Rock" width="480" height="145" loading="lazy" style="width:77%" /></li>
+      <li>Independent Floor Testing &amp; Inspection</li>
+      <li>Joseph J. Albanese</li>
       <li><img src="assets/img/patrons/knife-river.webp" alt="Knife River" width="221" height="240" loading="lazy" style="width:40%" /></li>
       <li><img src="assets/img/patrons/largo.webp" alt="Largo Concrete" width="219" height="56" loading="lazy" style="width:80%" /></li>
       <li><img src="assets/img/patrons/level-10.webp" alt="Level 10 Construction" width="240" height="240" loading="lazy" style="width:42%" /></li>
+      <li>Marr B. Olsen</li>
+      <li>Master Builders Solutions</li>
+      <li>Mathews Ready Mix</li>
       <li><img src="assets/img/patrons/mitsubishi-cement.webp" alt="Mitsubishi Cement Corporation" width="249" height="68" loading="lazy" style="width:80%" /></li>
       <li><img src="assets/img/patrons/national-cement.webp" alt="National Cement" width="480" height="69" loading="lazy" style="width:80%" /></li>
+      <li>Nevada Cement</li>
+      <li>North Bay Rock &amp; Ready Mix</li>
       <li><img src="assets/img/patrons/oldcastle.webp" alt="Oldcastle Infrastructure" width="292" height="240" loading="lazy" style="width:47%" /></li>
       <li><img src="assets/img/patrons/pan-pacific.webp" alt="Pan Pacific Cement" width="348" height="240" loading="lazy" style="width:51%" /></li>
+      <li>Pinnacle Consulting</li>
       <li><img src="assets/img/patrons/quikrete.webp" alt="Quikrete" width="480" height="126" loading="lazy" style="width:80%" /></li>
       <li><img src="assets/img/patrons/robertsons.webp" alt="Robertson’s" width="480" height="92" loading="lazy" style="width:80%" /></li>
+      <li>Sika</li>
+      <li>Sousa Ready Mix</li>
       <li><img src="assets/img/patrons/spirit-advisors.webp" alt="Spirit Advisors" width="480" height="159" loading="lazy" style="width:73%" /></li>
       <li><img src="assets/img/patrons/swinerton.webp" alt="Swinerton" width="374" height="240" loading="lazy" style="width:53%" /></li>
       <li><img src="assets/img/patrons/teichert.webp" alt="Teichert" width="249" height="240" loading="lazy" style="width:43%" /></li>
@@ -870,357 +516,232 @@ html.js .rv.is-in{opacity:1;transform:none}
       <li><img src="assets/img/patrons/vulcan.webp" alt="Vulcan Materials Company" width="480" height="205" loading="lazy" style="width:65%" /></li>
       <li><img src="assets/img/patrons/west-coast-bohringer.webp" alt="West Coast Bohringer" width="166" height="122" loading="lazy" style="width:49%" /></li>
       <li><img src="assets/img/patrons/west-coast-outlaws.webp" alt="West Coast Outlaws" width="332" height="240" loading="lazy" style="width:50%" /></li>
+    </ul>
+    <div class="btns" style="margin-top:36px"><a class="btn btn--orange" href="#give">Become a Chico CIM Patron</a></div>
+  </div>
+</section>
+
+<!-- PATRONS WEEK (time-sensitive: update the label after Oct 29) -->
+<section class="sec sec--dark week" id="week" aria-labelledby="weekH">
+  <div class="wrap">
+    <p class="label label--yellow">Fall 2026 · October 28–29</p>
+    <h2 class="h2" id="weekH">Patrons Week</h2>
+    <p>Two days on campus where Patrons meet the students they support, hear about their internships, and set the year ahead.</p>
+    <div class="save">
+      <p class="label label--yellow">Save the date</p>
+      <strong>Spring 2027 Patrons Week: April 14–16</strong>
+      <span>Including the ACI Student Club Golf Tournament on April 15</span>
+    </div>
+  </div>
+</section>
+
+<!-- GIVING IMPACT -->
+<section class="sec" id="scholarship" aria-labelledby="impactH">
+  <div class="wrap">
+    <p class="label">Giving Impact</p>
+    <h2 class="h2" id="impactH">Investments That Last</h2>
+    <p class="lede">Together, Patrons have given approximately $10 million to CIM at Chico State. Thank you for your unwavering support.</p>
+    <div class="impact">
+      <article class="icard icard--teal">
+        <div class="icard__body">
+          <p class="label label--yellow">The Steve Gonsalves Scholarship Fund</p>
+          <p class="big">$1,000,000</p>
+          <p>A $1 million investment in CIM students, awarded as scholarships year after year.</p>
+          <div class="bio">
+            <img src="assets/img/board/steve-gonsalves.jpg" alt="Steve Gonsalves" width="320" height="320" loading="lazy" />
+            <div>
+              <h4>About Steve Gonsalves</h4>
+              <p>Steve Gonsalves is Chairman of The Conco Companies. A founding supporter of the Chico State CIM program, he pledged $1 million over 10 years to create the Steve Gonsalves Scholarship Fund. Steve believes in making an immediate difference in students' lives, supporting them now as they pursue their CIM degree.</p>
+            </div>
+          </div>
+          <!-- Update each year: add class="on" to one more segment. -->
+          <div class="prog" role="img" aria-label="Year 2 of 10"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="prog-l">Year 2 of 10</p>
+          <a class="btn btn--orange" href="#give">Support the Scholarship Fund</a>
+        </div>
+      </article>
+      <article class="icard icard--gray">
+        <img src="assets/img/photos/endowment-check-2022.jpg" alt="Patrons present the $1,000,000 CIM Program Endowment check to the Chico State University Foundation, October 20, 2022." width="1200" height="828" loading="lazy" />
+        <div class="icard__body">
+          <p class="label label--green">Chico CIM Patrons Endowment</p>
+          <p class="big">$2,000,000</p>
+          <p>Committed by Patrons: a first $1 million pledge, fully paid, and a second pledge of $100,000 a year for eight years, building lasting support for the program.</p>
+          <a class="btn btn--orange" href="#give">Become a Chico CIM Patron</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CIM AUCTION -->
+<section class="sec sec--dark" id="auction" aria-labelledby="auctionH">
+  <div class="wrap">
+    <div class="auction__top">
+      <div>
+        <p class="label label--yellow">2027 CIM Auction at World of Concrete</p>
+        <h2 class="h2" id="auctionH">Support the CIM Auction</h2>
+        <p>Every donation, bid, sponsorship and share helps strengthen the future of the concrete industry while creating opportunities for students at Chico State and across the national CIM network.</p>
+      </div>
+      <div class="btns auction__btns">
+        <a class="btn btn--orange" href="https://concretedegree.com/cim-auction-at-world-of-concrete/" target="_blank" rel="noopener">Get Involved</a>
+        <a class="btn btn--outline-dark" href="https://concretedegree.com/auction-donation/" target="_blank" rel="noopener">Donate an Item</a>
+      </div>
+    </div>
+    <div class="nums">
+      <div class="num num--aqua"><b>$2.328M</b><span>raised at the 2026 CIM Auction through donor generosity</span></div>
+      <div class="num num--yellow"><b>$1.625M</b><span>distributed to the five CIM universities in fiscal year 2025–26</span></div>
+    </div>
+    <div class="flow">
+      <h3>From auction to action: where the money goes</h3>
+      <ul>
+        <li><b>$500,000</b><strong>Program support:</strong> $100,000 to each CIM university for program needs, industry events, and faculty support.</li>
+        <li><b>$250,000</b><strong>Scholarships:</strong> Helping students join and excel in the CIM program.</li>
+        <li><b>$500,000</b><strong>Campus recruiters:</strong> Dedicated recruiters who drive student growth and enrollment.</li>
+        <li><b>$375,000</b><strong>New marketing:</strong> Outreach that keeps the pipeline of skilled graduates flowing.</li>
       </ul>
     </div>
-
-    <div class="btns btns--center rv" style="margin-top:clamp(32px,4vw,46px)">
-      <a class="btn btn--ghost btn--lg" href="#" data-cta="patron">Become a Chico CIM Patron</a>
+    <div class="donor">
+      <img src="assets/img/graphics/proud-donor-2027.png" alt="2027 CIM Auction Proud Donor" width="598" height="765" loading="lazy" />
+      <div>
+        <h3>Donating an item? Help it earn more bids.</h3>
+        <p>Tell your team, feature your donation on your website and newsletter, promote it at your World of Concrete booth, and invite customers to bid. On social media, include a photo, explain why the item is valuable, and use #2027CIMAuction.</p>
+        <a href="https://concretedegree.com/auction-donation/" target="_blank" rel="noopener">Get the promotion toolkit: graphics, logos, and sample posts →</a>
+      </div>
     </div>
-    <p class="pcontact rv">
-      <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a>
-    </p>
   </div>
 </section>
 
-<!-- ============================== HOW TO GIVE ============================= -->
+<div class="iam"><img src="assets/img/graphics/cim-i-am-collage.webp" alt="CIM: I AM. Chico State CIM students at work in the lab and on the jobsite." width="1400" height="616" loading="lazy" /></div>
+
+<!-- HOW TO GIVE -->
 <section class="sec" id="give" aria-labelledby="giveH">
   <div class="wrap">
-    <div class="rv" style="max-width:66ch">
-      <p class="eyebrow">Giving</p>
-      <h2 id="giveH">How to Give</h2>
-    </div>
+    <p class="label label--orange">Become a Patron</p>
+    <h2 class="h2" id="giveH">How to Give</h2>
+    <p class="lede">Building the future of the concrete industry, one student at a time.</p>
+    <ul class="goes">
+      <li><h3>Scholarships</h3><p>$200,000 in scholarships funded for 2026–2027 to help students cover rent, tuition, and books.</p></li>
+      <li><h3>Hands-on experience</h3><p>Student competitions and site visits that take learning beyond the classroom.</p></li>
+      <li><h3>Lab &amp; equipment</h3><p>Tools that keep students' training current with industry practice.</p></li>
+    </ul>
+    <p class="lede">As a Patron company, you're doing more than funding a program. You're helping prepare the next generation of concrete professionals, many of whom go on to intern and build careers with companies like yours.</p>
 
-    <ul class="levels rv" aria-label="Giving levels">
-      <li><span class="levels__n">Platinum</span><span class="levels__a">$25,000</span></li>
-      <li><span class="levels__n">Gold</span><span class="levels__a">$15,000</span></li>
-      <li><span class="levels__n">Silver</span><span class="levels__a">$10,000</span></li>
-      <li><span class="levels__n">Bronze</span><span class="levels__a">$5,000</span></li>
-      <li><span class="levels__n">Friend</span><span class="levels__a">$2,500 <small>and below</small></span></li>
-      <li><span class="levels__n">Individual</span><span class="levels__a">Any amount</span></li>
+    <h3 class="group">Patron giving levels</h3>
+    <ul class="levels">
+      <li><b>Platinum</b><span>$25,000</span></li>
+      <li><b>Gold</b><span>$15,000</span></li>
+      <li><b>Silver</b><span>$10,000</span></li>
+      <li><b>Bronze</b><span>$5,000</span></li>
+      <li><b>Friend</b><span>$2,500 and below</span></li>
+      <li><b>Individual</b><span>Any amount</span></li>
     </ul>
 
-    <div class="note rv">
-      <p>Checks payable to <b>Chico CIM Patrons</b>, mailed to PO Box 3983, Chico, CA 95927</p>
-    </div>
-
-    <!-- Zeffy donation form. The button reveals the client's embed in place;
-         without JS it opens the hosted Zeffy form in a new tab. -->
-    <div class="btns rv">
-      <a class="btn btn--primary" id="giveBtn" href="https://www.zeffy.com/en-US/donation-form/chico-cim-corporate-partner-contributions" target="_blank" rel="noopener" aria-controls="giveForm" aria-expanded="false">Support Chico CIM</a>
-    </div>
-    <div class="give__form" id="giveForm" hidden>
-      <div data-zeffy-embed data-form-url="/embed/donation-form/chico-cim-corporate-partner-contributions"></div>
-      <div data-zeffy-embed-fallback style="display:none;">
-        <div style="position:relative;overflow:hidden;height:450px;width:100%;"><iframe title="Donation form powered by Zeffy" style="position:absolute;border:0;top:0;left:0;bottom:0;right:0;width:100%;height:100%" data-zeffy-embed-src="https://www.zeffy.com/embed/donation-form/chico-cim-corporate-partner-contributions" allowpaymentrequest allowtransparency="true"></iframe></div>
+    <div class="ways">
+      <div class="way way--online">
+        <h3>Give online</h3>
+        <p>Make a one-time or recurring gift by card or bank transfer. We fundraise with Zeffy, so 100% of your gift goes to our mission.</p>
+        <a class="btn btn--orange" href="https://www.zeffy.com/en-US/donation-form/chico-cim-corporate-partner-contributions" target="_blank" rel="noopener">Give Online</a>
       </div>
+      <div class="way">
+        <h3>Give by check</h3>
+        <p>Make checks payable to Chico CIM Patrons and mail to:<br /><strong>PO Box 3983, Chico, CA 95927</strong></p>
+      </div>
+    </div>
+    <div class="fine">
+      <p>Questions about giving or Patron benefits? Email <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a> or call <a href="tel:+15305217301">(530) 521-7301</a></p>
+      <p>Chico CIM Patrons is a 501(c)(3) nonprofit; gifts are tax-deductible. Federal Tax ID 20-4079618.</p>
     </div>
   </div>
 </section>
 
-<!-- =============================== 4. BOARD =============================== -->
-<section class="sec conc--light" id="board" aria-labelledby="boardH">
-  <div class="wrap">
-    <div class="rv" style="max-width:68ch">
-      <p class="eyebrow">Leadership</p>
-      <h2 id="boardH">Meet Our Chico CIM Board</h2>
-      <h3>Industry Experience. Shared Commitment.</h3>
-      <p class="lede">CIM at Chico State is strengthened by industry professionals who contribute their time, experience, and perspective in support of the program and its students.</p>
-      <p class="body">Our board represents an important connection between education and industry—helping CIM remain connected to the people, organizations, and opportunities shaping the concrete industry.</p>
-    </div>
-
-    <!-- BOARD: names, titles, companies and headshots from the client (2026-10-21). Headshot alt is empty: the name sits directly below. -->
-    <ul class="board rv">
-      <li>
-        <div class="board__ph"><img src="assets/img/board/dana-davis.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Dana Davis</p>
-        <p class="board__t">Chair</p>
-        <p class="board__o">Teichert</p>
-      </li>
-      <li>
-        <div class="board__ph"><img src="assets/img/board/francisco-rivera.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Francisco Rivera</p>
-        <p class="board__t">Vice Chair</p>
-        <p class="board__o">CEMEX</p>
-      </li>
-      <li>
-        <div class="board__ph"><img src="assets/img/board/chris-schenone.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Chris Schenone</p>
-        <p class="board__t">Vice Chair NorCal</p>
-        <p class="board__o">Vulcan (Central Concrete)</p>
-      </li>
-      <li>
-        <div class="board__ph"><img src="assets/img/board/tom-maher.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Tom Maher</p>
-        <p class="board__t">Vice Chair SoCal</p>
-        <p class="board__o">Holliday Rock</p>
-      </li>
-      <li>
-        <div class="board__ph"><img src="assets/img/board/ash-wear.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Ash Wear</p>
-        <p class="board__t">Secretary</p>
-        <p class="board__o">CEMEX</p>
-      </li>
-      <li>
-        <div class="board__ph"><img src="assets/img/board/stephan-buol.jpg" alt="" width="360" height="360" loading="lazy" /></div>
-        <p class="board__n">Stephan Buol</p>
-        <p class="board__t">Treasurer</p>
-        <p class="board__o">Teichert</p>
-      </li>
-    </ul>  </div>
-</section>
-
-<!-- ========================= 5. SCHOLARSHIP FEATURE ======================= -->
-<section class="sec conc--dark seams" id="scholarship" aria-labelledby="scholH">
-  <div class="ties" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="rv">
-      <p class="eyebrow">Scholarship Feature</p>
-      <h2 id="scholH">The Steve Gonsalves Scholarship Fund</h2>
-    </div>
-
-    <div class="schol rv">
-      <div>
-        <p class="schol__n">$1,000,000</p>
-        <h3 class="schol__l">A $1 Million Investment in the Next Generation</h3>
+<!-- THE PROGRAM -->
+<section class="sec sec--lt" id="program" aria-labelledby="progH">
+  <div class="wrap program">
+    <div>
+      <p class="label">The Program We Support</p>
+      <h2 class="h2" id="progH">Where Concrete Meets Business</h2>
+      <p>Concrete Industry Management at Chico State is an industry-driven degree designed to prepare students for the business of concrete. Students develop knowledge in concrete materials, production, and applications while building the business, management, and leadership skills they carry into the workplace.</p>
+      <p>CIM prepares students for the technical, logistical, managerial, and administrative sides of the industry—from classroom to boardroom.</p>
+      <div class="mini">
+        <div><b>3×</b><span>enrollment growth since 2023</span></div>
+        <div><b>ATMAE</b><span>accredited program</span></div>
       </div>
-      <div>
-        <p class="body">The Steve Gonsalves Scholarship Fund represents a $1 million investment in students and the future of the concrete industry.</p>
-        <p class="body">Through this support, students can continue learning, developing their skills, and preparing to lead in an industry that helps shape the world around us.</p>
-        <p class="body">The impact reaches beyond an individual student or classroom. Supporting students pursuing Concrete Industry Management helps strengthen the next generation of professionals who will bring their knowledge, leadership, and experience to the industry for years to come.</p>
-      </div>
+      <a class="btn btn--teal" href="https://www.csuchico.edu/academics/college/engineering/departments/concrete-industry/" target="_blank" rel="noopener">Discover CIM at Chico State ↗</a>
     </div>
-
-    <p class="pull rv">Supporting students today. Building the industry’s future.</p>
-
-    <div class="btns rv">
-      <a class="btn btn--white" href="#" data-cta="scholarship">Support the Steve Gonsalves Scholarship Fund</a>
-      <a class="btn btn--ghost-w" href="#" data-cta="students">Support CIM Students</a>
-    </div>
+    <img src="assets/img/photos/student-wheelbarrow.jpg" alt="A CIM student pushes a wheelbarrow of concrete on a jobsite." width="520" height="694" loading="lazy" />
   </div>
 </section>
 
-<!-- ============================== 6. ABOUT CIM ============================ -->
-<section class="sec" id="about" aria-labelledby="aboutH">
+<!-- CAREER PATHS & 30 YEARS -->
+<section class="sec" id="careers" aria-labelledby="careersH">
   <div class="wrap">
-    <div class="split split--fill rv">
-      <div>
-        <p class="eyebrow">About CIM</p>
-        <h2 id="aboutH">Where Concrete Meets Business</h2>
-        <p class="lede">Concrete Industry Management at Chico State is an industry-driven degree designed to prepare students for the business of concrete.</p>
-        <p class="body">Students develop knowledge in concrete materials, production, and applications while building the business, management, and leadership skills they can carry into the workplace.</p>
-        <p class="body">Hands-on learning, internships, industry connections, and exposure to working professionals help students connect what they learn in the classroom with the realities of the industry.</p>
-
-        <h3 style="margin-top:1.5em">From Classroom to Boardroom</h3>
-        <p class="body">The goal goes beyond understanding concrete. CIM prepares students with a broad skill set for the technical, logistical, managerial, and administrative sides of the industry—and for opportunities to lead its future.</p>
-
-        <div class="btns">
-          <a class="btn btn--ghost" href="#" data-cta="discover">Discover CIM at Chico State</a>
-        </div>
+    <p class="label">Career Paths</p>
+    <h2 class="h2" id="careersH">Where a CIM Degree Can Take You</h2>
+    <p class="lede">CIM graduates step into roles across the concrete industry, from the jobsite and the plant to the lab, the sales floor, and the corner office.</p>
+    <ul class="tags">
+      <li>Estimating</li><li>Construction Superintendent</li><li>Project Manager</li><li>Plant Manager</li><li>Plant Operations Manager</li><li>Quality Control / Quality Assurance</li><li>Field &amp; Technical Services</li><li>Construction Safety</li><li>Laboratory Researcher</li><li>Business Development &amp; Sales</li><li>Virtual Design &amp; Innovation</li><li>Supply Chain</li><li>Logistics</li><li>Sustainability / ESG</li><li>Marketing &amp; Communications</li><li>Finance &amp; Accounting</li><li>Human Resources</li><li>Entrepreneur</li>
+    </ul>
+    <div class="careers2">
+      <blockquote class="quote">
+        <p>“The CIM program creates value for students with its practical curriculum and industry connections in a way that few undergraduate majors do.”</p>
+        <footer>— Claudia Martinez, Chico State CIM, Class of 2018</footer>
+      </blockquote>
+      <div class="thirty">
+        <p class="label">1996 · 2026</p>
+        <h3>Celebrating 30 Years of CIM</h3>
+        <p>What began in 1996 with two students is now a national program built by the concrete industry. Chico State is one of five CIM universities, alongside Middle Tennessee State, NJIT, South Dakota State, and Texas State.</p>
+        <ul><li>1,800+ CIM graduates nationwide</li><li>5 CIM universities</li><li>~100% job placement</li></ul>
       </div>
-      <div class="split__media"><span class="split__frame split__frame--about">
-        <img src="assets/img/photos/about-student-concrete.jpg"
-             alt="A CIM student in a hard hat and safety vest smiles while scooping fresh concrete from a wheelbarrow on a jobsite."
-             width="1199" height="1600" loading="lazy" />
-      </span></div>
     </div>
   </div>
 </section>
-
 
 </main>
 
-<!-- =============================== FOOTER ================================= -->
-<footer class="foot conc--dark">
-  <div class="wrap">
-    <div class="foot__top">
-      <a class="brand" href="#top">
-        <img src="assets/img/logo/cim-chico-patrons-white.png" alt="Chico CIM Patrons" width="1014" height="603" loading="lazy" />
-      </a>
-      <nav aria-label="Footer navigation">
-        <ul class="foot__nav">
-          <li><a href="#patrons">Patrons</a></li>
-          <li><a href="#board">Board</a></li>
-          <li><a href="#scholarship">Scholarship</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav>
+<footer class="foot">
+  <div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wrap foot__in">
+    <div>
+      <img class="foot__logo" src="assets/img/logo/logo-reverse.png" alt="Chico CIM Patrons" width="862" height="308" loading="lazy" />
+      <p>Chico CIM Patrons is an independent 501(c)(3) nonprofit educational foundation supporting the Concrete Industry Management program at California State University, Chico. Federal Tax ID 20-4079618.</p>
     </div>
-
-    <p class="foot__contact">
-      <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a><span class="foot__sep" aria-hidden="true">&middot;</span><a href="tel:+15305217301">(530) 521-7301</a><span class="foot__sep" aria-hidden="true">&middot;</span>PO Box 3983, Chico, CA 95927
-    </p>
-
-    <p class="foot__legal">Chico CIM Patrons is an independent nonprofit educational foundation supporting the Concrete Industry Management program at California State University, Chico. Tax ID 20-4079618.</p>
-
-    <div class="foot__bot">
-      <p style="margin:0">&copy; 2026 Chico CIM Patrons</p>
+    <div>
+      <h3>Contact</h3>
+      <address>
+        <a href="mailto:ChicoCIMFoundation@gmail.com">ChicoCIMFoundation@gmail.com</a><br />
+        <a href="tel:+15305217301">(530) 521-7301</a><br />
+        PO Box 3983, Chico, CA 95927
+      </address>
     </div>
+    <nav aria-label="Footer">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#who">Who We Are</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#patrons">Patrons</a></li>
+        <li><a href="#scholarship">Giving Impact</a></li>
+        <li><a href="#auction">CIM Auction</a></li>
+        <li><a href="#give">Give</a></li>
+        <li><a href="#program">The Program</a></li>
+      </ul>
+    </nav>
   </div>
 </footer>
 
 <script>
 (function(){
   "use strict";
-  var d = document;
-  d.documentElement.classList.add("js");
-  function $(s,c){ return (c||d).querySelector(s); }
-  function $$(s,c){ return Array.prototype.slice.call((c||d).querySelectorAll(s)); }
-
-  /* ---------------------------------------------------------------------
-     Blue Flamingo: set the five destination URLs here. Leave "" to keep the
-     button pointing at the on-page How to Give section (#give).
-     --------------------------------------------------------------------- */
-  const CTA_LINKS = { support: "", patron: "", discover: "https://www.csuchico.edu/academics/college/engineering/departments/concrete-industry/", scholarship: "", students: "" };
-
-  var FALLBACK = { support:"#give", scholarship:"#give", students:"#give", patron:"#give", discover:"#about" };
-  $$("[data-cta]").forEach(function(a){
-    var k = a.getAttribute("data-cta"), url = CTA_LINKS[k] || "";
-    if(url){
-      a.href = url;
-      if(/^https?:\/\//i.test(url)){ a.target = "_blank"; a.rel = "noopener"; }
-    } else {
-      a.href = FALLBACK[k] || "#give";
-    }
-  });
-
-  /* --- How to Give: the button reveals the Zeffy form in place and loads
-     Zeffy's script on first open (the client's embed code, verbatim). --- */
-  var giveBtn = $("#giveBtn"), giveForm = $("#giveForm");
-  if(giveBtn && giveForm){
-    giveBtn.addEventListener("click", function(e){
-      e.preventDefault();
-      if(!giveForm.hidden) return;
-      giveForm.hidden = false;
-      giveBtn.setAttribute("aria-expanded","true");
-      var sc = d.createElement("script");
-      sc.src = "https://www.zeffy.com/embed/v2/zeffy-embed.js";
-      sc.onerror = function(){
-        $$("[data-zeffy-embed-fallback]").forEach(function(el){
-          el.style.display = "block";
-          $$("iframe[data-zeffy-embed-src]", el).forEach(function(f){ f.src = f.getAttribute("data-zeffy-embed-src"); });
-        });
-      };
-      d.body.appendChild(sc);
-    });
+  var nav = document.querySelector(".nav"), t = document.getElementById("navToggle"), dr = document.getElementById("navDrawer");
+  function measure(){ document.documentElement.style.setProperty("--nav-h", nav.offsetHeight + "px"); }
+  measure(); window.addEventListener("resize", measure);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  function set(open){
+    dr.classList.toggle("is-open", open);
+    t.setAttribute("aria-expanded", String(open));
+    t.setAttribute("aria-label", open ? "Close section menu" : "Open section menu");
   }
-
-  /* --- keep --nav-h honest so anchor scroll-margin lands correctly --- */
-  var navIn = $(".nav__in");
-  function measureNav(){
-    if(navIn) d.documentElement.style.setProperty("--nav-h", navIn.offsetHeight + "px");
-  }
-  measureNav();
-  window.addEventListener("resize", measureNav);
-  if(d.fonts && d.fonts.ready) d.fonts.ready.then(measureNav);
-
-  /* --- mobile drawer --- */
-  var navToggle = $("#navToggle"), navDrawer = $("#navDrawer");
-  if(navToggle && navDrawer){
-    navToggle.addEventListener("click", function(){
-      var open = navDrawer.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(open));
-      navToggle.setAttribute("aria-label", open ? "Close section menu" : "Open section menu");
-      measureNav();
-    });
-    $$("a", navDrawer).forEach(function(a){
-      a.addEventListener("click", function(){
-        navDrawer.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded","false");
-        navToggle.setAttribute("aria-label","Open section menu");
-        measureNav();
-      });
-    });
-  }
-
-  /* =====================================================================
-     MOTION. Three moments. Each runs once, ends on the static layout, and
-     is skipped entirely under prefers-reduced-motion (the CSS above already
-     resolves every start-state, so here we only skip the JS work).
-     ===================================================================== */
-  var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var HAS_IO = "IntersectionObserver" in window;
-  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
-  function once(el, opts, fn){
-    if(!el) return;
-    if(!HAS_IO){ fn(); return; }
-    var o = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ o.disconnect(); fn(); } });
-    }, opts);
-    o.observe(el);
-  }
-
-  /* --- 1. hero: staged entrance + one slow photo drift --- */
-  var heroEl = $(".hero");
-  if(heroEl){
-    var ready = function(){ heroEl.classList.add("is-ready"); };
-    /* two frames so the start-state paints before the transition begins */
-    if(REDUCED) ready();
-    else requestAnimationFrame(function(){ requestAnimationFrame(ready); });
-    var heroImg = $(".hero__media img", heroEl);
-    if(heroImg) heroImg.addEventListener("transitionend", function(e){
-      if(e.propertyName === "transform") heroImg.style.willChange = "auto";
-    });
-  }
-
-  /* --- 2. stat strip: count three of the four figures ---
-     The finished strings live in the DOM. The counter reads each one, walks a
-     number up to it, then writes the original string back, so no-JS, reduced
-     motion and the final frame are byte-identical. "1 of 5" is deliberately
-     left alone: it is a ranking, not a quantity to count up to. */
-  function countTo(el, dur){
-    var orig = el.textContent;
-    var m = /^([^0-9]*)([0-9,]+)([\s\S]*)$/.exec(orig);
-    if(!m){ return; }
-    var pre = m[1], target = parseFloat(m[2].replace(/,/g, "")), suf = m[3], t0 = null;
-    function step(ts){
-      if(t0 === null) t0 = ts;
-      var p = Math.min(1, (ts - t0) / dur);
-      if(p < 1){
-        el.textContent = pre + Math.round(target * easeOut(p)).toLocaleString("en-US") + suf;
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = orig;            /* exact final string, always */
-      }
-    }
-    requestAnimationFrame(step);
-  }
-  var statStrip = $(".stats");
-  if(statStrip && !REDUCED){
-    once(statStrip, { threshold:0.35 }, function(){
-      $$("[data-count]", statStrip).forEach(function(el){ countTo(el, 1200); });
-    });
-  }
-
-  /* --- 3. scholarship: the $1,000,000 moment ---
-     Same counter as the stat strip: it reads "$1,000,000" out of the DOM, walks
-     the digits up to it, and writes the original string back. It ends ON the
-     number, because the number is what is counting. */
-  var scholEl = $(".schol");
-  if(scholEl){
-    var scholNum = $(".schol__n", scholEl);
-    if(REDUCED){
-      scholEl.classList.add("is-lit");
-    } else {
-      once(scholEl, { threshold:0.3 }, function(){
-        scholEl.classList.add("is-lit");
-        if(scholNum) countTo(scholNum, 1400);
-      });
-    }
-  }
-
-  /* --- scroll reveal --- */
-  var rv = $$(".rv");
-  if(!("IntersectionObserver" in window) ||
-     (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
-    rv.forEach(function(el){ el.classList.add("is-in"); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add("is-in"); io.unobserve(en.target); }
-      });
-    }, { rootMargin:"0px 0px -8% 0px", threshold:0.08 });
-    rv.forEach(function(el){ io.observe(el); });
-  }
+  t.addEventListener("click", function(){ set(!dr.classList.contains("is-open")); });
+  Array.prototype.forEach.call(dr.querySelectorAll("a"), function(a){ a.addEventListener("click", function(){ set(false); }); });
 })();
 </script>
 </body>

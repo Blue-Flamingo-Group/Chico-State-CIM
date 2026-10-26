@@ -16,6 +16,18 @@ Client: Blue Flamingo · Job code **ECC-2602** · Fee $200.
 
 ## The page
 
+**V4 — foundation rebrand (2026-10-26, branch `v4-rebrand`, not yet live).** Rebuilt
+to the client's mockup + V4 edits doc as the Chico CIM Patrons foundation site: new
+palette/fonts (Bebas Neue + Nunito Sans as web stand-ins for Abolition/Avenir Next),
+new section order (Hero → Stats → Who We Are → Leadership → Why Become a Patron +
+49-tile wall → Patrons Week → Giving Impact → CIM Auction → CIM / I AM band → How to
+Give → The Program → Career Paths & 30 Years → Footer). Logo = one swappable file per
+variant: `assets/img/logo/logo-color.png` (header), `logo-reverse.png` (footer).
+18 Patron tiles are text until the client sends logos. Email uses the gmail fallback
+until seema@chicocimfoundation.com is live (no MX on 2026-10-26). Time-sensitive:
+Patrons Week label after Oct 29; scholarship progress bar each year. The older
+round notes below describe V3.
+
 **Round 5 (client edits, 2026-10-23).** Hero is now the client's lab photo
 (`photos/hero-student-lab.jpg`, from `_NP_5750.jpg`, anchored `30% 40%` so the
 student and scale stay in frame on desktop); the stock placeholder and
